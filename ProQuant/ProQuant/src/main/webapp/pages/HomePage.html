@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/header.js"></script>
+</head>
+<body>
+    <!--导航栏start-->
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #90C5E7;height: 51px">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ProQuant</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="whiteFont" href="#">首页</a></li>
+                <li><a class="whiteFont"href="#">大盘</a></li>
+                <li><a class="whiteFont"href="#">个股</a></li>
+                <li><a class="whiteFont"href="#">策略</a></li>
+                <li><a class="whiteFont"href="#">论坛</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="searchText">
+                    <input id="searchInput" type="text" placeholder="搜索">
+                    <button style="background-color: transparent"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </li>
+                <li><button id="loginButton"><i class="fa fa-user-circle" aria-hidden="true"></i>未登录</button></li>
+                <li>
+                    <div class="dropdown" id="skin">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color: transparent;border: none">
+                            <img src="../images/skin.png">
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <!--<li><a href="#" style="background-color: #292C31"><span style="background-color: #222222;margin-bottom: -6px;opacity: 0.5;height: 30px;color: white">酷炫黑</span></a></li>-->
+                            <!--<li><a href="#">CSS</a></li>-->
+                            <!--<li><a href="#">JavaScript</a></li>-->
+                            <!--<li><a href="#">JQuery</a></li>-->
+                            <!--<li><a href="#">BootStrap</a></li>-->
+                            <!--<li><a href="#">FontAwesome</a></li>-->
+                            <li><button style="background-color: #292C31"><span>酷炫黑<i class="fa fa-check-circle" style="color: #B82525" aria-hidden="true"></i></span></button></li>
+                            <li><button style="background-color: #90C5E7"><span>淡蓝</span></button></li>
+                            <li><button style="background-color: #601F00"><span>棕色</span></button></li>
+                            <li><button style="background-color: #48A564"><span>清新绿</span></button></li>
+                            <li><button style="background-color: #ECC180"><span>土豪金</span></button></li>
+                            <li><button style="background-color: #EF99BC"><span>可爱粉</span></button></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--导航栏end-->
+
+    <div class="container-fluid" style="height: 500px;">
+        <div class="row" style="margin-top: 130px;width: 100%">
+            <div class="col-sm-7">
+                <!--<canvas id="scene"></canvas>-->
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="background-color:lavenderblush;">欢迎来到ProQuant</div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+
+    <!--登录弹出框start-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="model-content">
+                <div class="backbox">
+                    <div class="loginMsg">
+                        <div class="textcontent">
+                            <p class="title">没有账号?</p>
+                            <p>注册来赚取人生第一桶金</p>
+                            <button id="switch1">注册</button>
+                        </div>
+                    </div>
+                    <div class="signupMsg visibility">
+                        <div class="textcontent">
+                            <p class="title">已有账号?</p>
+                            <p>登录来获取第一手股票资讯</p>
+                            <button id="switch2">登录</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- backbox -->
+
+                <div class="frontbox">
+                    <div class="login">
+                        <h2>用户登录</h2>
+                        <div class="inputbox">
+                            <input type="text" name="email" placeholder="  EMAIL">
+                            <input type="password" name="password" placeholder="  PASSWORD">
+                        </div>
+                        <p>忘记密码?</p>
+                        <button>登录</button>
+                    </div>
+
+                    <div class="signup hide">
+                        <h2>用户注册</h2>
+                        <div class="inputbox">
+                            <input type="text" name="fullname" placeholder="  FULLNAME">
+                            <input type="text" name="email" placeholder="  EMAIL">
+                            <input type="password" name="password" placeholder="  PASSWORD">
+                        </div>
+                        <button>注册</button>
+                    </div>
+
+                </div>
+                <!-- frontbox -->
+            </div>
+        </div>
+    </div>
+    <!--登录弹出框end-->
+
+    <!--&lt;!&ndash;滑出提示框start&ndash;&gt;-->
+    <!--<div id="sliderTip">-->
+        <!--<div>-->
+            <!--<span style="border-right: 2px solid #528FCC"><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></span>-->
+            <!--<span>提示消息</span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;滑出提示框end&ndash;&gt;-->
+    <div id="toaster_close">
+        <div id="toaster">
+            <div id="pic_div" class="green_pic"></div>
+            <div id="remind" class="green_word">提示消息</div>
+        </div>
+    </div>
+
+</body>
+</html>

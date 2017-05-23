@@ -1,0 +1,144 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*整体的容器*/
+.user-main-body{
+    width: 1000px;
+    height: 540px;
+    margin: 0 auto;
+    background-color: #EBEFF0;
+}
+
+
+/*上浮的区域的样式*/
+.user-main-body .content-holder{
+    width: 800px;
+    hegiht: 500px;
+    margin: 80px auto 20px auto;
+    background-color: #ffffff;
+}
+
+/*存放头像的容器*/
+.user-main-body .content-holder .personal-info-holder{
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #296ec2;
+    padding: 2px 10px 2px 10px;
+}
+
+.user-main-body .content-holder .personal-info-holder img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #296ec2;
+}
+
+.user-main-body .content-holder .personal-info-holder span{
+    font-size: 16px;
+    font-weight: 700;
+    color: #777;
+    margin: 10px;
+}
+
+.user-main-body .content-holder .function-zone{
+    margin-top: 10px;
+    height: 450px;
+    background-color: white;
+}
+
+
+.user-main-body .content-holder .function-zone .function-content table{
+    width: 98%;
+    background: #ffffff;
+    table-layout: fixed;
+    border:solid #EBEFF0; border-width:1px 0px 0px 1px;
+    margin: 3px 5px 5px 7px;
+}
+
+.user-main-body .content-holder .function-zone .function-content th, .user-main-body .content-holder .function-zone .function-content td{
+    line-height: 20px;
+    text-align: center;
+    padding: 3px 16px;
+    font-size: 12px;
+    border:solid #EBEFF0; border-width:0px 1px 1px 0px;
+
+}
+.user-main-body .content-holder .function-zone .function-content thead th,
+.user-main-body .content-holder .function-zone .function-content th a,
+.user-main-body .content-holder .function-zone .function-content thead th,
+.user-main-body .content-holder .function-zone .function-content th a{
+    color: #444;
+    font-size: 12px;
+}
+.user-main-body .content-holder .function-zone .function-content td a,
+.user-main-body .content-holder .function-zone .function-content td a{
+    color: #528fcc;
+}
+
+
+
+.user-main-body .content-holder .function-zone .function-content tr{
+    height: 30px;
+}
+
+.user-main-body .content-holder .function-zone .function-content td a img{
+    width: 20px;
+    height: 30px;
+}
+
+
+
+/*清空按钮的样式*/
+
+.function-zone .bootstrap-tab button{
+    display: inline-block;
+    width: 60px;
+    height: 35px;
+    background-color: #296ec2;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    margin-left: 280px;
+
+}
+
+
+/*设置所有表格上面的超链接时的鼠标样式*/
+.function-content a{
+    cursor: pointer;
+}
+
+/*实现界面的层叠效果*/
+.function-zone{
+    position: relative;
+}
+
+.zixuangu-part{
+    position: absolute;
+    z-index: 10;
+}
+
+.makestrategy-part{
+    position: absolute;
+    z-index: 2;
+    /*background-color: #296ec2;*/
+}
+.usestrategy-part{
+    position: absolute;
+    z-index: 3;
+}
+.history-part{
+    position: absolute;
+    z-index: 4;
+}
+
+
+
+
+
+/*js设置的样式*/
+.disappear{
+    display: none;
+}
