@@ -4,6 +4,7 @@
 
 function meterChart() {
     var myChart = echarts.init(document.getElementById("meter"));
+    window.onresize = myChart.resize;
     option = {
         tooltip : {
             formatter: "{a} <br/>{b} : {c}分"

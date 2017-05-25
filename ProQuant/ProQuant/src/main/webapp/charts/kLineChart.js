@@ -1,6 +1,6 @@
 
 function kLine() {
-    //数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+    // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
     // var data0 = splitData([
     //     ['2013/1/24', 2320.26,2320.26,2287.3,2362.94],
     //     ['2013/1/25', 2300,2291.3,2288.26,2308.38],
@@ -336,16 +336,16 @@ function kLine() {
                     data: [
                         [
                             {
-                                name: 'from lowest to highest',
-                                type: 'min',
-                                valueDim: 'lowest',
-                                symbol: 'circle',
-                                symbolSize: 10,
-                                label: {
-                                    normal: {show: false},
-                                    emphasis: {show: false}
-                                }
-                            },
+                            name: 'from lowest to highest',
+                            type: 'min',
+                            valueDim: 'lowest',
+                            symbol: 'circle',
+                            symbolSize: 10,
+                            label: {
+                                normal: {show: false},
+                                emphasis: {show: false}
+                            }
+                        },
                             {
                                 type: 'max',
                                 valueDim: 'highest',

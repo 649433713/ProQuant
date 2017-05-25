@@ -15,22 +15,22 @@
 </head>
 <body>
 <!--导航栏start-->
-<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #90C5E7;height: 51px">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #407FCE;height: 51px">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">ProQuant</a>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a class="whiteFont" href="#">首页</a></li>
-            <li><a class="whiteFont"href="#">大盘</a></li>
-            <li><a class="whiteFont"href="#">个股</a></li>
-            <li><a class="whiteFont"href="#">策略</a></li>
-            <li><a class="whiteFont"href="#">论坛</a></li>
+        <ul id="navigation" class="nav navbar-nav">
+            <li><a href="#">首页</a></li>
+            <li class="active"><a href="#">大盘</a></li>
+            <li><a href="#">个股</a></li>
+            <li><a href="#">策略</a></li>
+            <li><a href="#">论坛</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li id="searchText">
                 <input id="searchInput" type="text" placeholder="搜索">
-                <button style="background-color: transparent"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button style="background-color: transparent;color: #1F4374;"><i class="fa fa-search" aria-hidden="true"></i></button>
             </li>
             <li><button id="loginButton"><i class="fa fa-user-circle" aria-hidden="true"></i>未登录</button></li>
             <li>
@@ -371,7 +371,19 @@
                 </div>
                 <!--股票详细数据end-->
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-2" style="margin-top: 100px;margin-left: -100px">
+                <!--公司简介-->
+                <div class="headLabel"><p>公司简介</p></div>
+                <div style="background-color: white;padding: 10px">
+                    <div>
+                        <p><span style="font-size: 18px;font-weight: bold">简介：</span>2001年11月13日,公司前身杭州园林设计院有限公司成立。 2011年2月12日,公司名称由杭州园林设计院有限公司变更为杭州园林设计院股份有限公司。</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><span style="font-size: 18px;font-weight: bold">业务：</span>从事风景园林设计行业。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
 
 function radarChart() {
     var myChart = echarts.init(document.getElementById("radar"));
-
+    window.onresize = myChart.resize;
     option = {
         title: {
             // text: '基础雷达图'
