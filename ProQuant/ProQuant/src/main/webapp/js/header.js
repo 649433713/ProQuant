@@ -11,7 +11,12 @@ $(function () {
     }).focus(function () {
         $(this).animate({width:"120px"},400);
         $(this).attr("placeholder","请输入股票代码");
-    })
+    });
+
+    $("#navigation li").click(function () {
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+    });
 
 
     var $loginMsg = $('.loginMsg'),
