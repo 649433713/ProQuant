@@ -5,8 +5,8 @@ $(function(){
     //为tab标签设置点击事件
     var tablist = ["#tab1", "#tab2", "#tab3", "#tab4"];
     var pagelist = ["#zixuangu-part", "#makestrategy-part", "#usestrategy-part", "#history-part"];
-    function myRemoveClass(tabName) {
-        for(var i = 0;i < tablist.length - 1;i++)
+    function myRemoveOtherClass(tabName) {
+        for(var i = 0;i < tablist.length;i++)
         {
             if(tabName != tablist[i])
             {
@@ -15,8 +15,8 @@ $(function(){
         }
     }
     function showPage(pageName) {
-        $(pageNum).removeClass("disappear");
-        for (var i = 0;i < pagelist.length - 1;i++)
+        $(pageName).removeClass("disappear");
+        for (var i = 0;i < pagelist.length;i++)
         {
             if(pagelist[i] != pageName)
             {
@@ -26,21 +26,28 @@ $(function(){
         }
     }
     $("#tab1").click(function () {
-        this.addClass("active");
-        myRemoveClass("#tab1");
+        $(this).addClass("active");
+        myRemoveOtherClass("#tab1");
+        $("#zixuangu-part").removeClass("disappear");
+        showPage("#zixuangu-part");
     });
     $("#tab2").click(function () {
-        this.addClass("active");
-        myRemoveClass("#tab2");
+        $(this).addClass("active");
+        myRemoveOtherClass("#tab2");
+        $("#makestrategy-part").removeClass("disappear");
+        showPage("#makestrategy-part");
     });
     $("#tab3").click(function () {
-        this.addClass("active");
-        myRemoveClass("#tab3");
+        $(this).addClass("active");
+        myRemoveOtherClass("#tab3");
+        $("#usestrategy-part").removeClass("disappear");
+        showPage("#usestrategy-part");
     });
     $("#tab4").click(function () {
-        this.addClass("active");
-        myRemoveClass("#tab4");
+        $(this).addClass("active");
+        myRemoveOtherClass("#tab4");
+        $("#history-part").removeClass("disappear");
+        showPage("#history-part");
     });
-
 
 });

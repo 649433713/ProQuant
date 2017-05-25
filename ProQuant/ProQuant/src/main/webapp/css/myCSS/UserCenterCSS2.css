@@ -57,6 +57,11 @@
     margin: 3px 5px 5px 7px;
 }
 
+.user-main-body .content-holder .function-zone .history-part table{
+    width: 60%;
+    margin: 3px auto;
+}
+
 .user-main-body .content-holder .function-zone .function-content th, .user-main-body .content-holder .function-zone .function-content td{
     line-height: 20px;
     text-align: center;
