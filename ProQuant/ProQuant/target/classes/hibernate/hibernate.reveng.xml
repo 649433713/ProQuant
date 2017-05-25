@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="proquant" match-name="bench_current_data"/>
+  <table-filter match-catalog="proquant" match-name="bench_data"/>
+  <table-filter match-catalog="proquant" match-name="hs300s_data"/>
+  <table-filter match-catalog="proquant" match-name="info_data"/>
+  <table-filter match-catalog="proquant" match-name="stock_current_data"/>
+  <table-filter match-catalog="proquant" match-name="stock_data"/>
+</hibernate-reverse-engineering>
