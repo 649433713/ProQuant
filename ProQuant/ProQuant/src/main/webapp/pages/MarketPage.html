@@ -9,7 +9,8 @@
     <link href="../css/myCSS/MarketPageCSS.css" rel="stylesheet">
     <link href="../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
     <link href="../css/myCSS/nav_footerCSS.css" rel="stylesheet">
-    <!--<script src="../js/jquery-3.2.1.js"></script>-->
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script src="../js/jquery-3.2.1.js"></script>
     <!--<script src="../js/bootstrap.min.js"></script>-->
     <!--<script src="../js/header.js"></script>-->
 </head>
@@ -202,7 +203,7 @@
                             <span class="red"></span>
                         </div>
                         <!--*********************************************下面的div是用来存放echarts的*********************************************-->
-                        <div class="price-box"></div>
+                        <div class="price-box" id="hu" style="height: 180px;"></div>
                     </div>
                     <div class="flash-single flash-small flash-sec2">
                         <div>
@@ -212,7 +213,7 @@
                             <span class="red"></span>
                         </div>
                         <!--*********************************************下面的div是用来存放echarts的*********************************************-->
-                        <div class="price-box"></div>
+                        <div class="price-box" id="chuang" style="height: 180px;"></div>
                     </div>
                     <div class="flash-single flash-small">
                         <div>
@@ -222,7 +223,7 @@
                             <span class="red"></span>
                         </div>
                         <!--*********************************************下面的div是用来存放echarts的*********************************************-->
-                        <div class="price-box"></div>
+                        <div class="price-box" id="zhong" style="height: 180px;"></div>
                     </div>
                 </div>
             </div>
@@ -734,5 +735,7 @@
         </div>
     </div>
     <!--页脚end-->
+<script type="text/javascript" src="../charts/areaChart.js"></script>
+<script type="text/javascript" src="../charts/marketAreaChart.js"></script>
 </body>
 </html>
