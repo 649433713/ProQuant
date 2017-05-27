@@ -1,4 +1,4 @@
-package main.java.VO.strategyPageVO;
+package VO.strategyPageVO;
 
 /**
  * Created by xiezhenyu on 2017/5/24.

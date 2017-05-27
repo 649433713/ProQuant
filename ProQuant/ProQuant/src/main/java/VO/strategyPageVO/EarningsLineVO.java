@@ -1,4 +1,4 @@
-package main.java.VO.strategyPageVO;
+package VO.strategyPageVO;
 
 import java.util.Date;
 import java.util.Map;

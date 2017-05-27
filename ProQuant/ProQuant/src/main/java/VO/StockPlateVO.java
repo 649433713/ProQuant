@@ -1,6 +1,6 @@
-package main.java.VO;
+package VO;
 
-import main.java.model.StockPlate;
+import model.StockPlate;
 
 import java.util.ArrayList;
 

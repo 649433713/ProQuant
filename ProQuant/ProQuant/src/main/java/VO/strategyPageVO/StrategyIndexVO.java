@@ -1,8 +1,8 @@
-package main.java.VO.strategyPageVO;
+package VO.strategyPageVO;
 
 
-import main.java.model.CompareIndex;
-import main.java.model.StrategyIndex;
+import model.CompareIndex;
+import model.StrategyIndex;
 
 /**
  * Created by xiezhenyu on 2017/5/25.

@@ -1,12 +1,12 @@
-package main.java.blservice.strategyBlService;
+package blservice.strategyBlService;
 
 
 
-import main.java.VO.StockPlateVO;
-import main.java.VO.strategyPageVO.PrecisionVO;
-import main.java.VO.strategyPageVO.StrategyCallbackVO;
-import main.java.VO.strategyPageVO.StrategyIndexVO;
-import main.java.model.StrategyStandard;
+import VO.StockPlateVO;
+import VO.strategyPageVO.PrecisionVO;
+import VO.strategyPageVO.StrategyCallbackVO;
+import VO.strategyPageVO.StrategyIndexVO;
+import model.StrategyStandard;
 
 import java.util.ArrayList;
 import java.util.Date;
