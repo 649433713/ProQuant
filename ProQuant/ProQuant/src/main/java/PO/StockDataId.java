@@ -19,12 +19,12 @@ public class StockDataId implements java.io.Serializable {
 	private Double high;
 	private Double low;
 	private Double close;
-	private Double change;
-	private Double chg;
-	private Double volume;
-	private Double turnover;
-	private Double amplitude;
-	private Double turnoverRatio;
+	private Double change; //涨跌额
+	private Double chg;	//涨跌幅
+	private Double volume;	//成交量（手）
+	private Double turnover;	//成交金额（万元）
+	private Double amplitude;	//振幅（%）
+	private Double turnoverRatio;	//换手率
 
 	public StockDataId() {
 	}

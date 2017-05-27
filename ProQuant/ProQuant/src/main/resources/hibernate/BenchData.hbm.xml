@@ -4,7 +4,7 @@
 <!-- Generated 2017-5-25 12:54:39 by Hibernate Tools 4.0.1.Final -->
 <hibernate-mapping>
     <class name="PO.BenchData" table="bench_data" catalog="proquant">
-        <composite-id name="id" class="BenchDataId">
+        <composite-id name="id" class="PO.BenchDataId">
             <key-property name="code" type="string">
                 <column name="code" length="45" />
             </key-property>
@@ -24,7 +24,7 @@
                 <column name="close" precision="22" scale="0" />
             </key-property>
             <key-property name="change" type="java.lang.Double">
-                <column name="change" precision="22" scale="0" />
+                <column name="netChange" precision="22" scale="0" />
             </key-property>
             <key-property name="chg" type="java.lang.Double">
                 <column name="chg" precision="22" scale="0" />

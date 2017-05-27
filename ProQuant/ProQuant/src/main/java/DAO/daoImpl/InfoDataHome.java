@@ -3,7 +3,7 @@ package DAO.daoImpl;
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
 import java.util.List;
-import javax.naming.InitialContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.InfoDataDao;
 import PO.InfoData;
@@ -34,7 +35,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#persist(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public void persist(InfoData transientInstance) {
 		log.debug("persisting InfoData instance");
 		try {
@@ -50,7 +51,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#attachDirty(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public void attachDirty(InfoData instance) {
 		log.debug("attaching dirty InfoData instance");
 		try {
@@ -66,7 +67,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#attachClean(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public void attachClean(InfoData instance) {
 		log.debug("attaching clean InfoData instance");
 		try {
@@ -82,7 +83,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#delete(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public void delete(InfoData persistentInstance) {
 		log.debug("deleting InfoData instance");
 		try {
@@ -98,7 +99,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#merge(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public InfoData merge(InfoData detachedInstance) {
 		log.debug("merging InfoData instance");
 		try {
@@ -115,7 +116,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#findById(long)
 	 */
-	@Override
+	@Transactional
 	public InfoData findById(long id) {
 		log.debug("getting InfoData instance with id: " + id);
 		try {
@@ -136,7 +137,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#findByExample(PO.InfoData)
 	 */
-	@Override
+	@Transactional
 	public List findByExample(InfoData instance) {
 		log.debug("finding InfoData instance by example");
 		try {

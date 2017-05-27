@@ -3,7 +3,7 @@ package DAO.daoImpl;
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
 import java.util.List;
-import javax.naming.InitialContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.Hs300sDataDao;
 import PO.Hs300sData;
@@ -34,7 +35,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#persist(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public void persist(Hs300sData transientInstance) {
 		log.debug("persisting Hs300sData instance");
 		try {
@@ -50,7 +51,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#attachDirty(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public void attachDirty(Hs300sData instance) {
 		log.debug("attaching dirty Hs300sData instance");
 		try {
@@ -66,7 +67,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#attachClean(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public void attachClean(Hs300sData instance) {
 		log.debug("attaching clean Hs300sData instance");
 		try {
@@ -82,7 +83,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#delete(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public void delete(Hs300sData persistentInstance) {
 		log.debug("deleting Hs300sData instance");
 		try {
@@ -98,7 +99,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#merge(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public Hs300sData merge(Hs300sData detachedInstance) {
 		log.debug("merging Hs300sData instance");
 		try {
@@ -115,7 +116,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#findById(long)
 	 */
-	@Override
+	@Transactional
 	public Hs300sData findById(long id) {
 		log.debug("getting Hs300sData instance with id: " + id);
 		try {
@@ -136,7 +137,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#findByExample(PO.Hs300sData)
 	 */
-	@Override
+	@Transactional
 	public List findByExample(Hs300sData instance) {
 		log.debug("finding Hs300sData instance by example");
 		try {

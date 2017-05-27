@@ -2,7 +2,7 @@
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 package DAO.daoImpl;
 import java.util.List;
-import javax.naming.InitialContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchDataDao;
 import PO.BenchData;
@@ -34,7 +35,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#persist(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public void persist(BenchData transientInstance) {
 		log.debug("persisting BenchData instance");
 		try {
@@ -50,7 +51,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#attachDirty(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public void attachDirty(BenchData instance) {
 		log.debug("attaching dirty BenchData instance");
 		try {
@@ -66,7 +67,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#attachClean(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public void attachClean(BenchData instance) {
 		log.debug("attaching clean BenchData instance");
 		try {
@@ -82,7 +83,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#delete(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public void delete(BenchData persistentInstance) {
 		log.debug("deleting BenchData instance");
 		try {
@@ -98,7 +99,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#merge(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public BenchData merge(BenchData detachedInstance) {
 		log.debug("merging BenchData instance");
 		try {
@@ -115,7 +116,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#findById(PO.BenchDataId)
 	 */
-	@Override
+	@Transactional
 	public BenchData findById(BenchDataId id) {
 		log.debug("getting BenchData instance with id: " + id);
 		try {
@@ -136,7 +137,7 @@ public class BenchDataHome implements BenchDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchDataDao#findByExample(PO.BenchData)
 	 */
-	@Override
+	@Transactional
 	public List findByExample(BenchData instance) {
 		log.debug("finding BenchData instance by example");
 		try {

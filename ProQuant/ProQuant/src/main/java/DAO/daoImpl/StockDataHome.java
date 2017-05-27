@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockDataDao;
 import PO.StockData;
@@ -34,6 +35,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#persist(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public void persist(StockData transientInstance) {
 		log.debug("persisting StockData instance");
@@ -50,6 +52,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#attachDirty(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public void attachDirty(StockData instance) {
 		log.debug("attaching dirty StockData instance");
@@ -66,6 +69,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#attachClean(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public void attachClean(StockData instance) {
 		log.debug("attaching clean StockData instance");
@@ -82,6 +86,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#delete(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public void delete(StockData persistentInstance) {
 		log.debug("deleting StockData instance");
@@ -98,6 +103,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#merge(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public StockData merge(StockData detachedInstance) {
 		log.debug("merging StockData instance");
@@ -115,6 +121,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#findById(PO.StockDataId)
 	 */
+	@Transactional
 	@Override
 	public StockData findById(StockDataId id) {
 		log.debug("getting StockData instance with id: " + id);
@@ -136,6 +143,7 @@ public class StockDataHome implements StockDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockDataDao#findByExample(PO.StockData)
 	 */
+	@Transactional
 	@Override
 	public List findByExample(StockData instance) {
 		log.debug("finding StockData instance by example");

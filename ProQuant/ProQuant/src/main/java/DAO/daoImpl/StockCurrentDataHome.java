@@ -3,7 +3,7 @@ package DAO.daoImpl;
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
 import java.util.List;
-import javax.naming.InitialContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockCurrentDataDao;
 import PO.StockCurrentData;
@@ -35,7 +36,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#persist(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void persist(StockCurrentData transientInstance) {
 		log.debug("persisting StockCurrentData instance");
 		try {
@@ -51,7 +52,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#attachDirty(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void attachDirty(StockCurrentData instance) {
 		log.debug("attaching dirty StockCurrentData instance");
 		try {
@@ -67,7 +68,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#attachClean(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void attachClean(StockCurrentData instance) {
 		log.debug("attaching clean StockCurrentData instance");
 		try {
@@ -83,7 +84,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#delete(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void delete(StockCurrentData persistentInstance) {
 		log.debug("deleting StockCurrentData instance");
 		try {
@@ -99,7 +100,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#merge(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public StockCurrentData merge(StockCurrentData detachedInstance) {
 		log.debug("merging StockCurrentData instance");
 		try {
@@ -116,7 +117,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#findById(PO.StockCurrentDataId)
 	 */
-	@Override
+	@Transactional
 	public StockCurrentData findById(StockCurrentDataId id) {
 		log.debug("getting StockCurrentData instance with id: " + id);
 		try {
@@ -138,7 +139,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#findByExample(PO.StockCurrentData)
 	 */
-	@Override
+	@Transactional
 	public List findByExample(StockCurrentData instance) {
 		log.debug("finding StockCurrentData instance by example");
 		try {

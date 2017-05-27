@@ -2,6 +2,7 @@
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 package DAO.daoImpl;
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
@@ -9,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchCurrentDataDao;
 import PO.BenchCurrentData;
@@ -31,7 +33,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#persist(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void persist(BenchCurrentData transientInstance) {
 		log.debug("persisting BenchCurrentData instance");
 		try {
@@ -47,7 +49,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#attachDirty(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void attachDirty(BenchCurrentData instance) {
 		log.debug("attaching dirty BenchCurrentData instance");
 		try {
@@ -63,7 +65,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#attachClean(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void attachClean(BenchCurrentData instance) {
 		log.debug("attaching clean BenchCurrentData instance");
 		try {
@@ -79,7 +81,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#delete(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public void delete(BenchCurrentData persistentInstance) {
 		log.debug("deleting BenchCurrentData instance");
 		try {
@@ -95,7 +97,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#merge(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public BenchCurrentData merge(BenchCurrentData detachedInstance) {
 		log.debug("merging BenchCurrentData instance");
 		try {
@@ -112,7 +114,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#findById(java.lang.Integer)
 	 */
-	@Override
+	@Transactional
 	public BenchCurrentData findById(java.lang.Integer id) {
 		log.debug("getting BenchCurrentData instance with id: " + id);
 		try {
@@ -134,7 +136,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#findByExample(PO.BenchCurrentData)
 	 */
-	@Override
+	@Transactional
 	public List findByExample(BenchCurrentData instance) {
 		log.debug("finding BenchCurrentData instance by example");
 		try {

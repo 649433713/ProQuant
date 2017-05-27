@@ -143,4 +143,11 @@ public class InfoData implements java.io.Serializable {
 		this.cpInfo = cpInfo;
 	}
 
+	@Override
+	public String toString() {
+		return "InfoData [id=" + id + ", code=" + code + ", name=" + name + ", CName=" + CName + ", board=" + board
+				+ ", cpName=" + cpName + ", cpProvince=" + cpProvince + ", cpEnName=" + cpEnName + ", cpWebsite="
+				+ cpWebsite + ", cpBusiness=" + cpBusiness + ", cpAddress=" + cpAddress + ", cpInfo=" + cpInfo + "]";
+	}
+
 }

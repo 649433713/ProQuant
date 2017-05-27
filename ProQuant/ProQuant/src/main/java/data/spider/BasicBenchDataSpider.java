@@ -1,18 +1,36 @@
 package data.spider;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-public class BasicBenchDataSpider {
-	public static final String[] URL=
-		{"http://quotes.money.163.com/trade/lsjysj_zhishu_",
+import DAO.dao.BenchDataDao;
+import PO.BenchData;
+import PO.BenchDataId;
+@Service("BBDS")
+public class BasicBenchDataSpider implements BasicDataSpiderService{
+	
+	@Autowired
+	BenchDataDao benchDataDao;
+	
+	public String[] URL=
+		{"http://quotes.money.163.com/trade/lsjysj_",
 		 ".html?year=",
 		 "&season="};
-	
+	/**
+		 (non-Javadoc)
+	 * @see data.spider.BasicDataSpiderService#test(java.lang.String, int, int)
+	 */
+	@Override
+	@Transactional
 	public void test(String code,int start,int end) {
 		for(int i=start;i<=end;i++){
 			System.out.println(i+" is going");
@@ -29,17 +47,34 @@ public class BasicBenchDataSpider {
 			Document document =  Jsoup.connect(url).header("User-Agent",userAgent).timeout(3000).get();
 			Elements elements = document.select("table[class=table_bg001 border_box limit_sale]");
 			Elements trs = elements.first().select("tr");
+			trs.remove(0);
+			BenchData benchData;
+			BenchDataId benchDataId;
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 			for (Element tr : trs) {
-				Elements tds = trs.select("td");
-				System.out.println("======");
-				for (Element td : tds) {
-					String text = td.text();
-					if (text!=null&&text.length()!=0) {
-						System.out.print(text.replace(',',' '));
-							
+				Elements tds = tr.select("td");
+				if (tds.size()!=0) {
+					benchData = new BenchData();
+					benchDataId = new BenchDataId();
+					benchDataId.setCode(code);
+					try {
+						benchDataId.setDate(sf.parse(tds.get(0).text().replaceAll(",","")));
+						benchDataId.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
+						benchDataId.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
+						benchDataId.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
+						benchDataId.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
+						benchDataId.setChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
+						benchDataId.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+						benchDataId.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
+						benchDataId.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+						benchData.setId(benchDataId);
+						benchDataDao.persist(benchData);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+					
 				}
-				System.out.println("======");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -47,8 +82,9 @@ public class BasicBenchDataSpider {
 			sharesCrawl(code,year,season);
 		}
 	}
-	
 	public static void main(String[] args) {
-		new BasicBenchDataSpider().test("399005", 2017, 2017);
+		new BasicBenchDataSpider().test("399005", 2016, 2016);
 	}
+	
+	
 }

@@ -4,7 +4,7 @@
 <!-- Generated 2017-5-25 12:54:39 by Hibernate Tools 4.0.1.Final -->
 <hibernate-mapping>
     <class name="PO.StockCurrentData" table="stock_current_data" catalog="proquant">
-        <composite-id name="id" class="StockCurrentDataId">
+        <composite-id name="id" class="PO.StockCurrentDataId">
             <key-property name="index" type="java.lang.Long">
                 <column name="index" />
             </key-property>
