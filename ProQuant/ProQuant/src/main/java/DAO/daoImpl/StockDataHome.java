@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import DAO.dao.StockDataDao;
 import PO.StockData;
 import PO.StockDataId;
 
@@ -21,7 +22,7 @@ import PO.StockDataId;
  * @author Hibernate Tools
  */
 @Repository("StockDataDao")
-public class StockDataHome {
+public class StockDataHome implements StockDataDao{
 
 	private static final Log log = LogFactory.getLog(StockDataHome.class);
 
