@@ -1,6 +1,6 @@
-// default package
-// Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 package DAO.daoImpl;
+// Generated 2017-5-28 13:12:39 by Hibernate Tools 5.2.1.Final
+
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -22,19 +22,13 @@ import PO.BenchDataId;
  * @author Hibernate Tools
  */
 @Repository("BenchDataDao")
-public class BenchDataHome implements BenchDataDao {
+public class BenchDataHome implements BenchDataDao{
 
 	private static final Log log = LogFactory.getLog(BenchDataHome.class);
-
-
 	@Autowired
 	private SessionFactory sessionFactory;
 
 
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#persist(PO.BenchData)
-	 */
 	@Transactional
 	public void persist(BenchData transientInstance) {
 		log.debug("persisting BenchData instance");
@@ -46,11 +40,6 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#attachDirty(PO.BenchData)
-	 */
 	@Transactional
 	public void attachDirty(BenchData instance) {
 		log.debug("attaching dirty BenchData instance");
@@ -62,11 +51,6 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#attachClean(PO.BenchData)
-	 */
 	@Transactional
 	public void attachClean(BenchData instance) {
 		log.debug("attaching clean BenchData instance");
@@ -78,11 +62,6 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#delete(PO.BenchData)
-	 */
 	@Transactional
 	public void delete(BenchData persistentInstance) {
 		log.debug("deleting BenchData instance");
@@ -94,11 +73,6 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#merge(PO.BenchData)
-	 */
 	@Transactional
 	public BenchData merge(BenchData detachedInstance) {
 		log.debug("merging BenchData instance");
@@ -111,16 +85,11 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#findById(PO.BenchDataId)
-	 */
 	@Transactional
 	public BenchData findById(BenchDataId id) {
 		log.debug("getting BenchData instance with id: " + id);
 		try {
-			BenchData instance = (BenchData) sessionFactory.getCurrentSession().get("BenchData", id);
+			BenchData instance = (BenchData) sessionFactory.getCurrentSession().get("DAO.BenchData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -132,17 +101,12 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.BenchDataDao#findByExample(PO.BenchData)
-	 */
 	@Transactional
 	public List findByExample(BenchData instance) {
 		log.debug("finding BenchData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("BenchData").add(Example.create(instance))
-					.list();
+			List results = sessionFactory.getCurrentSession().createCriteria("DAO.BenchData")
+					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
 		} catch (RuntimeException re) {
@@ -150,4 +114,5 @@ public class BenchDataHome implements BenchDataDao {
 			throw re;
 		}
 	}
+
 }

@@ -14,7 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 	/*public static void main(String[] args) {
 		BasicBenchDataSpider basicBenchDataSpider = new BasicBenchDataSpider();
-		List<String> basicBenchCodes =  Arrays.asList("000300","399005","399006");
+		List<String> basicBenchCodes =  Arrays.asList("000300 ","399005","399006");
 		for (String string : basicBenchCodes) {
 			basicBenchDataSpider.test(string, 2008, 2017);
 		}
@@ -25,7 +25,7 @@ public class Main {
 		BasicDataSpiderService basicStockDataSpider= (BasicDataSpiderService) context.getBean("BSDS");
 		Session session= sessionFactory.openSession();
 		
-		List<Object[]> list = session.createQuery("select I.id,I.code from InfoData I where I.id>1").list();
+		List<Object[]> list = session.createQuery("select I.id,I.code from InfoData I where I.id>904").list();
 		for (Object[] objects : list) {
 			System.out.println("now id = "+objects[0]);
 			basicStockDataSpider.test((String) objects[1], 2008, 2017);

@@ -1,27 +1,17 @@
 package data.spider;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockDataDao;
-import PO.InfoData;
 import PO.StockData;
 import PO.StockDataId;
 
@@ -73,16 +63,16 @@ public class BasicStockDataSpider implements BasicDataSpiderService {
 					stockDataId.setCode(code);
 					try {
 						stockDataId.setDate(sf.parse(tds.get(0).text().replaceAll(",","")));
-						stockDataId.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
-						stockDataId.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
-						stockDataId.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
-						stockDataId.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
-						stockDataId.setChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
-						stockDataId.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
-						stockDataId.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
-						stockDataId.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
-						stockDataId.setAmplitude(Double.parseDouble(tds.get(9).text().replaceAll(",","")));
-						stockDataId.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
+						stockData.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
+						stockData.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
+						stockData.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
+						stockData.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
+						stockData.setNetChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
+						stockData.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+						stockData.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
+						stockData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+						stockData.setAmplitude(Double.parseDouble(tds.get(9).text().replaceAll(",","")));
+						stockData.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
 						stockData.setId(stockDataId);
 						stockDataDao.persist(stockData);
 					} catch (ParseException e) {
@@ -93,7 +83,7 @@ public class BasicStockDataSpider implements BasicDataSpiderService {
 				}
 				
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			sharesCrawl(code,year,season);
