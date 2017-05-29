@@ -12,7 +12,6 @@
     <link href="../css/myCSS/UserCenterCSS2.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js" ></script>
     <script src="../js/jquery-3.2.1.js"></script>
-    <script src="../js/jquery.simple-scroll-follow.2.0.1.js"></script>
     <script src="../js/header.js"></script>
     <script type="text/javascript" src="../js/myJS/UserCenterJS.js"></script>
 </head>
@@ -360,7 +359,7 @@
                 <p></p>
             </div>
             <div>
-                <a href="../images/myWEIBO."><img src="../images/weibo.png" alt="微博"></a>
+                <a href=""><img src="../images/weibo.png" alt="微博"></a>
                 <a href=""><img src="../images/weixin.png" alt="微信"></a>
                 <a href=""><img src="../images/qq.png" alt="QQ"></a>
 
@@ -368,6 +367,16 @@
         </div>
     </div>
     <!--页脚end-->
-
+    <!--隐藏对话框：功能：当用户选择多只删除时弹出-->
+    <div id="attentionDialog" class="fadeIn">
+        <h2>提示</h2>
+        <h4>您确认删除已选中的多只股票吗？</h4>
+        <div style="width: 50%;margin: 5px auto;">
+            <input type="button" value="确认" id="confirm-button">
+            <input type="button" value="取消" style="background-color: #8c8c8c" id="cancel-button">
+        </div>
+    </div>
 </body>
 </html>
+
+

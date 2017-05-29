@@ -34,6 +34,7 @@ function areaChart(mychart,xData,yData) {
         ],
         series : [
             {
+                // symbol:'none',
                 type:'line',
                 smooth:true,
                 itemStyle: {

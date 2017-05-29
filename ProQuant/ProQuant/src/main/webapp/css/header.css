@@ -66,7 +66,7 @@ body{
     display: inline-flex;
 }
 .backbox{
-    background-color: #404040;
+    background-color: white;
     width: 100%;
     height: 80%;
     position: absolute;
@@ -118,7 +118,7 @@ body{
 
 .loginMsg button,
 .signupMsg button {
-    background-color: #404040;
+    background-color: #407FCE;
     border: 2px solid white;
     border-radius: 10px;
     color:white;
@@ -127,6 +127,8 @@ body{
     font-weight: 300;
     padding:10px;
     margin-top: 20px;
+    outline:none;
+
 }
 
 /* front box content*/
@@ -149,10 +151,12 @@ body{
     display: block;
     width: 100%;
     height: 40px;
-    background-color: #f2f2f2;
+    background-color: #D3D3D3;
     border: none;
     margin-bottom:20px;
-    font-size: 12px;
+    font-size: 15px;
+    outline: none;
+    color: white;
 }
 
 .login button,
@@ -317,7 +321,4 @@ body{
     color: #ECC63B;
 }
 
-.active{
-    background-color: #1F4374;
-}
 

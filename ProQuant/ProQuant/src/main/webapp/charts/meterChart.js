@@ -2,9 +2,10 @@
  * Created by xiaoJun on 2017/5/17.
  */
 
-function meterChart() {
-    var myChart = echarts.init(document.getElementById("meter"));
-    window.onresize = myChart.resize;
+
+function meterChart(mycharts) {
+    // var myChart = echarts.init(document.getElementById("meter"));
+    window.onresize = mycharts.resize;
     option = {
         tooltip : {
             formatter: "{a} <br/>{b} : {c}分"
@@ -20,7 +21,5 @@ function meterChart() {
             }
         ]
     };
-    myChart.setOption(option);
+    mycharts.setOption(option,true);
 }
-
-meterChart();
