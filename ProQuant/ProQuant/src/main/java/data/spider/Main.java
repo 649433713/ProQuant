@@ -25,7 +25,7 @@ public class Main {
 		BasicDataSpiderService basicStockDataSpider= (BasicDataSpiderService) context.getBean("BSDS");
 		Session session= sessionFactory.openSession();
 		
-		List<Object[]> list = session.createQuery("select I.id,I.code from InfoData I where I.id>904").list();
+		List<Object[]> list = session.createQuery("select I.id,I.code from InfoData I where I.id>1544 and I.id<2000").list();
 		for (Object[] objects : list) {
 			System.out.println("now id = "+objects[0]);
 			basicStockDataSpider.test((String) objects[1], 2008, 2017);

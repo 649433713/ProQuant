@@ -1,6 +1,7 @@
 package DAO.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import PO.InfoData;
 
@@ -20,4 +21,7 @@ public interface InfoDataDao {
 
 	List findByExample(InfoData instance);
 
+	InfoData queryByHql(String code);
+	
+	String getCode(String name);
 }

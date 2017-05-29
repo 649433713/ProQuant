@@ -1,6 +1,8 @@
 package DAO.dao;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import PO.BenchData;
 import PO.BenchDataId;
@@ -21,4 +23,5 @@ public interface BenchDataDao {
 
 	List findByExample(BenchData instance);
 
+	Map<Date,BenchData> queryByHql(String code,Date start,Date end);
 }

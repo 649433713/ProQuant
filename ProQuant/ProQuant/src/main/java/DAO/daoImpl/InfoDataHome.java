@@ -2,6 +2,7 @@ package DAO.daoImpl;
 // default package
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.InfoDataDao;
+import PO.BenchCurrentData;
 import PO.InfoData;
 
 /**
@@ -149,5 +151,22 @@ public class InfoDataHome implements InfoDataDao {
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+	
+	@Transactional
+	@Override
+	public InfoData queryByHql(String code) {
+		String hql = "from InfoData where code ='" +code+"'";
+		ArrayList<InfoData> list= (ArrayList<InfoData>) sessionFactory.getCurrentSession().createQuery(hql).list();
+		return list.get(0);
+	}
+
+	@Transactional
+	@Override
+	public String getCode(String name) {
+		String hql = "select code from InfoData where name ='" +name+"'";
+		List code = sessionFactory.getCurrentSession().createQuery(hql).list();
+		return (String) code.get(0);
+
 	}
 }
