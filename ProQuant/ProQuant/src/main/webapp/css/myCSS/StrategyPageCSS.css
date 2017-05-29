@@ -38,7 +38,7 @@ body{
 
 .pic-holder{
     position: absolute;
-    bottom: 30%;
+    bottom: 35%;
     left: 35%;
 }
 
@@ -145,10 +145,12 @@ body{
 /*界面中部展示策略结果和制定策略的部分 开始*/
 .main-body{
     width: 1230px;
+    /*没有下面回测结果框的高度*/
+    height: 270px;
     /*使用策略使用的中部界面的高度*/
-    /*height: 870px;*/
+    /*height: 1055px;*/
     /*制定策略使用的中部界面的高度*/
-    height: 1060px;
+    /*height: 1200px;*/
     margin: 20px auto;
     background-color: #ffffff;
 }
@@ -222,14 +224,6 @@ body{
     margin-left: 20px;
 }
 
-.main-body .left-part h4{
-    display: inline-block;
-    color: #666;
-    margin-left: 20px;
-    /*border-bottom: 2px solid #ebeff0;*/
-    border-left: 6px solid #d75442;
-    padding-left: 5px;
-}
 
 .main-body .left-part h2{
     display: inline-block;
@@ -241,6 +235,32 @@ body{
     margin-left: 20px;
 }
 
+.main-body .left-and-right-holder table{
+    width: 96.5%;
+    background: #ffffff;
+    table-layout: fixed;
+    border:solid #EBEFF0; border-width:1px 0px 0px 1px;
+    margin: 10px 10px 15px 20px;
+}
+
+.main-body .left-and-right-holder table th, .main-body .left-and-right-holder table td{
+    line-height: 20px;
+    text-align: center;
+    padding: 3px 16px;
+    font-size: 12px;
+    border:solid #EBEFF0; border-width:0px 1px 1px 0px;
+}
+
+
+.left-and-right-holder  h4{
+    display: inline-block;
+    color: #666;
+    margin-left: 20px;
+    /*border-bottom: 2px solid #ebeff0;*/
+    border-left: 6px solid #d75442;
+    padding-left: 5px;
+}
+
 /*中部偏右放置h4标签和评测结果div对应的css*/
 .main-body .right-part{
     display: inline-block;
@@ -249,14 +269,6 @@ body{
     margin-left: 30px;
 }
 
-.main-body .right-part h4{
-    display: inline-block;
-    color: #666;
-    margin-left: 17px;
-    width: 300px;
-    /*border-bottom: 2px solid #ebeff0;*/
-    border-left: 6px solid #d75442;
-}
 
 /*中部偏左内侧div，即专门用作放置图表的div对应的css*/
 .main-body .chart-holder{
@@ -331,18 +343,27 @@ body{
 .parent-holder #use-strategy-model{
     position: absolute;
     z-index: 2;
-    display: none;
+    /*display: none;*/
 }
 .parent-holder #make-strategy-model{
     position: absolute;
     z-index: 1;
-    /*display: none;*/
+    display: none;
 }
 .left-and-right-holder{
     /*margin-top: 60px;*/
     /*使用策略使用的padding*/
-    /*padding-top: 200px;*/
+    padding-top: 250px;
     /*制定策略使用的padding*/
-    padding-top: 400px;
+    /*padding-top: 400px;*/
     /*为什么是设置padding？？？？？？？？？？？？？？？？*/
+    /*display: none;*/
 }
+
+
+
+/*修改当前标签页背景黑色*/
+.nav-tabs{
+}
+
+

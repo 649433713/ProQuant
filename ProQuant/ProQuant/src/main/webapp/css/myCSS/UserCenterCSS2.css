@@ -50,11 +50,18 @@
 
 
 .user-main-body .content-holder .function-zone .function-content table{
+    -webkit-user-select: none;
     width: 98%;
     background: #ffffff;
     table-layout: fixed;
     border:solid #EBEFF0; border-width:1px 0px 0px 1px;
     margin: 3px 5px 5px 7px;
+}
+.user-main-body .content-holder .function-zone .function-content table tbody tr:nth-child(even){
+    background-color: #E8E9E8;
+}
+.user-main-body .content-holder .function-zone .function-content table thead tr:nth-child(1){
+    background-color: #E8E9E8;
 }
 
 .user-main-body .content-holder .function-zone .history-part table{
@@ -142,8 +149,59 @@
 
 
 
-
 /*js设置的样式*/
 .disappear{
     display: none;
+}
+
+
+
+
+/*隐藏对话框的样式*/
+#attentionDialog{
+    position: absolute;
+    right: 10px;
+    /*left: 1000px;*/
+    top: 300px;
+    width: 280px;
+    height: 120px;
+    background-color: #ffffff;
+    z-index: 9999999999;
+    border: 3px double #296ec2;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+#attentionDialog h2{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #296ec2;
+}
+#attentionDialog h4{
+    font-size: 14px;
+    font-weight: 700;
+    color: #d75442;
+    margin: 10px 10px 10px 10px;
+}
+
+#attentionDialog input{
+    display: inline-block;
+    font-size: 12px;
+    width: 40px;
+    height: 20px;
+    background-color: #296ec2;
+    color: #ffffff;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+.selectedClass{
+    background-color: #B9D6FB;
+    !important;
 }
