@@ -49,14 +49,14 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 				benchDataId.setCode(code);
 				try {
 					benchDataId.setDate(sf.parse(tds.get(0).text().replaceAll(",","")));
-					benchDataId.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
-					benchDataId.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
-					benchDataId.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
-					benchDataId.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
-					benchDataId.setChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
-					benchDataId.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
-					benchDataId.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
-					benchDataId.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+					benchData.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
+					benchData.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
+					benchData.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
+					benchData.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
+					benchData.setNetChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
+					benchData.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+					benchData.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
+					benchData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
 					benchData.setId(benchDataId);
 					benchDataDao.persist(benchData);
 				} catch (ParseException e) {

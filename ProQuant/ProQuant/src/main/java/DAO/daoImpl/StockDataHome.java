@@ -1,6 +1,5 @@
 package DAO.daoImpl;
-// default package
-// Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
+// Generated 2017-5-28 13:18:58 by Hibernate Tools 5.2.1.Final
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -19,24 +18,17 @@ import PO.StockDataId;
 
 /**
  * Home object for domain model class StockData.
- * @see .StockData
+ * @see DAO.StockData
  * @author Hibernate Tools
  */
 @Repository("StockDataDao")
-public class StockDataHome implements StockDataDao {
+public class StockDataHome implements StockDataDao{
 
 	private static final Log log = LogFactory.getLog(StockDataHome.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#persist(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public void persist(StockData transientInstance) {
 		log.debug("persisting StockData instance");
 		try {
@@ -47,13 +39,7 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#attachDirty(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public void attachDirty(StockData instance) {
 		log.debug("attaching dirty StockData instance");
 		try {
@@ -64,13 +50,7 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#attachClean(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public void attachClean(StockData instance) {
 		log.debug("attaching clean StockData instance");
 		try {
@@ -81,13 +61,7 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#delete(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public void delete(StockData persistentInstance) {
 		log.debug("deleting StockData instance");
 		try {
@@ -98,13 +72,7 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#merge(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public StockData merge(StockData detachedInstance) {
 		log.debug("merging StockData instance");
 		try {
@@ -116,17 +84,11 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#findById(PO.StockDataId)
-	 */
 	@Transactional
-	@Override
 	public StockData findById(StockDataId id) {
 		log.debug("getting StockData instance with id: " + id);
 		try {
-			StockData instance = (StockData) sessionFactory.getCurrentSession().get("StockData", id);
+			StockData instance = (StockData) sessionFactory.getCurrentSession().get("DAO.StockData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -138,18 +100,12 @@ public class StockDataHome implements StockDataDao {
 			throw re;
 		}
 	}
-
-	/**
-		 (non-Javadoc)
-	 * @see DAO.dao.StockDataDao#findByExample(PO.StockData)
-	 */
 	@Transactional
-	@Override
 	public List findByExample(StockData instance) {
 		log.debug("finding StockData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("StockData").add(Example.create(instance))
-					.list();
+			List results = sessionFactory.getCurrentSession().createCriteria("DAO.StockData")
+					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
 		} catch (RuntimeException re) {

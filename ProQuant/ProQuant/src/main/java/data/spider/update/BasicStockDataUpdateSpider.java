@@ -49,16 +49,16 @@ public class BasicStockDataUpdateSpider extends TimerTask implements BasicDataUp
 				stockDataId.setCode(code);
 				try {
 					stockDataId.setDate(sf.parse(tds.get(0).text().replaceAll(",","")));
-					stockDataId.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
-					stockDataId.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
-					stockDataId.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
-					stockDataId.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
-					stockDataId.setChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
-					stockDataId.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
-					stockDataId.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
-					stockDataId.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
-					stockDataId.setAmplitude(Double.parseDouble(tds.get(9).text().replaceAll(",","")));
-					stockDataId.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
+					stockData.setOpen(Double.parseDouble(tds.get(1).text().replaceAll(",","")));
+					stockData.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
+					stockData.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
+					stockData.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
+					stockData.setNetChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
+					stockData.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+					stockData.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
+					stockData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+					stockData.setAmplitude(Double.parseDouble(tds.get(9).text().replaceAll(",","")));
+					stockData.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
 					stockData.setId(stockDataId);
 					stockDataDao.persist(stockData);
 				} catch (ParseException e) {
