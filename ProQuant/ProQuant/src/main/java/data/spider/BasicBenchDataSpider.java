@@ -22,7 +22,7 @@ public class BasicBenchDataSpider implements BasicDataSpiderService{
 	BenchDataDao benchDataDao;
 	
 	public String[] URL=
-		{"http://quotes.money.163.com/trade/lsjysj_",
+		{"http://quotes.money.163.com/trade/lsjysj_zhishu_",
 		 ".html?year=",
 		 "&season="};
 	/**
@@ -63,10 +63,17 @@ public class BasicBenchDataSpider implements BasicDataSpiderService{
 						benchData.setHigh(Double.parseDouble(tds.get(2).text().replaceAll(",","")));
 						benchData.setLow(Double.parseDouble(tds.get(3).text().replaceAll(",","")));
 						benchData.setClose(Double.parseDouble(tds.get(4).text().replaceAll(",","")));
-						benchData.setNetChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
-						benchData.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+						if (!tds.get(5).text().equals("--")) {
+							benchData.setNetChange(Double.parseDouble(tds.get(5).text().replaceAll(",","")));
+						}
+						if (!tds.get(6).text().equals("--")) {
+							benchData.setChg(Double.parseDouble(tds.get(6).text().replaceAll(",","")));
+						}
 						benchData.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
-						benchData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+						if (!tds.get(8).text().equals("--")) {
+							benchData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
+							
+						}
 						benchData.setId(benchDataId);
 						benchDataDao.persist(benchData);
 					} catch (ParseException e) {
