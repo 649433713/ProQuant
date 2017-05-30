@@ -57,10 +57,10 @@
     border:solid #EBEFF0; border-width:1px 0px 0px 1px;
     margin: 3px 5px 5px 7px;
 }
-.user-main-body .content-holder .function-zone .function-content table tbody tr:nth-child(even){
-    background-color: #E8E9E8;
-}
-.user-main-body .content-holder .function-zone .function-content table thead tr:nth-child(1){
+/*.user-main-body .content-holder .function-zone .function-content table tbody tr:nth-child(even){*/
+    /*background-color: #E8E9E8;*/
+/*}*/
+.user-main-body .content-holder .function-zone .function-content table thead tr{
     background-color: #E8E9E8;
 }
 
@@ -201,7 +201,17 @@
     margin: 10px;
 }
 
+/*表格某行选中时具有的样式*/
 .selectedClass{
     background-color: #B9D6FB;
     !important;
+}
+
+
+/*表格奇数行的背景*/
+.oddRowBg{
+    background-color: #E8E9E8;
+}
+.evenRowBg{
+    background-color: #ffffff;
 }
