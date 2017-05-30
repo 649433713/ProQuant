@@ -7,7 +7,10 @@ import java.util.TimerTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Component
 public class ExecuteUpdate {
 	@Autowired()
 	@Qualifier("BSDUS")
@@ -32,6 +35,9 @@ public class ExecuteUpdate {
 		timer.scheduleAtFixedRate((TimerTask) basicBenchDataUpdateSpider,date, 86400000);
 		timer.scheduleAtFixedRate((TimerTask) basicStockDataUpdateSpider,date, 86400000);
 
+/*		timer.scheduleAtFixedRate((TimerTask) basicBenchDataUpdateSpider,date, 2000);
+		timer.scheduleAtFixedRate((TimerTask) basicStockDataUpdateSpider,date, 2000);
+*/
 	}
 
 	private Date addDay(Date date, int num) {

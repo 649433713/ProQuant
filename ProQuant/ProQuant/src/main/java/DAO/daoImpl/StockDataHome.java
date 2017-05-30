@@ -1,7 +1,12 @@
 package DAO.daoImpl;
 // Generated 2017-5-28 13:18:58 by Hibernate Tools 5.2.1.Final
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.naming.InitialContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +19,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockDataDao;
 import PO.StockData;
+import PO.StockData;
 import PO.StockDataId;
+import utility.DateFormater;
 
 /**
  * Home object for domain model class StockData.
@@ -113,4 +120,26 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
+	@Transactional
+	@Override
+	public Map<Date, StockData> queryByHql(String code,Date start,Date end) {
+		StringBuilder hql = new StringBuilder("from StockData where code ='").append(code).append("'");
+		if (start!=null) {
+			String s = DateFormater.formatDay(start);
+			hql.append(" and date >'").append(s).append("'");
+		}
+		if (end!=null) {
+			String e = DateFormater.formatDay(end);
+			hql.append(" and date <'").append(e).append("'");
+		}
+		hql.append(" order by date");
+		ArrayList<StockData> list= (ArrayList<StockData>) sessionFactory.getCurrentSession().createQuery(hql.toString()).list();
+		Map<Date, StockData> result = new LinkedHashMap<>();
+		for (StockData StockData : list) {
+			result.put(StockData.getId().getDate(), StockData);
+		}
+		
+		return result;
+	}
+
 }

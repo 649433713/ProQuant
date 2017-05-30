@@ -1,7 +1,10 @@
 // default package
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 package DAO.daoImpl;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -148,5 +151,13 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+	@SuppressWarnings("unchecked")
+	@Transactional
+	@Override
+	public BenchCurrentData queryByHql(String code) {
+		String hql = "from BenchCurrentData where code ='" +code+"'";
+		ArrayList<BenchCurrentData> list= (ArrayList<BenchCurrentData>) sessionFactory.getCurrentSession().createQuery(hql).list();
+		return list.get(0);
 	}
 }

@@ -61,13 +61,14 @@ public class BasicStockDataUpdateSpider extends TimerTask implements BasicDataUp
 					stockData.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
 					stockData.setId(stockDataId);
 					stockDataDao.persist(stockData);
+//					System.out.println(stockData);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			sharesCrawl(code);

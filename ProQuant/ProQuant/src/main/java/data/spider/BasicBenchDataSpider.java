@@ -50,7 +50,7 @@ public class BasicBenchDataSpider implements BasicDataSpiderService{
 			trs.remove(0);
 			BenchData benchData;
 			BenchDataId benchDataId;
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
 			for (Element tr : trs) {
 				Elements tds = tr.select("td");
 				if (tds.size()!=0) {

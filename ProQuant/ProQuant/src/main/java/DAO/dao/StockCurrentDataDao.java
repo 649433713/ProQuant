@@ -1,6 +1,7 @@
 package DAO.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import PO.StockCurrentData;
 import PO.StockCurrentDataId;
@@ -21,4 +22,5 @@ public interface StockCurrentDataDao {
 
 	List findByExample(StockCurrentData instance);
 
+	StockCurrentData queryByHql(String code);
 }

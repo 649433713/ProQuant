@@ -1,7 +1,11 @@
 package DAO.daoImpl;
 // Generated 2017-5-28 13:12:39 by Hibernate Tools 5.2.1.Final
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,8 +17,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchDataDao;
+import PO.BenchCurrentData;
 import PO.BenchData;
 import PO.BenchDataId;
+import utility.DateFormater;
 
 /**
  * Home object for domain model class BenchData.
@@ -113,6 +119,27 @@ public class BenchDataHome implements BenchDataDao{
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+	@Transactional
+	@Override
+	public Map<Date, BenchData> queryByHql(String code,Date start,Date end) {
+		StringBuilder hql = new StringBuilder("from BenchData where code ='").append(code).append("'");
+		if (start!=null) {
+			String s = DateFormater.formatDay(start);
+			hql.append(" and date >'").append(s).append("'");
+		}
+		if (end!=null) {
+			String e = DateFormater.formatDay(end);
+			hql.append(" and date <'").append(e).append("'");
+		}
+		hql.append(" order by date");
+		ArrayList<BenchData> list= (ArrayList<BenchData>) sessionFactory.getCurrentSession().createQuery(hql.toString()).list();
+		Map<Date, BenchData> result = new LinkedHashMap<>();
+		for (BenchData benchData : list) {
+			result.put(benchData.getId().getDate(), benchData);
+		}
+		
+		return result;
 	}
 
 }

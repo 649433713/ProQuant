@@ -23,7 +23,7 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 	BenchDataDao benchDataDao;
 	
 	public String[] URL=
-		{"http://quotes.money.163.com/trade/lsjysj_",
+		{"http://quotes.money.163.com/trade/lsjysj_zhishu_",
 		 ".html"};
 	
 	/**
@@ -41,7 +41,7 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 			trs.remove(0);
 			BenchData benchData;
 			BenchDataId benchDataId;
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
 			Elements tds = trs.first().select("td");
 			if (tds.size()!=0) {
 				benchData = new BenchData();
@@ -59,13 +59,14 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 					benchData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
 					benchData.setId(benchDataId);
 					benchDataDao.persist(benchData);
+					//System.out.println(benchData);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			sharesCrawl(code);

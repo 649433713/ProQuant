@@ -1,6 +1,7 @@
 package DAO.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import PO.BenchCurrentData;
 
@@ -19,5 +20,7 @@ public interface BenchCurrentDataDao {
 	BenchCurrentData findById(java.lang.Integer id);
 
 	List findByExample(BenchCurrentData instance);
+	
+	BenchCurrentData queryByHql(String code);
 
 }

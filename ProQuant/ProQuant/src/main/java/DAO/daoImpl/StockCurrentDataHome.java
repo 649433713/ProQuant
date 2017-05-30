@@ -2,6 +2,7 @@ package DAO.daoImpl;
 // default package
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockCurrentDataDao;
+import PO.StockCurrentData;
 import PO.StockCurrentData;
 import PO.StockCurrentDataId;
 
@@ -151,5 +153,14 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+
+	@Transactional
+	@Override
+	public StockCurrentData queryByHql(String code) {
+		String hql = "from StockCurrentData where code ='" +code+"'";
+		ArrayList<StockCurrentData> list= (ArrayList<StockCurrentData>) sessionFactory.getCurrentSession().createQuery(hql).list();
+		return list.get(0);
+		
 	}
 }
