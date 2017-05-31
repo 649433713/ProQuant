@@ -126,11 +126,11 @@ public class BenchDataHome implements BenchDataDao{
 		StringBuilder hql = new StringBuilder("from BenchData where code ='").append(code).append("'");
 		if (start!=null) {
 			String s = DateFormater.formatDay(start);
-			hql.append(" and date >'").append(s).append("'");
+			hql.append(" and date >='").append(s).append("'");
 		}
 		if (end!=null) {
 			String e = DateFormater.formatDay(end);
-			hql.append(" and date <'").append(e).append("'");
+			hql.append(" and date <='").append(e).append("'");
 		}
 		hql.append(" order by date");
 		ArrayList<BenchData> list= (ArrayList<BenchData>) sessionFactory.getCurrentSession().createQuery(hql.toString()).list();

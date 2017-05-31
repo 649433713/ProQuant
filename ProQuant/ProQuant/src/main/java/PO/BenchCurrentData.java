@@ -20,7 +20,7 @@ public class BenchCurrentData implements java.io.Serializable {
 	private Double high;
 	private Double low;
 	private Double settlement;
-	private Integer change;
+	private Double change;
 	private Double changepercent;
 	private Long volume;
 	private Double turnoverratio;
@@ -30,7 +30,7 @@ public class BenchCurrentData implements java.io.Serializable {
 	}
 
 	public BenchCurrentData(String code, String name, Date date, Double trade, Double open, Double high, Double low,
-			Double settlement, Integer change, Double changepercent, Long volume, Double turnoverratio,
+			Double settlement, Double change, Double changepercent, Long volume, Double turnoverratio,
 			Double amplitudeRatio) {
 		this.code = code;
 		this.name = name;
@@ -119,11 +119,11 @@ public class BenchCurrentData implements java.io.Serializable {
 		this.settlement = settlement;
 	}
 
-	public Integer getChange() {
+	public Double getChange() {
 		return this.change;
 	}
 
-	public void setChange(Integer change) {
+	public void setChange(Double change) {
 		this.change = change;
 	}
 

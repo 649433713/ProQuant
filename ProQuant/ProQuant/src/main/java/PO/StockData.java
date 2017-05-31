@@ -128,4 +128,12 @@ public class StockData implements java.io.Serializable {
 		this.turnoverRatio = turnoverRatio;
 	}
 
+	@Override
+	public String toString() {
+		return "StockData [id=" + id + ", open=" + open + ", high=" + high + ", low=" + low + ", close=" + close
+				+ ", netChange=" + netChange + ", chg=" + chg + ", volume=" + volume + ", turnover=" + turnover
+				+ ", amplitude=" + amplitude + ", turnoverRatio=" + turnoverRatio + "]";
+	}
+
+	
 }

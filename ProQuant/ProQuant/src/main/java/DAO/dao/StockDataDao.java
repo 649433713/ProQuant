@@ -25,4 +25,6 @@ public interface StockDataDao {
 	List findByExample(StockData instance);
 
 	Map<Date,StockData> queryByHql(String code,Date start,Date end);
+	
+	Map<Date,StockData> queryByHql(String code,int count,Date end);
 }

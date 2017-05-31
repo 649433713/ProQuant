@@ -141,5 +141,22 @@ public class StockDataHome implements StockDataDao{
 		
 		return result;
 	}
+	@Transactional
+	@Override
+	public Map<Date,StockData> queryByHql(String code,int count,Date end){
+		StringBuilder hql = new StringBuilder("from StockData where code ='").append(code).append("'");
+		if (end!=null) {
+			String e = DateFormater.formatDay(end);
+			hql.append(" and date <'").append(e).append("'");
+		}
+		hql.append(" order by date desc");
 
+		ArrayList<StockData> list= (ArrayList<StockData>) sessionFactory.getCurrentSession().createQuery(hql.toString()).setMaxResults(count).list();
+		Map<Date, StockData> result = new LinkedHashMap<>();
+		for (StockData StockData : list) {
+			result.put(StockData.getId().getDate(), StockData);
+		}
+		
+		return result;
+	}
 }
