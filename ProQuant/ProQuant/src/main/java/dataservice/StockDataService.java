@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
+import PO.InfoData;
 import PO.StockData;
 
 
@@ -30,5 +31,11 @@ public interface StockDataService {
 	public Map<String,StockData> getSomeStocksByDate(Date date,ArrayList<String> codes);
 	
 	public Map<String,Integer> searchStock(String nameOrCode);
+	
+	public Integer getCode(String name);
+	
+	public String getName(String code);
+	
+	public InfoData getStockInfo(String code);
     
 }
