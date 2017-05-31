@@ -7,6 +7,7 @@
 //operationButtonWasClicked用来标识删除键或其他操作键是否被点击，以区分是在行上的点击事件还是在这些功能键上的点击,
 //    该状态需要注意的是什么是否被置为false
 var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked;
+var specialIndex;
 
 
 $(function(){
@@ -111,13 +112,19 @@ $(function(){
     // });
     // $("table")[0].onmousedown = getY1;
 
-
-    $("tr").mousedown(function () {
+    // $("table tr").click(function () {
+    //     if(operationButtonWasClicked){
+    //         alert($(this).index());
+    //     }
+    // });
+    $("table tr").mousedown(function () {
         mouseIsDown = true;
         firstRowIndex = $(this).index();
         if(!operationButtonWasClicked){
-            // alert("here");
             selectThisRow($(this));
+        }else{
+            // alert(this.rowIndex);
+            alert($(this).index());
         }
     });
     $("tr").mouseup(function () {
@@ -140,21 +147,30 @@ $(function(){
     // deEffect();
 
 
-    $("a[title=deleteButton]").mousedown(function () {
+    $("a[title=deleteButton]").click(function (e) {
         $(this).parent().parent().remove();
         rowChanged = true;
         operationButtonWasClicked = true;
 
 
-
         //为什么永远都是-1？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？、
         // var trl = $(this).closest("tr");
         // alert(trl.eq(0).index());
-
-
-
-
-        addStyleToRow($(this).parent().parent().index());
+        // alert($(this)[0].nodeName);//a
+        // alert($(this)[0].parentNode.innerHTML);//td
+        // alert($(this)[0].parentNode.parentNode.innerHTML);//tr
+        // alert($(this)[0].parentNode.parentNode.nodeName);
+        // alert($($(this)[0].parentNode.parentNode).index());
+        // alert("1");
+        // alert($(this).closest('tr').index());
+        // alert("2");
+        // var trl = $(this).parent('td').parent('tr');
+        // alert(trl.length);
+        // alert(trl.eq(0).index());
+        // var arow = trl.eq(0);
+        // alert(arow);
+        alert($(this)[0].parentNode.parentNode.rowIndex);
+        addStyleToRow($(this).parents("td").parents("tr").index(this));
     });
 
 
@@ -168,6 +184,7 @@ function addStyleToRow(limit_index) {
     var trLists = $("tbody").find("tr");
     for(var i = 0;i < trLists.length;i++){
         var index = trLists.eq(i).index();
+        // alert(index);
         // alert(index);
         // if(index % 2 === 1){
         //    if(!rowChanged){

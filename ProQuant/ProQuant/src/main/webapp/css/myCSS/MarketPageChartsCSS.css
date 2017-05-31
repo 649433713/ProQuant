@@ -28,8 +28,10 @@
     display: inline-block;
     width: 200px;
     height: 25px;
-    position: absolute;
-    right: 340px;
+    /*position: absolute;*/
+    /*right: 340px;*/
+    /*right: 26.5%;*/
+    margin-left: 388px;
     background-color: #f8f8f8;
     border: none;
     color: #666;
