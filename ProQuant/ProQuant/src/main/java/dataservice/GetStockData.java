@@ -14,9 +14,9 @@ public interface GetStockData {
 	/**
 	 * 这个方法用于把股票名称转化为股票Id，方便下一步的使用
 	 * @param name 股票的名称
-	 * @return 返回股票名
+	 * @return 返回股票code
 	 */
-	public int  getStockName(String  name);
+	public String  getStockName(String  name);
 	
 	/**
 	 * 
