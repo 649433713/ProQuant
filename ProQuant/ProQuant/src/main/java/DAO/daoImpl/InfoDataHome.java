@@ -40,7 +40,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#persist(PO.InfoData)
 	 */
-	@Transactional
+
 	public void persist(InfoData transientInstance) {
 		log.debug("persisting InfoData instance");
 		try {
@@ -56,7 +56,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#attachDirty(PO.InfoData)
 	 */
-	@Transactional
+
 	public void attachDirty(InfoData instance) {
 		log.debug("attaching dirty InfoData instance");
 		try {
@@ -72,7 +72,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#attachClean(PO.InfoData)
 	 */
-	@Transactional
+
 	public void attachClean(InfoData instance) {
 		log.debug("attaching clean InfoData instance");
 		try {
@@ -88,7 +88,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#delete(PO.InfoData)
 	 */
-	@Transactional
+
 	public void delete(InfoData persistentInstance) {
 		log.debug("deleting InfoData instance");
 		try {
@@ -104,7 +104,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#merge(PO.InfoData)
 	 */
-	@Transactional
+
 	public InfoData merge(InfoData detachedInstance) {
 		log.debug("merging InfoData instance");
 		try {
@@ -121,7 +121,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#findById(long)
 	 */
-	@Transactional
+
 	public InfoData findById(long id) {
 		log.debug("getting InfoData instance with id: " + id);
 		try {
@@ -142,7 +142,7 @@ public class InfoDataHome implements InfoDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.InfoDataDao#findByExample(PO.InfoData)
 	 */
-	@Transactional
+
 	public List findByExample(InfoData instance) {
 		log.debug("finding InfoData instance by example");
 		try {
@@ -156,7 +156,7 @@ public class InfoDataHome implements InfoDataDao {
 		}
 	}
 	
-	@Transactional
+
 	@Override
 	public InfoData queryByHql(String code) {
 		String hql = "from InfoData where code ='" +code+"'";
@@ -164,12 +164,12 @@ public class InfoDataHome implements InfoDataDao {
 		return list.get(0);
 	}
 
-	@Transactional
+
 	@Override
-	public String getCode(String name) {
-		String hql = "select code from InfoData where name ='" +name+"'";
-		List code = sessionFactory.getCurrentSession().createQuery(hql).list();
-		return (String) code.get(0);
+	public String getName(String code) {
+		String hql = "select name from InfoData where code ='" +code+"'";
+		List name = sessionFactory.getCurrentSession().createQuery(hql).list();
+		return (String) name.get(0);
 
 	}
 

@@ -2,7 +2,12 @@ package data.spider.update;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimerTask;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +20,15 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Service("CBDUS")
-public class CurrentBenchDataUpdateSpider implements CurrentDataUpdateSpiderService {
+public class CurrentBenchDataUpdateSpider extends TimerTask implements CurrentDataUpdateSpiderService {
 	
-	private static final String url = "https://gupiao.baidu.com/api/rails/stockbasicbatch?from=pc&os_ver=1&cuid=xxx&vv=100&format=json&stock_code=sz399005,sh000300,sz399006";
+	private String url = "https://gupiao.baidu.com/api/rails/stockbasicbatch?from=pc&os_ver=1&cuid=xxx&vv=100&format=json&stock_code=sz399005,sh000300,sz399006";
 	private String userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 OPR/45.0.2552.812";
 
 	@Autowired
-	private BenchCurrentDataDao dao;
+	private SessionFactory sessionFactory;
+	@Autowired
 	
-	@Transactional
 	@Override
 	public void updateCurrentData() {
 		Calendar calendar = Calendar.getInstance();
@@ -65,9 +70,20 @@ public class CurrentBenchDataUpdateSpider implements CurrentDataUpdateSpiderServ
 			benchCurrentData.setTurnoverratio(json.getDouble("turnoverRatio"));
 			benchCurrentData.setSettlement(json.getDouble("preClose"));
 			benchCurrentData.setOpen(json.getDouble("open"));
+			benchCurrentData.setDate(new Date());
+			Session session= sessionFactory.openSession();
+			Transaction transaction = session.getTransaction();
+			transaction.begin();
+			session.update(benchCurrentData);
+			transaction.commit();
+			session.close();
 			
-			dao.merge(benchCurrentData);
 		}
+	}
+
+	@Override
+	public void run() {
+		updateCurrentData();
 	}
 
 }

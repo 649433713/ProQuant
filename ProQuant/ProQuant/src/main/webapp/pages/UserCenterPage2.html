@@ -6,12 +6,14 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/jquery.webui-popover.css" rel="stylesheet">
     <link href="../css/header.css" rel="stylesheet">
     <link href="../css/myCSS/nav_footerCSS.css" rel="stylesheet">
     <link href="../css/reset.css" rel="stylesheet">
     <link href="../css/myCSS/UserCenterCSS2.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js" ></script>
     <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/jquery.webui-popover.js"></script>
     <script src="../js/header.js"></script>
     <script type="text/javascript" src="../js/myJS/UserCenterJS.js"></script>
 </head>
@@ -46,15 +48,182 @@
             <div class="function-zone">
                 <div class="bootstrap-tab">
                     <ul class="nav nav-tabs">
-                        <li class="active" id="tab1"><a href="#">自选股</a></li>
+                        <li class="active" id="tab0"><a href="#" style="cursor: pointer">个人账户</a></li>
+                        <li  id="tab1"><a href="#">自选股</a></li>
                         <li id="tab2"><a href="#">创建策略记录</a></li>
                         <li id="tab3"><a href="#">使用策略记录</a></li>
                         <li id="tab4"><a href="#">浏览个股历史</a></li>
                         <button id="clear-button">清空</button>
                     </ul>
                 </div>
+                <div class="function-content" id="user-account-part">
+                    <div class="user-data-holder">
+                        <div>
+                            <script>
+                                function changeToCNY() {
+                                    $("#popover").webuiPopover('hide');
+                                    $("#popover").html("总资产-人民币计 ∨");
+                                }
+                                function changeToUSD() {
+                                    $("#popover").webuiPopover('hide');
+                                    $("#popover").html("总资产-美元计 ∨");
+                                }
+                            </script>
+                            <h4><a href="#" id="popover" data-title="货币类型" data-content="<a href='#' id='cnyLink' style='cursor: pointer' onclick='changeToCNY()'>人民币CNY</a></br><a href='#' id='usdLink' style='cursor: pointer' onclick='changeToUSD()'>美元USD</a>" data-placement="right">总资产-人民币计 ∨</a></h4>
+                            <h2 id="totalAssets">￥2,000,000</h2>
+                            <div class="user-item">
+                                <h2>可用现金</h2>
+                                <div><h4>￥1,999,999</h4></div>
+                            </div>
+                            <div class="user-item">
+                                <h2>总盈亏</h2>
+                                <div><h4>￥0</h4></div>
+
+                            </div>
+                            <div class="user-item">
+                                <h2>今日盈亏</h2>
+                                <div><h4>￥0</h4></div>
+                            </div>
+                            <div class="user-item">
+                                <h2 style="border-left: 3px solid #296ec2">投资表现</h2>
+                                <div id="graph-holder">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deal-record-holder">
+                        <h2>交易明细</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>股票名称</th>
+                                <th>买入时间</th>
+                                <th>卖出时间</th>
+                                <th>买入数量</th>
+                                <th>总盈亏</th>
+                                <th>今日盈亏</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>阿里巴巴</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>百度</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>腾讯</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>谷歌</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>苹果</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>亚马逊</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Facebook</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>IBM</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>三星</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>小米</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>华为</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>华为</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>华为</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            <tr>
+                                <td>华为</td>
+                                <td>2017/05/25</td>
+                                <td>----/--/--</td>
+                                <td>1000</td>
+                                <td>10%</td>
+                                <td>1.2%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <!--标签页下面的功能区部分-->
-                <div class="function-content zixuangu-part" id="zixuangu-part">
+                <div class="function-content zixuangu-part disappear" id="zixuangu-part">
                    <table>
                        <thead>
                        <tr>
@@ -224,7 +393,7 @@
                        <tr>
                            <td>1</td>
                            <td>
-                               <a href="javascript:void(0);">000009</a>
+                               <a href="javascript:void(0);">00000</a>
                            </td>
                            <td>
                                <a href="javascript:void(0);">测试股</a>

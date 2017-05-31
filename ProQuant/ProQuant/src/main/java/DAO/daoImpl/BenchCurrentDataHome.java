@@ -36,7 +36,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#persist(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public void persist(BenchCurrentData transientInstance) {
 		log.debug("persisting BenchCurrentData instance");
 		try {
@@ -52,7 +52,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#attachDirty(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public void attachDirty(BenchCurrentData instance) {
 		log.debug("attaching dirty BenchCurrentData instance");
 		try {
@@ -68,7 +68,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#attachClean(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public void attachClean(BenchCurrentData instance) {
 		log.debug("attaching clean BenchCurrentData instance");
 		try {
@@ -84,7 +84,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#delete(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public void delete(BenchCurrentData persistentInstance) {
 		log.debug("deleting BenchCurrentData instance");
 		try {
@@ -100,7 +100,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#merge(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public BenchCurrentData merge(BenchCurrentData detachedInstance) {
 		log.debug("merging BenchCurrentData instance");
 		try {
@@ -117,7 +117,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#findById(java.lang.Integer)
 	 */
-	@Transactional
+
 	public BenchCurrentData findById(java.lang.Integer id) {
 		log.debug("getting BenchCurrentData instance with id: " + id);
 		try {
@@ -139,7 +139,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.BenchCurrentDataDao#findByExample(PO.BenchCurrentData)
 	 */
-	@Transactional
+
 	public List findByExample(BenchCurrentData instance) {
 		log.debug("finding BenchCurrentData instance by example");
 		try {
@@ -153,7 +153,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	@Transactional
+
 	@Override
 	public BenchCurrentData queryByHql(String code) {
 		String hql = "from BenchCurrentData where code ='" +code+"'";

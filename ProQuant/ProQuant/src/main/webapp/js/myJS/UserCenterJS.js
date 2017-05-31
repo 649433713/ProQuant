@@ -7,12 +7,15 @@
 //operationButtonWasClicked用来标识删除键或其他操作键是否被点击，以区分是在行上的点击事件还是在这些功能键上的点击,
 //    该状态需要注意的是什么是否被置为false
 var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked;
+var specialIndex;
 
 
 $(function(){
+    rowChanged = false;
+    operationButtonWasClicked = false;
     //为tab标签设置点击事件
-    var tablist = ["#tab1", "#tab2", "#tab3", "#tab4"];
-    var pagelist = ["#zixuangu-part", "#makestrategy-part", "#usestrategy-part", "#history-part"];
+    var tablist = ["#tab0", "#tab1", "#tab2", "#tab3", "#tab4"];
+    var pagelist = ["#user-account-part", "#zixuangu-part", "#makestrategy-part", "#usestrategy-part", "#history-part"];
     function myRemoveOtherClass(tabName) {
         for(var i = 0;i < tablist.length;i++)
         {
@@ -33,34 +36,48 @@ $(function(){
 
         }
     }
+    $("#tab0").click(function () {
+        $(this).addClass("active");
+        myRemoveOtherClass("#tab0");
+        $("#user-account-part").removeClass("disappear");
+        $("#clear-button").hide();
+        showPage("#user-account-part");
+    });
     $("#tab1").click(function () {
         $(this).addClass("active");
         myRemoveOtherClass("#tab1");
         $("#zixuangu-part").removeClass("disappear");
+        $("#clear-button").show();
         showPage("#zixuangu-part");
     });
     $("#tab2").click(function () {
         $(this).addClass("active");
         myRemoveOtherClass("#tab2");
         $("#makestrategy-part").removeClass("disappear");
+        $("#clear-button").show();
         showPage("#makestrategy-part");
     });
     $("#tab3").click(function () {
         $(this).addClass("active");
         myRemoveOtherClass("#tab3");
         $("#usestrategy-part").removeClass("disappear");
+        $("#clear-button").show();
         showPage("#usestrategy-part");
     });
     $("#tab4").click(function () {
         $(this).addClass("active");
         myRemoveOtherClass("#tab4");
         $("#history-part").removeClass("disappear");
+        $("#clear-button").show();
         showPage("#history-part");
     });
 
+    //货币类型选择框
+    $("#popover").webuiPopover({width:120,height:55});
 
-
-
+    $("#clear-button").click(function () {
+        clearAllItems();
+    });
 
     //实现提示框拖动的效果
     $("#attentionDialog")[0].onmousedown = fnDown;
@@ -95,13 +112,19 @@ $(function(){
     // });
     // $("table")[0].onmousedown = getY1;
 
-
-    $("tr").mousedown(function () {
+    // $("table tr").click(function () {
+    //     if(operationButtonWasClicked){
+    //         alert($(this).index());
+    //     }
+    // });
+    $("table tr").mousedown(function () {
         mouseIsDown = true;
         firstRowIndex = $(this).index();
         if(!operationButtonWasClicked){
-            // alert("here");
             selectThisRow($(this));
+        }else{
+            // alert(this.rowIndex);
+            alert($(this).index());
         }
     });
     $("tr").mouseup(function () {
@@ -124,12 +147,32 @@ $(function(){
     // deEffect();
 
 
-    $("a[title=deleteButton]").mousedown(function () {
+    $("a[title=deleteButton]").click(function (e) {
         $(this).parent().parent().remove();
-        addStyleToRow();
         rowChanged = true;
         operationButtonWasClicked = true;
-    })
+
+
+        //为什么永远都是-1？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？、
+        // var trl = $(this).closest("tr");
+        // alert(trl.eq(0).index());
+        // alert($(this)[0].nodeName);//a
+        // alert($(this)[0].parentNode.innerHTML);//td
+        // alert($(this)[0].parentNode.parentNode.innerHTML);//tr
+        // alert($(this)[0].parentNode.parentNode.nodeName);
+        // alert($($(this)[0].parentNode.parentNode).index());
+        // alert("1");
+        // alert($(this).closest('tr').index());
+        // alert("2");
+        // var trl = $(this).parent('td').parent('tr');
+        // alert(trl.length);
+        // alert(trl.eq(0).index());
+        // var arow = trl.eq(0);
+        // alert(arow);
+        alert($(this)[0].parentNode.parentNode.rowIndex);
+        addStyleToRow($(this).parents("td").parents("tr").index(this));
+    });
+
 
 });
 
@@ -137,10 +180,12 @@ $(function(){
 
 
 //为表格行添加样式
-function addStyleToRow() {
+function addStyleToRow(limit_index) {
     var trLists = $("tbody").find("tr");
     for(var i = 0;i < trLists.length;i++){
         var index = trLists.eq(i).index();
+        // alert(index);
+        // alert(index);
         // if(index % 2 === 1){
         //    if(!rowChanged){
         //        trLists.eq(i).addClass("oddRowBg");
@@ -173,12 +218,14 @@ function addStyleToRow() {
                 trLists.eq(i).addClass("evenRowBg");
             }
         }else{
-            if(trLists.eq(i).hasClass("oddRowBg")){
-               trLists.eq(i).removeClass("oddClass");
-               trLists.eq(i).addClass("evenRowBg");
-            }else if(trLists.eq(i).hasClass("evenRowBg")){
-               trLists.eq(i).removeClass("evenRowBg");
-               trLists.eq(i).addClass("oddRowBg");
+            if(index >= limit_index){
+                if(trLists.eq(i).hasClass("oddRowBg")){
+                    trLists.eq(i).removeClass("oddRowBg");
+                    trLists.eq(i).addClass("evenRowBg");
+                }else if(trLists.eq(i).hasClass("evenRowBg")){
+                    trLists.eq(i).removeClass("evenRowBg");
+                    trLists.eq(i).addClass("oddRowBg");
+                }
             }
         }
     }
@@ -321,3 +368,14 @@ function deleteManyEleOneTime() {
     hideDialog();
 }
 
+//实现清空所有行
+function clearAllItems() {
+    var divLists = $("table").parent();
+    for(var i = 0;i < divLists.length;i++){
+        var display = divLists.eq(i).css("display");
+        if(display != "none"){
+            // alert(divLists.eq(i).find("tbody").find("tr").remove());
+            divLists.eq(i).find("tbody").find("tr").remove()
+        }
+    }
+}

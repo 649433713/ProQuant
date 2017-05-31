@@ -24,7 +24,7 @@ public interface InfoDataDao {
 
 	InfoData queryByHql(String code);
 	
-	String getCode(String name);
+	String getName(String code);
 	
 	Map<String, String> getCodeList();
 }
