@@ -53,6 +53,7 @@ public class CurrentBenchDataUpdateSpider implements CurrentDataUpdateSpiderServ
 			BenchCurrentData benchCurrentData = new BenchCurrentData();
 			benchCurrentData.setIndex(index);
 			index++;
+			benchCurrentData.setTrade(json.getDouble("close"));
 			benchCurrentData.setCode(json.getString("stockCode"));
 			benchCurrentData.setName(json.getString("stockName"));
 			benchCurrentData.setHigh(json.getDouble("high"));

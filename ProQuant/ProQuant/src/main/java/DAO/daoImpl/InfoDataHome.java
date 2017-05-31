@@ -3,11 +3,14 @@ package DAO.daoImpl;
 // Generated 2017-5-25 12:54:40 by Hibernate Tools 4.0.1.Final
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,5 +171,22 @@ public class InfoDataHome implements InfoDataDao {
 		List code = sessionFactory.getCurrentSession().createQuery(hql).list();
 		return (String) code.get(0);
 
+	}
+
+	@Override
+	public Map<String,String> getCodeList() {
+		String hql = "select name,code from InfoData";
+		Map<String , String> result = new LinkedHashMap<>();
+		List<Object[]> codes ;
+	
+		Session session = sessionFactory.openSession();
+		codes = session.createQuery(hql).list();
+		session.close();
+		
+		for (Object[] objects : codes) {
+			result.put((String)objects[0],(String)objects[1]);
+			
+		}
+		return result;
 	}
 }
