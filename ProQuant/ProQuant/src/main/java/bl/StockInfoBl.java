@@ -8,8 +8,6 @@ import VO.StockKLine;
 import VO.StockVO;
 import bl.helper.StockInfoHelper;
 import blservice.StockInfoBlService.StockInfoService;
-import dataservice.GetStockData;
-import dataservice.KLineDataService;
 
 public class StockInfoBl implements StockInfoService {
 //    GetStockData 
