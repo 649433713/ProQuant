@@ -122,6 +122,35 @@
 }
 
 .companyIntro{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
 }
+
+.whiteBackground{
+    background-color: white;
+}
+
+#deleteBrowseButton{
+    outline: none;
+    background-color: var(--loginColor);
+    color: white;
+    padding:5px 5px;
+    border-radius: 5px;
+}
+
+#deleteBrowseButton:hover{
+    background-color: #1F4374;
+}
+
+.browseTable thead{
+    border:  0px solid transparent !important;
+}
+
+.browseTable tbody{
+    border:  0px solid transparent !important;
+}
+
+.browseTable tbody tr{
+    border:  0px solid transparent !important;
+}
+
