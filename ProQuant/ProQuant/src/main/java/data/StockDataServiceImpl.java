@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.InfoDataDao;
 import DAO.dao.StockDataDao;
+import PO.InfoData;
 import PO.StockData;
 import dataservice.StockDataService;
 import utility.LetterHelper;
@@ -107,6 +108,26 @@ public class StockDataServiceImpl implements StockDataService {
 		return map;
 	}
 
+	@Override
+	public Integer getCode(String name) {
+		
+		return Integer.parseInt(nameToCode.get(name));		 
+	}
+
+	@Override
+	public String getName(String code) {
+		
+		return infoDataDao.getName(code);
+		 
+	}
+	
+	@Override
+	public InfoData getStockInfo(String code) {
+		
+		return infoDataDao.queryByHql(code);
+		 
+	}
+
 	
 	private boolean isNumeric(String str) {
 		Pattern pattern = Pattern.compile("[0-9]*");
@@ -126,6 +147,8 @@ public class StockDataServiceImpl implements StockDataService {
 		return true;
 	}
 
+	
+	
 	
 
 	

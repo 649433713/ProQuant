@@ -166,10 +166,10 @@ public class InfoDataHome implements InfoDataDao {
 
 	@Transactional
 	@Override
-	public String getCode(String name) {
-		String hql = "select code from InfoData where name ='" +name+"'";
-		List code = sessionFactory.getCurrentSession().createQuery(hql).list();
-		return (String) code.get(0);
+	public String getName(String code) {
+		String hql = "select name from InfoData where code ='" +code+"'";
+		List name = sessionFactory.getCurrentSession().createQuery(hql).list();
+		return (String) name.get(0);
 
 	}
 
