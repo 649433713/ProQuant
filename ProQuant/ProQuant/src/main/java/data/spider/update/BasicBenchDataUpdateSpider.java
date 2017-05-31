@@ -7,21 +7,24 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.TimerTask;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchDataDao;
 import PO.BenchData;
 import PO.BenchDataId;
-
 @Service("BBDUS")
 public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUpdateSpiderService {
-	@Autowired
-	BenchDataDao benchDataDao;
 	
+	@Autowired 
+	SessionFactory sessionFactory;
 	public String[] URL=
 		{"http://quotes.money.163.com/trade/lsjysj_zhishu_",
 		 ".html"};
@@ -30,6 +33,7 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 		 (non-Javadoc)
 	 * @see data.spider.update.BasicDataUpdateSpiderService#sharesCrawl(java.lang.String)
 	 */
+	
 	@Override
 	public void sharesCrawl(String code) {
 		String url = URL[0]+code+URL[1];
@@ -58,7 +62,12 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 					benchData.setVolume(Double.parseDouble(tds.get(7).text().replaceAll(",","")));
 					benchData.setTurnover(Double.parseDouble(tds.get(8).text().replaceAll(",","")));
 					benchData.setId(benchDataId);
-					benchDataDao.persist(benchData);
+					Session session= sessionFactory.openSession();
+					Transaction transaction = session.getTransaction();
+					transaction.begin();
+					session.persist(benchData);
+					transaction.commit();
+					session.close();
 					//System.out.println(benchData);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block

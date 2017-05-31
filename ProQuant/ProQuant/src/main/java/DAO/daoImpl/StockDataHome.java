@@ -35,7 +35,7 @@ public class StockDataHome implements StockDataDao{
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	@Transactional
+
 	public void persist(StockData transientInstance) {
 		log.debug("persisting StockData instance");
 		try {
@@ -46,7 +46,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void attachDirty(StockData instance) {
 		log.debug("attaching dirty StockData instance");
 		try {
@@ -57,7 +57,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void attachClean(StockData instance) {
 		log.debug("attaching clean StockData instance");
 		try {
@@ -68,7 +68,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void delete(StockData persistentInstance) {
 		log.debug("deleting StockData instance");
 		try {
@@ -79,7 +79,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public StockData merge(StockData detachedInstance) {
 		log.debug("merging StockData instance");
 		try {
@@ -91,7 +91,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public StockData findById(StockDataId id) {
 		log.debug("getting StockData instance with id: " + id);
 		try {
@@ -107,7 +107,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public List findByExample(StockData instance) {
 		log.debug("finding StockData instance by example");
 		try {
@@ -120,7 +120,7 @@ public class StockDataHome implements StockDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	@Override
 	public Map<Date, StockData> queryByHql(String code,Date start,Date end) {
 		StringBuilder hql = new StringBuilder("from StockData where code ='").append(code).append("'");
@@ -141,7 +141,7 @@ public class StockDataHome implements StockDataDao{
 		
 		return result;
 	}
-	@Transactional
+
 	@Override
 	public Map<Date,StockData> queryByHql(String code,int count,Date end){
 		StringBuilder hql = new StringBuilder("from StockData where code ='").append(code).append("'");

@@ -38,7 +38,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#persist(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public void persist(StockCurrentData transientInstance) {
 		log.debug("persisting StockCurrentData instance");
 		try {
@@ -54,7 +54,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#attachDirty(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public void attachDirty(StockCurrentData instance) {
 		log.debug("attaching dirty StockCurrentData instance");
 		try {
@@ -70,7 +70,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#attachClean(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public void attachClean(StockCurrentData instance) {
 		log.debug("attaching clean StockCurrentData instance");
 		try {
@@ -86,7 +86,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#delete(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public void delete(StockCurrentData persistentInstance) {
 		log.debug("deleting StockCurrentData instance");
 		try {
@@ -102,7 +102,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#merge(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public StockCurrentData merge(StockCurrentData detachedInstance) {
 		log.debug("merging StockCurrentData instance");
 		try {
@@ -119,7 +119,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#findById(PO.StockCurrentDataId)
 	 */
-	@Transactional
+
 	public StockCurrentData findById(StockCurrentDataId id) {
 		log.debug("getting StockCurrentData instance with id: " + id);
 		try {
@@ -141,7 +141,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.StockCurrentDataDao#findByExample(PO.StockCurrentData)
 	 */
-	@Transactional
+
 	public List findByExample(StockCurrentData instance) {
 		log.debug("finding StockCurrentData instance by example");
 		try {
@@ -155,7 +155,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 		}
 	}
 
-	@Transactional
+
 	@Override
 	public StockCurrentData queryByHql(String code) {
 		String hql = "from StockCurrentData where code ='" +code+"'";
