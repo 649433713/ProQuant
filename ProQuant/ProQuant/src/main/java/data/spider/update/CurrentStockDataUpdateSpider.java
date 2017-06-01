@@ -3,11 +3,12 @@ package data.spider.update;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
+import java.util.TimerTask;
 
 import org.springframework.stereotype.Service;
 
 @Service("CSDUS")
-public class CurrentStockDataUpdateSpider implements CurrentDataUpdateSpiderService{
+public class CurrentStockDataUpdateSpider extends TimerTask implements CurrentDataUpdateSpiderService{
 
 	@Override
 	public void updateCurrentData() {
@@ -37,7 +38,13 @@ public class CurrentStockDataUpdateSpider implements CurrentDataUpdateSpiderServ
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		System.out.println("Stock run");
+	}
+
+	@Override
+	public void run() {
+
+		updateCurrentData();
 	}
 
 }

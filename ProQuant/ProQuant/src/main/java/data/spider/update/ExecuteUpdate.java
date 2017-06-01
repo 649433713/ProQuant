@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,14 @@ public class ExecuteUpdate {
 	@Qualifier("BBDUS")
 	BasicDataUpdateSpiderService basicBenchDataUpdateSpider;
 
+	@Autowired
+	@Qualifier("CBDUS")
+	CurrentDataUpdateSpiderService currentBenchDataUpdateSpider;
+	@Autowired
+	@Qualifier("CSDUS")
+	CurrentDataUpdateSpiderService currentStockDataUpdateSpider;
+	
+	@PostConstruct
 	public void start() {
 		Calendar calendar = Calendar.getInstance();
 
@@ -35,6 +45,8 @@ public class ExecuteUpdate {
 		timer.scheduleAtFixedRate((TimerTask) basicBenchDataUpdateSpider,date, 86400000);
 		timer.scheduleAtFixedRate((TimerTask) basicStockDataUpdateSpider,date, 86400000);
 
+		timer.scheduleAtFixedRate((TimerTask) currentBenchDataUpdateSpider,0, 60000);
+		timer.scheduleAtFixedRate((TimerTask) currentStockDataUpdateSpider,0, 60000);
 /*		timer.scheduleAtFixedRate((TimerTask) basicBenchDataUpdateSpider,date, 2000);
 		timer.scheduleAtFixedRate((TimerTask) basicStockDataUpdateSpider,date, 2000);
 */

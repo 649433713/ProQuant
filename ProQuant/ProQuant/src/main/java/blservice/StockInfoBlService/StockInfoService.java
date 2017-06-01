@@ -3,6 +3,7 @@ package blservice.StockInfoBlService;
 import VO.StockDataVO;
 import VO.StockKLine;
 import VO.StockVO;
+import model.KLineType;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,9 +25,12 @@ public interface StockInfoService {
      * @param stockNameOrId 股票的名称或id
      * @param startDate 开始日期
      * @param endDate 结束日期
+     * @param kLineType时间类型，日，周，月
+     * @param fp 是否复权
      * @return 返回包含股票K线图数据VO的ArrayList
      */
-    public ArrayList<StockKLine> getStockForKLine(String stockNameOrId, Date startDate, Date endDate);
+    public ArrayList<StockKLine> getStockForKLine(String stockNameOrId, Date startDate, Date endDate
+    		,KLineType kLineType,boolean fq);
 
     /**
      * 获取距离今天的一段时间内的股票历史数据

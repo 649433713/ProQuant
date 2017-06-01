@@ -9,7 +9,7 @@ public class TestExecuteUpdate {
 	public static void main(String[] args) {
 		ExecuteUpdate executeUpdate;
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-context.xml");
-		executeUpdate = context.getBean(ExecuteUpdate.class);
-		executeUpdate.start();
+		/*executeUpdate = context.getBean(ExecuteUpdate.class);
+		executeUpdate.start();*/
 	}
 }

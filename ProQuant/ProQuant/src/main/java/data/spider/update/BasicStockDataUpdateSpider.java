@@ -8,11 +8,13 @@ import java.util.TimerTask;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockDataDao;
 import PO.StockData;
@@ -21,8 +23,7 @@ import PO.StockDataId;
 @Service("BSDUS")
 public class BasicStockDataUpdateSpider extends TimerTask implements BasicDataUpdateSpiderService {
 
-	@Autowired
-	StockDataDao stockDataDao;
+	
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -60,7 +61,12 @@ public class BasicStockDataUpdateSpider extends TimerTask implements BasicDataUp
 					stockData.setAmplitude(Double.parseDouble(tds.get(9).text().replaceAll(",","")));
 					stockData.setTurnoverRatio(Double.parseDouble(tds.get(10).text().replaceAll(",","")));
 					stockData.setId(stockDataId);
-					stockDataDao.persist(stockData);
+					Session session= sessionFactory.openSession();
+					Transaction transaction = session.getTransaction();
+					transaction.begin();
+					session.persist(stockData);
+					transaction.commit();
+					session.close();
 //					System.out.println(stockData);
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block

@@ -35,7 +35,7 @@ public class BenchDataHome implements BenchDataDao{
 	private SessionFactory sessionFactory;
 
 
-	@Transactional
+
 	public void persist(BenchData transientInstance) {
 		log.debug("persisting BenchData instance");
 		try {
@@ -46,7 +46,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void attachDirty(BenchData instance) {
 		log.debug("attaching dirty BenchData instance");
 		try {
@@ -57,7 +57,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void attachClean(BenchData instance) {
 		log.debug("attaching clean BenchData instance");
 		try {
@@ -68,7 +68,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public void delete(BenchData persistentInstance) {
 		log.debug("deleting BenchData instance");
 		try {
@@ -79,7 +79,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public BenchData merge(BenchData detachedInstance) {
 		log.debug("merging BenchData instance");
 		try {
@@ -91,7 +91,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public BenchData findById(BenchDataId id) {
 		log.debug("getting BenchData instance with id: " + id);
 		try {
@@ -107,7 +107,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	public List findByExample(BenchData instance) {
 		log.debug("finding BenchData instance by example");
 		try {
@@ -120,7 +120,7 @@ public class BenchDataHome implements BenchDataDao{
 			throw re;
 		}
 	}
-	@Transactional
+
 	@Override
 	public Map<Date, BenchData> queryByHql(String code,Date start,Date end) {
 		StringBuilder hql = new StringBuilder("from BenchData where code ='").append(code).append("'");

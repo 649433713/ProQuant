@@ -35,7 +35,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#persist(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public void persist(Hs300sData transientInstance) {
 		log.debug("persisting Hs300sData instance");
 		try {
@@ -51,7 +51,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#attachDirty(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public void attachDirty(Hs300sData instance) {
 		log.debug("attaching dirty Hs300sData instance");
 		try {
@@ -67,7 +67,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#attachClean(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public void attachClean(Hs300sData instance) {
 		log.debug("attaching clean Hs300sData instance");
 		try {
@@ -83,7 +83,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#delete(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public void delete(Hs300sData persistentInstance) {
 		log.debug("deleting Hs300sData instance");
 		try {
@@ -99,7 +99,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#merge(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public Hs300sData merge(Hs300sData detachedInstance) {
 		log.debug("merging Hs300sData instance");
 		try {
@@ -116,7 +116,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#findById(long)
 	 */
-	@Transactional
+
 	public Hs300sData findById(long id) {
 		log.debug("getting Hs300sData instance with id: " + id);
 		try {
@@ -137,7 +137,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 		 (non-Javadoc)
 	 * @see DAO.dao.Hs300sDataDao#findByExample(PO.Hs300sData)
 	 */
-	@Transactional
+
 	public List findByExample(Hs300sData instance) {
 		log.debug("finding Hs300sData instance by example");
 		try {

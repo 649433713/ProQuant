@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="PO.BenchCurrentData" table="bench_current_data" catalog="proquant">
         <id name="index" type="java.lang.Integer">
-            <column name="index" />
+            <column name="_index" />
             <generator class="identity" />
         </id>
         <property name="code" type="string">
