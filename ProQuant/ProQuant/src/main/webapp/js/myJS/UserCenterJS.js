@@ -122,9 +122,6 @@ $(function(){
         firstRowIndex = $(this).index();
         if(!operationButtonWasClicked){
             selectThisRow($(this));
-        }else{
-            // alert(this.rowIndex);
-            alert($(this).index());
         }
     });
     $("tr").mouseup(function () {
@@ -147,11 +144,12 @@ $(function(){
     // deEffect();
 
 
-    $("a[title=deleteButton]").click(function (e) {
+    $("a[title=deleteButton]").mousedown(function (event) {
+        event.stopPropagation();
         $(this).parent().parent().remove();
         rowChanged = true;
         operationButtonWasClicked = true;
-
+        // alert($(e.target.parentNode.parentNode.parentNode).find("td")[0].innerText);提示是有效的
 
         //为什么永远都是-1？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？、
         // var trl = $(this).closest("tr");
@@ -169,18 +167,19 @@ $(function(){
         // alert(trl.eq(0).index());
         // var arow = trl.eq(0);
         // alert(arow);
-        alert($(this)[0].parentNode.parentNode.rowIndex);
-        addStyleToRow($(this).parents("td").parents("tr").index(this));
+        // alert($(this)[0].parentNode.parentNode.rowIndex);
+        addStyleToRow();
     });
-
-
+    $("a[title=deleteButton]").mouseup(function () {
+        operationButtonWasClicked = false;
+    });
 });
 
 
 
 
 //为表格行添加样式
-function addStyleToRow(limit_index) {
+function addStyleToRow() {
     var trLists = $("tbody").find("tr");
     for(var i = 0;i < trLists.length;i++){
         var index = trLists.eq(i).index();
@@ -211,22 +210,43 @@ function addStyleToRow(limit_index) {
         //         }
         //     }
         // }
-        if(!rowChanged){
-            if(index % 2 === 1){
-                trLists.eq(i).addClass("oddRowBg");
-            }else{
-                trLists.eq(i).addClass("evenRowBg");
+
+        // if(!rowChanged){
+        //     if(index % 2 === 1){
+        //         trLists.eq(i).addClass("oddRowBg");
+        //     }else{
+        //         trLists.eq(i).addClass("evenRowBg");
+        //     }
+        // }else{
+        //     // if(index >= limit_index){
+        //     //     if(trLists.eq(i).hasClass("oddRowBg")){
+        //     //         trLists.eq(i).removeClass("oddRowBg");
+        //     //         trLists.eq(i).addClass("evenRowBg");
+        //     //     }else if(trLists.eq(i).hasClass("evenRowBg")){
+        //     //         trLists.eq(i).removeClass("evenRowBg");
+        //     //         trLists.eq(i).addClass("oddRowBg");
+        //     //     }
+        //     // }
+        //     if(index % 2 === 1){
+        //         if()
+        //         trLists.eq(i).addClass("oddRowBg");
+        //     }else{
+        //         trLists.eq(i).addClass("evenRowBg");
+        //     }
+        // }
+        var ele = trLists.eq(i);
+        if(index % 2 === 1){
+            if(ele.hasClass("oddRowBg")||(ele.hasClass("evenRowBg"))){
+                ele.removeClass("oddRowBg");
+                ele.removeClass("evenRowBg");
             }
+            ele.addClass("oddRowBg");
         }else{
-            if(index >= limit_index){
-                if(trLists.eq(i).hasClass("oddRowBg")){
-                    trLists.eq(i).removeClass("oddRowBg");
-                    trLists.eq(i).addClass("evenRowBg");
-                }else if(trLists.eq(i).hasClass("evenRowBg")){
-                    trLists.eq(i).removeClass("evenRowBg");
-                    trLists.eq(i).addClass("oddRowBg");
-                }
+            if(ele.hasClass("oddRowBg")||(ele.hasClass("evenRowBg"))){
+                ele.removeClass("oddRowBg");
+                ele.removeClass("evenRowBg");
             }
+            ele.addClass("evenRowBg");
         }
     }
 }
@@ -300,7 +320,7 @@ function selectRows(ele, frIndex, lrIndex) {
     //         $(tableRowList[i]).addClass("selectedClass")
     //     }
     // }
-    if((lrIndex - frIndex)>1){
+    if((lrIndex - frIndex)>=1){
         // setTimeout(showDialog, 200);
         showDialog();
     }else{
@@ -365,6 +385,7 @@ function deleteManyEleOneTime() {
             trLists.eq(i).remove();
         }
     }
+    addStyleToRow();
     hideDialog();
 }
 
