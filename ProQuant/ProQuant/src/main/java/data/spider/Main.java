@@ -1,26 +1,20 @@
 package data.spider;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dataservice.recommendedData.ContinuingQuantityService;
 
 public class Main {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-context.xml");
-		BasicDataSpiderService basicBenchDataSpider= (BasicDataSpiderService) context.getBean("BBDS");
+		ContinuingQuantityService continuingQuantityService = (ContinuingQuantityService) context.getBean("CQU");
 		
-		//List<String> basicBenchCodes =  Arrays.asList("000300","399005","399006");
+	/*	//List<String> basicBenchCodes =  Arrays.asList("000300","399005","399006");
 		List<String> basicBenchCodes =  Arrays.asList("399006");
 		for (String string : basicBenchCodes) {
 			basicBenchDataSpider.test(string, 2010, 2017);
-		}
+		}*/
 	}
 	/*public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-context.xml");

@@ -63,8 +63,8 @@ public class CurrentBenchDataUpdateSpider extends TimerTask implements CurrentDa
 			benchCurrentData.setName(json.getString("stockName"));
 			benchCurrentData.setHigh(json.getDouble("high"));
 			benchCurrentData.setLow(json.getDouble("low"));
-			benchCurrentData.setChange(json.getDouble("netChange"));
-			benchCurrentData.setChangepercent(json.getDouble("netChangeRatio"));
+			benchCurrentData.setNetChange(json.getDouble("netChange"));
+			benchCurrentData.setChg(json.getDouble("netChangeRatio"));
 			benchCurrentData.setVolume(json.getLong("volume"));
 			benchCurrentData.setAmplitudeRatio(json.getDouble("amplitudeRatio"));
 			benchCurrentData.setTurnoverratio(json.getDouble("turnoverRatio"));

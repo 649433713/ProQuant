@@ -20,8 +20,8 @@ public class BenchCurrentData implements java.io.Serializable {
 	private Double high;
 	private Double low;
 	private Double settlement;
-	private Double change;
-	private Double changepercent;
+	private Double netChange;
+	private Double chg;
 	private Long volume;
 	private Double turnoverratio;
 	private Double amplitudeRatio;
@@ -30,7 +30,7 @@ public class BenchCurrentData implements java.io.Serializable {
 	}
 
 	public BenchCurrentData(String code, String name, Date date, Double trade, Double open, Double high, Double low,
-			Double settlement, Double change, Double changepercent, Long volume, Double turnoverratio,
+			Double settlement, Double netChange, Double chg, Long volume, Double turnoverratio,
 			Double amplitudeRatio) {
 		this.code = code;
 		this.name = name;
@@ -40,8 +40,8 @@ public class BenchCurrentData implements java.io.Serializable {
 		this.high = high;
 		this.low = low;
 		this.settlement = settlement;
-		this.change = change;
-		this.changepercent = changepercent;
+		this.netChange = netChange;
+		this.chg = chg;
 		this.volume = volume;
 		this.turnoverratio = turnoverratio;
 		this.amplitudeRatio = amplitudeRatio;
@@ -119,20 +119,20 @@ public class BenchCurrentData implements java.io.Serializable {
 		this.settlement = settlement;
 	}
 
-	public Double getChange() {
-		return this.change;
+	public Double getNetChange() {
+		return this.netChange;
 	}
 
-	public void setChange(Double change) {
-		this.change = change;
+	public void setNetChange(Double netChange) {
+		this.netChange = netChange;
 	}
 
-	public Double getChangepercent() {
-		return this.changepercent;
+	public Double getChg() {
+		return this.chg;
 	}
 
-	public void setChangepercent(Double changepercent) {
-		this.changepercent = changepercent;
+	public void setChg(Double chg) {
+		this.chg = chg;
 	}
 
 	public Long getVolume() {

@@ -14,10 +14,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchDataDao;
-import PO.BenchCurrentData;
 import PO.BenchData;
 import PO.BenchDataId;
 import utility.DateFormater;
@@ -140,6 +138,26 @@ public class BenchDataHome implements BenchDataDao{
 		}
 		
 		return result;
+	}
+
+	@Override
+	public Map<Date, BenchData> queryByHql(Date end, int count, String code) {
+		StringBuilder hql = new StringBuilder("from BenchData where code ='").append(code).append("'");
+		if (end!=null) {
+			String e = DateFormater.formatDay(end);
+			hql.append(" and date <'").append(e).append("'");
+		}
+		hql.append(" order by date desc");
+
+		ArrayList<BenchData> list= (ArrayList<BenchData>) sessionFactory.getCurrentSession().createQuery(hql.toString()).setMaxResults(count).list();
+		Map<Date, BenchData> result = new LinkedHashMap<>();
+		for (BenchData BenchData : list) {
+			result.put(BenchData.getId().getDate(), BenchData);
+		}
+		
+		return result;
+		
+		 
 	}
 
 }

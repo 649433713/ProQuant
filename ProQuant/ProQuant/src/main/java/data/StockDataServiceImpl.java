@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.InfoDataDao;
+import DAO.dao.StockCurrentDataDao;
 import DAO.dao.StockDataDao;
 import PO.InfoData;
+import PO.StockCurrentData;
 import PO.StockData;
 import dataservice.StockDataService;
 import utility.LetterHelper;
@@ -28,6 +30,8 @@ public class StockDataServiceImpl implements StockDataService {
 	private StockDataDao stockDataDao;
 	@Autowired
 	private InfoDataDao infoDataDao;
+	@Autowired
+	private StockCurrentDataDao stockCurrentDataDao;
 	
 	private Map<String, String> nameToCode;
 	
@@ -145,6 +149,12 @@ public class StockDataServiceImpl implements StockDataService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public StockCurrentData getStockCurrentData(String code) {
+		
+		return stockCurrentDataDao.queryByHql(code);
 	}
 
 	
