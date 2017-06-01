@@ -196,4 +196,13 @@ public class StockCurrentData implements java.io.Serializable {
 		this.nmc = nmc;
 	}
 
+	@Override
+	public String toString() {
+		return "StockCurrentData [index=" + index + ", code=" + code + ", name=" + name + ", date=" + date
+				+ ", changepercent=" + changepercent + ", trade=" + trade + ", open=" + open + ", high=" + high
+				+ ", low=" + low + ", settlement=" + settlement + ", volume=" + volume + ", turnoverratio="
+				+ turnoverratio + ", amount=" + amount + ", per=" + per + ", pb=" + pb + ", mktcap=" + mktcap + ", nmc="
+				+ nmc + "]";
+	}
+	
 }

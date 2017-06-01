@@ -24,4 +24,6 @@ public interface BenchDataDao {
 	List findByExample(BenchData instance);
 
 	Map<Date,BenchData> queryByHql(String code,Date start,Date end);
+
+	Map<Date,BenchData> queryByHql(Date end, int count, String code);
 }
