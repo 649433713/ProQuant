@@ -133,3 +133,11 @@
 .displayNone{
     display: none;
 }
+
+.chartChooseButton{
+    outline: none;
+    padding: 0 4px 2px 4px;
+    font-size:16px;
+    background-color: transparent;
+    color: #67A7BA;
+}
