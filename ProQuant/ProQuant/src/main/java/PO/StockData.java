@@ -11,12 +11,12 @@ public class StockData implements java.io.Serializable {
 	private Double high;
 	private Double low;
 	private Double close;
-	private Double netChange;
-	private Double chg;
+	private Double netChange;//涨、跌的值
+	private Double chg;//涨幅跌幅
 	private Double volume;
 	private Double turnover;
 	private Double amplitude;
-	private Double turnoverRatio;
+	private Double turnoverRatio;//换手率
 
 	public StockData() {
 	}

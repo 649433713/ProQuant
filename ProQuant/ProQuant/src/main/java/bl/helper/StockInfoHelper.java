@@ -6,15 +6,20 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import data.StockDataServiceImpl;
+import dataservice.StockDataService;
+
 public class StockInfoHelper {
 	
 	
 	public static String getStockCode(String str){
-//		GetStockData 
+		StockDataService service=new StockDataServiceImpl();
 		Pattern pattern = Pattern.compile("[0-9]*");
 		Matcher isNum = pattern.matcher(str);
 		if(isNum.matches()){
-			return "123";
+			return Integer.toString(service.getCode(str));
 		}
 		return str;
 	}
