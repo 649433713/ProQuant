@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import PO.StockCurrentData;
 import PO.StockData;
 import dataservice.StockDataService;
 
@@ -25,6 +26,13 @@ public class StockDataServiceTest {
 		Map<Date,StockData> result = service.getBasicDateStock(null, 100, "000050");
 		
 		System.out.println(result);
+	}
+	
+	@Test
+	public void getCurrentData() {
+		StockCurrentData data = service.getStockCurrentData("000050");
+		System.out.println(data);
+		
 	}
 
 }

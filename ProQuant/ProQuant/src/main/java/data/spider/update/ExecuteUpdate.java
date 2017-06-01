@@ -10,10 +10,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
-public class ExecuteUpdate {
+public class ExecuteUpdate implements Runnable{
 	@Autowired()
 	@Qualifier("BSDUS")
 	BasicDataUpdateSpiderService basicStockDataUpdateSpider;
@@ -28,7 +27,7 @@ public class ExecuteUpdate {
 	@Qualifier("CSDUS")
 	CurrentDataUpdateSpiderService currentStockDataUpdateSpider;
 	
-	@PostConstruct
+	
 	public void start() {
 		Calendar calendar = Calendar.getInstance();
 
@@ -57,5 +56,15 @@ public class ExecuteUpdate {
 		startDT.setTime(date);
 		startDT.add(Calendar.DAY_OF_MONTH, num);
 		return startDT.getTime();
+	}
+
+	@PostConstruct
+	public void init(){
+		Thread thread=new Thread(this);
+		thread.start();
+	}
+	@Override
+	public void run() {
+		start();
 	}
 }

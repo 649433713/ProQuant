@@ -5,11 +5,13 @@ import java.util.Date;
 import java.util.Map;
 
 import PO.InfoData;
+import PO.StockCurrentData;
 import PO.StockData;
 
 
 public interface StockDataService {
 	
+	public StockCurrentData getStockCurrentData(String code);
 	/**
 	 * 得到一段时间内的股票数据的集合
 	 * @param end 结束的时间，如果为null，则为现在的时间
