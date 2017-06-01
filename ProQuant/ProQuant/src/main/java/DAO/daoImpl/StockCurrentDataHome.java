@@ -12,12 +12,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.StockCurrentDataDao;
 import PO.StockCurrentData;
-import PO.StockCurrentData;
-import PO.StockCurrentDataId;
 
 /**
  * Home object for domain model class StockCurrentData.
@@ -120,7 +117,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 	 * @see DAO.dao.StockCurrentDataDao#findById(PO.StockCurrentDataId)
 	 */
 
-	public StockCurrentData findById(StockCurrentDataId id) {
+	public StockCurrentData findById(long id) {
 		log.debug("getting StockCurrentData instance with id: " + id);
 		try {
 			StockCurrentData instance = (StockCurrentData) sessionFactory.getCurrentSession().get("StockCurrentData",
@@ -136,6 +133,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 			throw re;
 		}
 	}
+
 
 	/**
 		 (non-Javadoc)

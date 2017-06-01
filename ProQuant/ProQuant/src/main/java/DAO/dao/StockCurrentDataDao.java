@@ -1,10 +1,8 @@
 package DAO.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import PO.StockCurrentData;
-import PO.StockCurrentDataId;
 
 public interface StockCurrentDataDao {
 
@@ -18,7 +16,7 @@ public interface StockCurrentDataDao {
 
 	StockCurrentData merge(StockCurrentData detachedInstance);
 
-	StockCurrentData findById(StockCurrentDataId id);
+	StockCurrentData findById(long id);
 
 	List findByExample(StockCurrentData instance);
 

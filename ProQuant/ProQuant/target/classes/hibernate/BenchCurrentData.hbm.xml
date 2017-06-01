@@ -32,7 +32,7 @@
         <property name="settlement" type="java.lang.Double">
             <column name="settlement" precision="22" scale="0" />
         </property>
-        <property name="change" type="java.lang.Double">
+        <property name="change" type="java.lang.Integer">
             <column name="netchange" />
         </property>
         <property name="changepercent" type="java.lang.Double">
