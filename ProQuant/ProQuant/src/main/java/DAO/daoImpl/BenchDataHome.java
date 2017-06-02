@@ -93,7 +93,7 @@ public class BenchDataHome implements BenchDataDao{
 	public BenchData findById(BenchDataId id) {
 		log.debug("getting BenchData instance with id: " + id);
 		try {
-			BenchData instance = (BenchData) sessionFactory.getCurrentSession().get("DAO.BenchData", id);
+			BenchData instance = (BenchData) sessionFactory.getCurrentSession().get("PO.BenchData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -109,7 +109,7 @@ public class BenchDataHome implements BenchDataDao{
 	public List findByExample(BenchData instance) {
 		log.debug("finding BenchData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.BenchData")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.BenchData")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

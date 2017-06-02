@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-6-2 16:54:51 by Hibernate Tools 5.2.1.Final -->
+<!-- Generated 2017-6-3 2:17:17 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
-    <class name="DAO.daoImpl.user.UserData" table="user_data" catalog="proquant" optimistic-lock="version">
+    <class name="PO.user.UserData" table="user_data" catalog="proquant" optimistic-lock="version">
         <id name="username" type="string">
             <column name="username" length="16" />
             <generator class="assigned" />
@@ -14,12 +14,5 @@
         <property name="avatar" type="binary">
             <column name="avatar" />
         </property>
-        <set name="userStockOwneds" table="user_stock_owned" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="username" length="16" not-null="true" />
-            </key>
-            <one-to-many class="DAO.daoImpl.user.UserStockOwned" />
-        </set>
-        <one-to-one name="userAccount" class="DAO.daoImpl.user.UserAccount"></one-to-one>
     </class>
 </hibernate-mapping>

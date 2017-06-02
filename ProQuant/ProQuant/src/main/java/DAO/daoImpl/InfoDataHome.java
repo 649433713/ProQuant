@@ -125,7 +125,7 @@ public class InfoDataHome implements InfoDataDao {
 	public InfoData findById(long id) {
 		log.debug("getting InfoData instance with id: " + id);
 		try {
-			InfoData instance = (InfoData) sessionFactory.getCurrentSession().get("InfoData", id);
+			InfoData instance = (InfoData) sessionFactory.getCurrentSession().get("PO.InfoData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -146,7 +146,7 @@ public class InfoDataHome implements InfoDataDao {
 	public List findByExample(InfoData instance) {
 		log.debug("finding InfoData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("InfoData").add(Example.create(instance))
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.InfoData").add(Example.create(instance))
 					.list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

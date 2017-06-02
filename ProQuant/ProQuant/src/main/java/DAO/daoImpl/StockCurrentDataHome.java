@@ -120,7 +120,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 	public StockCurrentData findById(long id) {
 		log.debug("getting StockCurrentData instance with id: " + id);
 		try {
-			StockCurrentData instance = (StockCurrentData) sessionFactory.getCurrentSession().get("StockCurrentData",
+			StockCurrentData instance = (StockCurrentData) sessionFactory.getCurrentSession().get("PO.StockCurrentData",
 					id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
@@ -143,7 +143,7 @@ public class StockCurrentDataHome implements StockCurrentDataDao {
 	public List findByExample(StockCurrentData instance) {
 		log.debug("finding StockCurrentData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("StockCurrentData")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.StockCurrentData")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

@@ -8,7 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import DAO.dao.UserAccountDao;
 import PO.user.UserAccount;
 
 /**
@@ -16,21 +19,19 @@ import PO.user.UserAccount;
  * @see PO.user.UserAccount
  * @author Hibernate Tools
  */
-public class UserAccountHome {
+@Repository("UserAccountDao")
+public class UserAccountHome implements UserAccountDao {
 
 	private static final Log log = LogFactory.getLog(UserAccountHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext().lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
-		}
-	}
-
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#persist(PO.user.UserAccount)
+	 */
+	@Override
 	public void persist(UserAccount transientInstance) {
 		log.debug("persisting UserAccount instance");
 		try {
@@ -42,6 +43,11 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#attachDirty(PO.user.UserAccount)
+	 */
+	@Override
 	public void attachDirty(UserAccount instance) {
 		log.debug("attaching dirty UserAccount instance");
 		try {
@@ -53,6 +59,11 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#attachClean(PO.user.UserAccount)
+	 */
+	@Override
 	public void attachClean(UserAccount instance) {
 		log.debug("attaching clean UserAccount instance");
 		try {
@@ -64,6 +75,11 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#delete(PO.user.UserAccount)
+	 */
+	@Override
 	public void delete(UserAccount persistentInstance) {
 		log.debug("deleting UserAccount instance");
 		try {
@@ -75,6 +91,11 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#merge(PO.user.UserAccount)
+	 */
+	@Override
 	public UserAccount merge(UserAccount detachedInstance) {
 		log.debug("merging UserAccount instance");
 		try {
@@ -87,10 +108,15 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#findById(java.lang.String)
+	 */
+	@Override
 	public UserAccount findById(java.lang.String id) {
 		log.debug("getting UserAccount instance with id: " + id);
 		try {
-			UserAccount instance = (UserAccount) sessionFactory.getCurrentSession().get("DAO.daoImpl.user.UserAccount",
+			UserAccount instance = (UserAccount) sessionFactory.getCurrentSession().get("PO.user.UserAccount",
 					id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
@@ -104,10 +130,15 @@ public class UserAccountHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserAccountDao#findByExample(PO.user.UserAccount)
+	 */
+	@Override
 	public List findByExample(UserAccount instance) {
 		log.debug("finding UserAccount instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.daoImpl.user.UserAccount")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.user.UserAccount")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

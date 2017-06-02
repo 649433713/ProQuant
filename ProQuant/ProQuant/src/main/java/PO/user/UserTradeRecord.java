@@ -12,9 +12,11 @@ public class UserTradeRecord implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8509774470256229408L;
+	private int id;
 	private String username;
 	private String stockcode;
 	private Integer tradenum;
+	//0为买入 1为卖出
 	private Byte tradetype;
 	private Double tradeprice;
 	private Date date;
@@ -22,18 +24,28 @@ public class UserTradeRecord implements java.io.Serializable {
 	public UserTradeRecord() {
 	}
 
-	public UserTradeRecord(String username) {
-		this.username = username;
+	public UserTradeRecord(int id) {
+		this.id = id;
 	}
 
-	public UserTradeRecord(String username, String stockcode, Integer tradenum, Byte tradetype, Double tradeprice,
+	public UserTradeRecord(int id,String username, String stockcode, Integer tradenum, Byte tradetype, Double tradeprice,
 			Date date) {
+		this.id = id;
 		this.username = username;
 		this.stockcode = stockcode;
 		this.tradenum = tradenum;
 		this.tradetype = tradetype;
 		this.tradeprice = tradeprice;
 		this.date = date;
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {

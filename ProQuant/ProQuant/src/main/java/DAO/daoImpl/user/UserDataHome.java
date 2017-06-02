@@ -8,7 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import DAO.dao.UserDataDao;
 import PO.user.UserData;
 
 /**
@@ -16,21 +19,18 @@ import PO.user.UserData;
  * @see PO.user.UserData
  * @author Hibernate Tools
  */
-public class UserDataHome {
+@Repository("UserDataDao")
+public class UserDataHome implements UserDataDao {
 
 	private static final Log log = LogFactory.getLog(UserDataHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
-
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext().lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
-		}
-	}
-
+	@Autowired
+	private SessionFactory sessionFactory;
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#persist(PO.user.UserData)
+	 */
+	@Override
 	public void persist(UserData transientInstance) {
 		log.debug("persisting UserData instance");
 		try {
@@ -42,6 +42,11 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#attachDirty(PO.user.UserData)
+	 */
+	@Override
 	public void attachDirty(UserData instance) {
 		log.debug("attaching dirty UserData instance");
 		try {
@@ -53,6 +58,11 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#attachClean(PO.user.UserData)
+	 */
+	@Override
 	public void attachClean(UserData instance) {
 		log.debug("attaching clean UserData instance");
 		try {
@@ -64,6 +74,11 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#delete(PO.user.UserData)
+	 */
+	@Override
 	public void delete(UserData persistentInstance) {
 		log.debug("deleting UserData instance");
 		try {
@@ -75,6 +90,11 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#merge(PO.user.UserData)
+	 */
+	@Override
 	public UserData merge(UserData detachedInstance) {
 		log.debug("merging UserData instance");
 		try {
@@ -87,10 +107,15 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#findById(java.lang.String)
+	 */
+	@Override
 	public UserData findById(java.lang.String id) {
 		log.debug("getting UserData instance with id: " + id);
 		try {
-			UserData instance = (UserData) sessionFactory.getCurrentSession().get("DAO.daoImpl.user.UserData", id);
+			UserData instance = (UserData) sessionFactory.getCurrentSession().get("PO.user.UserData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -103,10 +128,15 @@ public class UserDataHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserDataDao#findByExample(PO.user.UserData)
+	 */
+	@Override
 	public List findByExample(UserData instance) {
 		log.debug("finding UserData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.daoImpl.user.UserData")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.user.UserData")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

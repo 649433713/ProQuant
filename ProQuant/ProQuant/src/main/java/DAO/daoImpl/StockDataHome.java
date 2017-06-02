@@ -95,7 +95,7 @@ public class StockDataHome implements StockDataDao{
 	public StockData findById(StockDataId id) {
 		log.debug("getting StockData instance with id: " + id);
 		try {
-			StockData instance = (StockData) sessionFactory.getCurrentSession().get("DAO.StockData", id);
+			StockData instance = (StockData) sessionFactory.getCurrentSession().get("PO.StockData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -111,7 +111,7 @@ public class StockDataHome implements StockDataDao{
 	public List findByExample(StockData instance) {
 		log.debug("finding StockData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.StockData")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.StockData")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

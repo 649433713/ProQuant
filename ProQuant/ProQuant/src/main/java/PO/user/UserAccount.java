@@ -13,24 +13,24 @@ public class UserAccount implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -6197363525843231968L;
 	private String username;
-	private UserData userData;
+	//可交易金额
 	private Double availablePrincipal;
+	//已用于购买的金额
 	private Double storagePrincipal;
+	
 	private Double profit;
 	private Date signdate;
-	private String consecutiveDaysNum;
+	
+	private Integer consecutiveDaysNum;
+	//仅用于计算profit ，不向上层展示
 	private Double historyPrincipal;
 
 	public UserAccount() {
 	}
 
-	public UserAccount(UserData userData) {
-		this.userData = userData;
-	}
-
-	public UserAccount(UserData userData, Double availablePrincipal, Double storagePrincipal, Double profit,
-			Date signdate, String consecutiveDaysNum, Double historyPrincipal) {
-		this.userData = userData;
+	
+	public UserAccount( Double availablePrincipal, Double storagePrincipal, Double profit,
+			Date signdate, Integer consecutiveDaysNum, Double historyPrincipal) {
 		this.availablePrincipal = availablePrincipal;
 		this.storagePrincipal = storagePrincipal;
 		this.profit = profit;
@@ -47,14 +47,7 @@ public class UserAccount implements java.io.Serializable {
 		this.username = username;
 	}
 
-	public UserData getUserData() {
-		return this.userData;
-	}
-
-	public void setUserData(UserData userData) {
-		this.userData = userData;
-	}
-
+	
 	public Double getAvailablePrincipal() {
 		return this.availablePrincipal;
 	}
@@ -87,11 +80,11 @@ public class UserAccount implements java.io.Serializable {
 		this.signdate = signdate;
 	}
 
-	public String getConsecutiveDaysNum() {
+	public Integer getConsecutiveDaysNum() {
 		return this.consecutiveDaysNum;
 	}
 
-	public void setConsecutiveDaysNum(String consecutiveDaysNum) {
+	public void setConsecutiveDaysNum(Integer consecutiveDaysNum) {
 		this.consecutiveDaysNum = consecutiveDaysNum;
 	}
 

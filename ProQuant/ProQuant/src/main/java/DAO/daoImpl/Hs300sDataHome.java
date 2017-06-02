@@ -120,7 +120,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 	public Hs300sData findById(long id) {
 		log.debug("getting Hs300sData instance with id: " + id);
 		try {
-			Hs300sData instance = (Hs300sData) sessionFactory.getCurrentSession().get("Hs300sData", id);
+			Hs300sData instance = (Hs300sData) sessionFactory.getCurrentSession().get("PO.Hs300sData", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -141,7 +141,7 @@ public class Hs300sDataHome implements Hs300sDataDao {
 	public List findByExample(Hs300sData instance) {
 		log.debug("finding Hs300sData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("Hs300sData").add(Example.create(instance))
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.Hs300sData").add(Example.create(instance))
 					.list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

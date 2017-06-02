@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-6-2 16:54:51 by Hibernate Tools 5.2.1.Final -->
+<!-- Generated 2017-6-3 2:17:17 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
-    <class name="DAO.daoImpl.user.UserAccount" table="user_account" catalog="proquant" optimistic-lock="version">
+    <class name="PO.user.UserAccount" table="user_account" catalog="proquant" optimistic-lock="version">
         <id name="username" type="string">
             <column name="username" length="16" />
-            <generator class="foreign">
-                <param name="property">userData</param>
-            </generator>
+            <generator class="assigned" />
         </id>
-        <one-to-one name="userData" class="DAO.daoImpl.user.UserData" constrained="true"></one-to-one>
         <property name="availablePrincipal" type="java.lang.Double">
             <column name="available_principal" precision="22" scale="0" />
         </property>
@@ -23,8 +20,8 @@
         <property name="signdate" type="date">
             <column name="signdate" length="10" />
         </property>
-        <property name="consecutiveDaysNum" type="string">
-            <column name="consecutive_days_num" length="45" />
+        <property name="consecutiveDaysNum" type="java.lang.Integer">
+            <column name="consecutive_days_num" />
         </property>
         <property name="historyPrincipal" type="java.lang.Double">
             <column name="history_principal" precision="22" scale="0">

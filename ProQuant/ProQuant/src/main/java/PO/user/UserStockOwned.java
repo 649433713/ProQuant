@@ -11,20 +11,13 @@ public class UserStockOwned implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -6381951620160009231L;
 	private UserStockOwnedId id;
-	private UserData userData;
 	private Integer stocknum;
 
 	public UserStockOwned() {
 	}
 
-	public UserStockOwned(UserStockOwnedId id, UserData userData) {
+	public UserStockOwned(UserStockOwnedId id, Integer stocknum) {
 		this.id = id;
-		this.userData = userData;
-	}
-
-	public UserStockOwned(UserStockOwnedId id, UserData userData, Integer stocknum) {
-		this.id = id;
-		this.userData = userData;
 		this.stocknum = stocknum;
 	}
 
@@ -36,13 +29,7 @@ public class UserStockOwned implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public UserData getUserData() {
-		return this.userData;
-	}
-
-	public void setUserData(UserData userData) {
-		this.userData = userData;
-	}
+	
 
 	public Integer getStocknum() {
 		return this.stocknum;

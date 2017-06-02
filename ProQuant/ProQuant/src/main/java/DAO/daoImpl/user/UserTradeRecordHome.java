@@ -8,7 +8,11 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import DAO.dao.UserTradeRecordDao;
+import PO.user.UserStockOwned;
 import PO.user.UserTradeRecord;
 
 /**
@@ -16,21 +20,19 @@ import PO.user.UserTradeRecord;
  * @see PO.user.UserTradeRecord
  * @author Hibernate Tools
  */
-public class UserTradeRecordHome {
+@Repository("UserTradeRecordDao")
+public class UserTradeRecordHome implements UserTradeRecordDao {
 
 	private static final Log log = LogFactory.getLog(UserTradeRecordHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext().lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
-		}
-	}
-
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#persist(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public void persist(UserTradeRecord transientInstance) {
 		log.debug("persisting UserTradeRecord instance");
 		try {
@@ -42,6 +44,11 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#attachDirty(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public void attachDirty(UserTradeRecord instance) {
 		log.debug("attaching dirty UserTradeRecord instance");
 		try {
@@ -53,6 +60,11 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#attachClean(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public void attachClean(UserTradeRecord instance) {
 		log.debug("attaching clean UserTradeRecord instance");
 		try {
@@ -64,6 +76,11 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#delete(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public void delete(UserTradeRecord persistentInstance) {
 		log.debug("deleting UserTradeRecord instance");
 		try {
@@ -75,6 +92,11 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#merge(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public UserTradeRecord merge(UserTradeRecord detachedInstance) {
 		log.debug("merging UserTradeRecord instance");
 		try {
@@ -87,11 +109,16 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#findById(java.lang.String)
+	 */
+	@Override
 	public UserTradeRecord findById(java.lang.String id) {
 		log.debug("getting UserTradeRecord instance with id: " + id);
 		try {
 			UserTradeRecord instance = (UserTradeRecord) sessionFactory.getCurrentSession()
-					.get("DAO.daoImpl.user.UserTradeRecord", id);
+					.get("PO.user.UserTradeRecord", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -104,10 +131,15 @@ public class UserTradeRecordHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserTradeRecordDao#findByExample(PO.user.UserTradeRecord)
+	 */
+	@Override
 	public List findByExample(UserTradeRecord instance) {
 		log.debug("finding UserTradeRecord instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.daoImpl.user.UserTradeRecord")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.user.UserTradeRecord")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
@@ -115,5 +147,15 @@ public class UserTradeRecordHome {
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+
+	@Override
+	public List<UserTradeRecord> getUserTradeRecord(String username) {
+		String hql = "from UserTradeRecord where username = '"+username+";";
+		List<UserTradeRecord> result = sessionFactory.getCurrentSession().createQuery(hql, UserTradeRecord.class).list();
+		
+		return result;
+		
+		 
 	}
 }

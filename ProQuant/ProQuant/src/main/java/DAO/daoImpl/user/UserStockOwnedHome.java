@@ -6,9 +6,13 @@ import javax.naming.InitialContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import DAO.dao.UserStockOwnedDao;
 import PO.user.UserStockOwned;
 
 /**
@@ -16,21 +20,19 @@ import PO.user.UserStockOwned;
  * @see PO.user.UserStockOwned
  * @author Hibernate Tools
  */
-public class UserStockOwnedHome {
+@Repository("UserStockOwnedDao")
+public class UserStockOwnedHome implements UserStockOwnedDao {
 
 	private static final Log log = LogFactory.getLog(UserStockOwnedHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	@Autowired
+	private SessionFactory sessionFactory;
 
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext().lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
-		}
-	}
-
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#persist(PO.user.UserStockOwned)
+	 */
+	@Override
 	public void persist(UserStockOwned transientInstance) {
 		log.debug("persisting UserStockOwned instance");
 		try {
@@ -42,6 +44,11 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#attachDirty(PO.user.UserStockOwned)
+	 */
+	@Override
 	public void attachDirty(UserStockOwned instance) {
 		log.debug("attaching dirty UserStockOwned instance");
 		try {
@@ -53,6 +60,11 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#attachClean(PO.user.UserStockOwned)
+	 */
+	@Override
 	public void attachClean(UserStockOwned instance) {
 		log.debug("attaching clean UserStockOwned instance");
 		try {
@@ -64,6 +76,11 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#delete(PO.user.UserStockOwned)
+	 */
+	@Override
 	public void delete(UserStockOwned persistentInstance) {
 		log.debug("deleting UserStockOwned instance");
 		try {
@@ -75,6 +92,11 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#merge(PO.user.UserStockOwned)
+	 */
+	@Override
 	public UserStockOwned merge(UserStockOwned detachedInstance) {
 		log.debug("merging UserStockOwned instance");
 		try {
@@ -87,11 +109,16 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#findById(PO.user.UserStockOwnedId)
+	 */
+	@Override
 	public UserStockOwned findById(PO.user.UserStockOwnedId id) {
 		log.debug("getting UserStockOwned instance with id: " + id);
 		try {
 			UserStockOwned instance = (UserStockOwned) sessionFactory.getCurrentSession()
-					.get("DAO.daoImpl.user.UserStockOwned", id);
+					.get("PO.user.UserStockOwned", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -104,10 +131,15 @@ public class UserStockOwnedHome {
 		}
 	}
 
+	/**
+		 (non-Javadoc)
+	 * @see DAO.dao.UserStockOwnedDao#findByExample(PO.user.UserStockOwned)
+	 */
+	@Override
 	public List findByExample(UserStockOwned instance) {
 		log.debug("finding UserStockOwned instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("DAO.daoImpl.user.UserStockOwned")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.user.UserStockOwned")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;
@@ -116,4 +148,14 @@ public class UserStockOwnedHome {
 			throw re;
 		}
 	}
+
+	@Override
+	public List<UserStockOwned> getUserStockOwned(String username) {
+		String hql = "from UserStockOwned where username = '"+username+";";
+		List<UserStockOwned> result = sessionFactory.getCurrentSession().createQuery(hql, UserStockOwned.class).list();
+		
+		return result;
+	}
+	
+	
 }

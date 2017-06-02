@@ -121,7 +121,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 	public BenchCurrentData findById(java.lang.Integer id) {
 		log.debug("getting BenchCurrentData instance with id: " + id);
 		try {
-			BenchCurrentData instance = (BenchCurrentData) sessionFactory.getCurrentSession().get("BenchCurrentData",
+			BenchCurrentData instance = (BenchCurrentData) sessionFactory.getCurrentSession().get("PO.BenchCurrentData",
 					id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
@@ -143,7 +143,7 @@ public class BenchCurrentDataHome implements BenchCurrentDataDao {
 	public List findByExample(BenchCurrentData instance) {
 		log.debug("finding BenchCurrentData instance by example");
 		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("BenchCurrentData")
+			List results = sessionFactory.getCurrentSession().createCriteria("PO.BenchCurrentData")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: " + results.size());
 			return results;

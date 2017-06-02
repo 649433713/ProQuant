@@ -106,5 +106,31 @@ public class DateHelper
 			}
 			return newDate;
 		}
+		
+		public static boolean isToday(Date date) {
+			Calendar today = Calendar.getInstance();
+			Calendar temp = Calendar.getInstance();
+			temp.setTime(date);
+			
+			if (today.get(Calendar.DAY_OF_MONTH)==temp.get(Calendar.DAY_OF_MONTH)
+					&&today.get(Calendar.MONTH)==temp.get(Calendar.MONTH)
+						&&today.get(Calendar.YEAR)==temp.get(Calendar.YEAR)) {
+				return true;
+			}
+			return false;
+		}
+		
+		public static boolean isYesterday(Date date) {
+			Calendar today = Calendar.getInstance();
+			Calendar temp = Calendar.getInstance();
+			temp.setTime(date);
+			temp.add(Calendar.DAY_OF_MONTH, 1);
+			if (today.get(Calendar.DAY_OF_MONTH)==temp.get(Calendar.DAY_OF_MONTH)
+					&&today.get(Calendar.MONTH)==temp.get(Calendar.MONTH)
+						&&today.get(Calendar.YEAR)==temp.get(Calendar.YEAR)) {
+				return true;
+			}
+			return false;
+		}
 
 }
