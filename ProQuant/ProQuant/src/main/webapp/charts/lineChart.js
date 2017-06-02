@@ -30,25 +30,13 @@ function lineChart(stockNameArray) {
         };
         yData[i] = yData1;
     }
-    // alert(yData);
-
 
     option = {
         tooltip : {
             trigger: 'axis'
         },
         legend: {
-            data:['最高气温','最低气温']
-        },
-        toolbox: {
-            show : true,
-            feature : {
-                mark : {show: true},
-                dataView : {show: true, readOnly: false},
-                magicType : {show: true, type: ['line', 'bar']},
-                restore : {show: true},
-                saveAsImage : {show: true}
-            }
+            data:stockNameArray
         },
         calculable : true,
         xAxis : [
@@ -87,10 +75,16 @@ function lineChart(stockNameArray) {
         var items = {
             name:stockNameArray[i],
             type:'line',
-            data:yData[i]
+            data:yData[i],
+            lineStyle:{
+                normal:{
+                    width:1
+                }
+            }
         };
         seriesData.push(items);
     }
+    // option.legend.data = legendData;
 
     option.series = seriesData;
     chart.setOption(option);

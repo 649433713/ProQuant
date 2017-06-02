@@ -294,8 +294,8 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="headLabel">走势对比<span style="font-size: 15px;font-weight: 500">  (请在左侧添加对比股票)</span></div>
-                        <div class="whiteBackground" style="padding: 15px;margin-bottom: 10px">
-                            <div style="margin-bottom: 5px">
+                        <div class="whiteBackground" style="padding-top: 15px;margin-bottom: 10px">
+                            <div style="margin-bottom: 5px;margin-left: 15px">
                                 <ul>
                                     <li style="display: inline-block"><button class="chartChooseButton hotStockBottomBorder">分时图</button></li>
                                     <li style="display: inline-block"><button class="chartChooseButton">涨跌幅</button></li>
@@ -303,6 +303,176 @@
                                 </ul>
                             </div>
                             <div id="compareChartContainer" style="height: 480px"></div>
+                        </div>
+
+                        <div class="headLabel" style="margin-top: 10px">基本指标对比</div>
+                        <div class="whiteBackground" style="padding: 15px;margin-bottom: 15px">
+                            <table class="table table-bordered table-condensed table-striped">
+                                <thead>
+                                    <tr id="compareTableHead">
+                                        <th style="width: 16%">对比项</th>
+                                        <th style="width: 16%">--</th>
+                                        <th style="width: 16%">--</th>
+                                        <th style="width: 16%">--</th>
+                                        <th style="width: 16%">--</th>
+                                        <th style="width: 16%">--</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="compareIndex">一周涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">一月涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">三月涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">半年涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">一年涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">市盈率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">市净率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">市现率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">市销率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">一周涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">每股收益</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">销售净利润</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">一周涨跌</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">资产收益率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">资产负债率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">流动比率</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">主营收入</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">净利润</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="compareIndex">总资产</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                        <td>--</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

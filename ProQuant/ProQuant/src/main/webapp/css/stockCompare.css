@@ -110,6 +110,10 @@
     outline:none;
 }
 
+.compareIndex{
+    font-weight: bold;
+}
+
 .hotStockBottomBorder{
     border-bottom: 2px solid #407Fce;
 }
