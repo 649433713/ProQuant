@@ -43,19 +43,19 @@
         <div class="content-holder">
             <div class="personal-info-holder">
                 <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer">
-                <span>Welcome!</span><span>XXX</span><span><img src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
+                <span>Welcome!</span><span id="username">XXX</span><span><img id="edit-button" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
             </div>
             <div class="function-zone">
                 <div class="bootstrap-tab">
                     <ul class="nav nav-tabs">
                         <li class="active" id="tab0"><a href="#" style="cursor: pointer">个人账户</a></li>
                         <li  id="tab1"><a href="#">自选股</a></li>
-                        <!--<li id="tab2"><a href="#">创建策略记录</a></li>-->
                         <li id="tab3"><a href="#">使用策略记录</a></li>
                         <li id="tab4"><a href="#">浏览个股历史</a></li>
                         <button id="clear-button">清空</button>
                     </ul>
                 </div>
+                <!--标签页下面的功能区部分-->
                 <div class="function-content" id="user-account-part">
                     <div class="user-data-holder">
                         <div>
@@ -208,7 +208,6 @@
                         </table>
                     </div>
                 </div>
-                <!--标签页下面的功能区部分-->
                 <div class="function-content zixuangu-part disappear" id="zixuangu-part">
                    <table class="table-hover table-responsive">
                        <thead>
@@ -431,29 +430,31 @@
                     </table>
                 </div>
                 <div class="function-content history-part disappear" id="history-part">
-                    <table class="table-hover table-responsive">
-                        <thead>
-                        <tr>
-                            <th>序号</th>
-                            <th>股票ID</th>
-                            <th>股票名称</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a>000000</a>
-                            </td>
-                            <td>
-                                <a>测试股</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div>
-                        <div class="head"></div>
-                        <div></div>
+                    <div style="display: inline-block;">
+                        <table class="table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>股票ID</th>
+                                <th>股票名称</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a>000000</a>
+                                </td>
+                                <td>
+                                    <a>测试股</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="Easter-Egg">
+                        <div class="head-image-box"></div>
+                        <div class="text-box"></div>
                     </div>
                 </div>
             </div>
@@ -493,6 +494,30 @@
             <input type="button" value="取消" style="background-color: #8c8c8c" id="cancel-button">
         </div>
     </div>
+
+    <div class="edit-info-holder disappear">
+        <div class="left-triangle"><!--本Div只来实现三角形，无其他作用--></div>
+        <div class="id-holder">
+            <label>账号</label>
+        </div>
+        <div class="username-holder">
+            <label>用户名</label>
+            <span id="username">Luminary</span>
+        </div>
+        <div class="old-password-holder">
+            <label>原密码</label>
+            <input type="password">
+        </div>
+        <div class="new-password-holder">
+            <label>新密码</label>
+            <input type="text">
+        </div>
+        <div class="save-button-holder">
+            <button type=""></button>
+            <button type="button">保存</button>
+        </div>
+    </div>
+
 </body>
 </html>
 

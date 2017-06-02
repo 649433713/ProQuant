@@ -214,6 +214,26 @@
 #usestrategy-part tbody td + td + td + td + td + td + td + td +td{
     width: 73px;
 }
+
+
+#history-part thead th{
+    width: 98px;
+}
+#history-part thead th + th{
+    width: 98px;
+}
+#history-part thead th + th + th{
+    width: 100px;
+}
+#history-part tbody td{
+    width: 98px;
+}
+#history-part tbody td + td{
+    width: 98px;
+}
+#history-part tbody td + td + td{
+    width: 100px;
+}
 /*#user-account-part thead th, #zixuangu-part thead th, #makestrategy-part thead th, #usestrategy-part thead th, #history-part thead th{*/
     /*width: 200px;*/
 /*}*/
@@ -243,13 +263,9 @@
     background-color: #E8E9E8;
 }
 
-.user-main-body .content-holder .function-zone .history-part table{
-    width: 60%;
-    margin: 3px auto;
-}
 
 .user-main-body .content-holder .function-zone .function-content th, .user-main-body .content-holder .function-zone .function-content td{
-    line-height: 24px;
+    line-height: 21px;
     text-align: center;
     padding: 3px 12px;
     font-size: 12px;
@@ -449,6 +465,24 @@
 
 
 /*单独设置history-part*/
+/*父节点浮出流，对子节点会有影响？？？？？？？？？？？？*/
+#history-part table{
+    width: 297px;
+    position: absolute;
+    top: 3px;
+    left: 5px;
+}
+.Easter-Egg{
+    display: inline-block;
+    width: 470px;
+    height: 395px;
+    position: absolute;
+    top: 3px;
+    /*right: 5px;*/
+    left: 320px;
+    background-color: #296ec2;
+    margin: 3px auto;
+}
 
 
 /*隐藏对话框的样式*/
@@ -508,4 +542,46 @@
 }
 .evenRowBg{
     background-color: #ffffff;
+}
+
+
+.edit-info-holder{
+    position: absolute;
+    z-index: 100000;
+    text-align: center;
+    top: 80px;
+    left: 480px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding: 10px;
+    background-color: #407fce;
+    opacity: 0.8;
+}
+.left-triangle{
+    position:absolute;
+    /*bottom:15px;*/
+    top: 15px;
+    left:-5px;
+    width:0;
+    height:0;
+    border-top:15px solid transparent;
+    border-bottom:15px solid transparent;
+    border-right:15px solid #407fce;
+
+}
+
+.username-holder label, .new-password-holder label, .old-password-holder label{
+    width: 50px;
+    height: 30px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.save-button-holder button{
+    background-color: #73b666;
+    color: #FFFFFF;
+    width: 70px;
+    height: 26px;
+    border-radius: 5px;
 }
