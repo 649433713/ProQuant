@@ -6,6 +6,10 @@ package PO.user;
  */
 public class UserStockOwnedId implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 537869526003291028L;
 	private String username;
 	private String stockcode;
 

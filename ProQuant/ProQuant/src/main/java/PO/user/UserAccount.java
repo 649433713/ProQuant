@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class UserAccount implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6197363525843231968L;
 	private String username;
 	private UserData userData;
 	private Double availablePrincipal;

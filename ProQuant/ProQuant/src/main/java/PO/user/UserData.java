@@ -9,6 +9,10 @@ import java.util.Set;
  */
 public class UserData implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9027213216788385011L;
 	private String username;
 	private String password;
 	private byte[] avatar;

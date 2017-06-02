@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class UserTradeRecord implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8509774470256229408L;
 	private String username;
 	private String stockcode;
 	private Integer tradenum;
