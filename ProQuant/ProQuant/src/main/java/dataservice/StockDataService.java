@@ -11,6 +11,12 @@ import PO.StockData;
 
 public interface StockDataService {
 	
+	
+	/**
+	 * @TODO：获得当前股票价格信息
+	 * @param code
+	 * @return
+	 */
 	public StockCurrentData getStockCurrentData(String code);
 	/**
 	 * 得到一段时间内的股票数据的集合
@@ -38,6 +44,11 @@ public interface StockDataService {
 	
 	public String getName(String code);
 	
+	/**
+	 * @TODO：获得该股票公司相关信息
+	 * @param code
+	 * @return
+	 */
 	public InfoData getStockInfo(String code);
     
 }
