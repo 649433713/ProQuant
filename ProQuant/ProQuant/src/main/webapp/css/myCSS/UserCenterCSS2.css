@@ -68,18 +68,168 @@
 
 
 /*实现表格内容自动滚动显示开始*/
-.user-main-body .content-holder .function-zone .function-content{
-
-}
-/*.user-main-body .content-holder .function-zone .function-content thead  tr {*/
-    /*!*display: block;*!*/
-/*}*/
-.user-main-body .content-holder .function-zone .function-content table tbody{
+.user-main-body .content-holder .function-zone .function-content thead  tr {
+    text-align: left;
     /*display: block;*/
-    height: 300px;
-    overflow: scroll;
-
 }
+.user-main-body .content-holder .function-zone .function-content thead  tr th, .user-main-body .content-holder .function-zone .function-content tbody tr td{
+    display: inline-block;
+}
+.user-main-body .content-holder .function-zone .function-content table tbody{
+    display: block;
+    overflow: scroll;
+}
+.user-main-body .content-holder .function-zone #user-account-part table tbody{
+    height: 300px;
+}
+/*上面的两个css样式实现了内容的滚动，但是会将表格行中所有单元格都集中在表格最左侧,所以要给每一个th和td来设置宽度*/
+#user-account-part thead th{
+    width: 99px;
+}
+#user-account-part thead th + th{
+    width: 97px;
+}
+#user-account-part thead th + th + th{
+    width: 97px;
+}
+#user-account-part thead th + th + th + th{
+    width: 97px;
+}
+#user-account-part thead th + th + th + th + th{
+    width: 99px;
+}
+#user-account-part tbody td{
+    width: 99px;
+}
+#user-account-part tbody td + td{
+    width: 97px;
+}
+#user-account-part tbody td + td + td{
+    width: 97px;
+}
+#user-account-part tbody td + td + td + td{
+    width: 97px;
+}
+#user-account-part tbody td + td + td + td + td{
+    width: 99px;
+}
+
+
+#zixuangu-part thead th{
+    width: 60px;
+}
+#zixuangu-part thead th + th{
+    width: 120px;
+}
+#zixuangu-part thead th + th + th{
+    width: 120px;
+}
+#zixuangu-part thead th + th + th + th{
+    width: 120px;
+}
+#zixuangu-part thead th + th + th + th + th{
+    width: 120px;
+}
+#zixuangu-part thead th + th + th + th + th + th{
+    width: 120px;
+}
+#zixuangu-part thead th + th + th + th + th + th + th{
+    width: 122px;
+}
+
+#zixuangu-part tbody td{
+    width: 60px;
+}
+#zixuangu-part tbody td + td{
+    width: 120px;
+}
+#zixuangu-part tbody td + td + td{
+    width: 120px;
+}
+#zixuangu-part tbody td + td + td + td{
+    width: 120px;
+}
+#zixuangu-part tbody td + td + td + td + td{
+    width: 120px;
+}
+#zixuangu-part tbody td + td + td + td + td + td{
+    width: 120px;
+}
+#zixuangu-part tbody td + td + td + td + td + td + td{
+    width: 122px;
+}
+
+
+#usestrategy-part thead th{
+    width: 50px;
+}
+#usestrategy-part thead th + th{
+    width: 100px;
+}
+#usestrategy-part thead th + th + th{
+    width: 100px;
+}
+#usestrategy-part thead th + th + th + th{
+    width: 100px;
+}
+#usestrategy-part thead th + th + th + th + th{
+    width: 75px;
+}
+#usestrategy-part thead th + th + th + th + th + th{
+    width: 75px;
+}
+#usestrategy-part thead th + th + th + th + th + th + th{
+    width: 100px;
+}
+#usestrategy-part thead th + th + th + th + th + th + th + th{
+    width: 110px;
+}
+#usestrategy-part thead th + th + th + th + th + th + th + th + th{
+    width: 73px;
+}
+#usestrategy-part tbody td{
+    width: 50px;
+}
+#usestrategy-part tbody td + td{
+    width: 100px;
+}
+#usestrategy-part tbody td + td + td{
+    width: 100px;
+}
+#usestrategy-part tbody td + td + td + td{
+    width: 100px;
+}
+#usestrategy-part tbody td + td + td + td + td{
+    width: 75px;
+}
+#usestrategy-part tbody td + td + td + td + td + td{
+    width: 75px;
+}
+#usestrategy-part tbody td + td + td + td + td + td + td{
+    width: 100px;
+}
+#usestrategy-part tbody td + td + td + td + td + td + td + td{
+    width: 110px;
+}
+#usestrategy-part tbody td + td + td + td + td + td + td + td +td{
+    width: 73px;
+}
+/*#user-account-part thead th, #zixuangu-part thead th, #makestrategy-part thead th, #usestrategy-part thead th, #history-part thead th{*/
+    /*width: 200px;*/
+/*}*/
+/*!*#user-account-part thead th + th{*!*/
+    /*!*!*width: 160px;*!*!*/
+/*!*}*!*/
+/*!*#user-account-part thead th + th + th{*!*/
+    /*!*width: 240px;*!*/
+/*!*}*!*/
+/*#user-account-part tbody td, #zixuangu-part tbody td, #makestrategy-part tbody td, #usestrategy-part tbody td, #history-part tbody td{*/
+    /*width: 150px;*/
+/*}*/
+/*!*#user-account-part tbody td{*!*/
+    /*!*width: 150px;*!*/
+/*!*}*!*/
+
 /*实现表格内容自动滚动显示结束*/
 
 
@@ -99,9 +249,9 @@
 }
 
 .user-main-body .content-holder .function-zone .function-content th, .user-main-body .content-holder .function-zone .function-content td{
-    line-height: 20px;
+    line-height: 24px;
     text-align: center;
-    padding: 3px 16px;
+    padding: 3px 12px;
     font-size: 12px;
     border:solid #EBEFF0;
     border-width:0px 1px 1px 0px;
@@ -127,7 +277,7 @@
 
 .user-main-body .content-holder .function-zone .function-content td a img{
     width: 20px;
-    height: 30px;
+    height: 20px;
 }
 
 
@@ -220,15 +370,28 @@
     margin: 15px;
 }
 
+
 #user-account-part .deal-record-holder h2{
+    display: inline-block;
     margin-left: 7px;
     margin-bottom: 10px;
     padding-left: 5px;
-    border-left: 3px solid #296ec2;
     font-size: 16px;
     width: 80px;
     font-weight: 700;
     color: #296ec2;
+}
+#user-account-part .deal-record-holder h2:hover{
+    background-color: #e8e8e8;
+}
+#user-account-part .deal-record-holder h2 a:hover{
+    text-decoration: none;
+}
+.secondTabActive{
+    border-left: 3px solid #d9534f;
+}
+.secondTabDeActive{
+    border-left: 3px solid #296ec2;
 }
 
 /*清空按钮的样式*/
@@ -240,7 +403,7 @@
     color: #ffffff;
     border-radius: 5px;
     border: 1px solid #ffffff;
-    margin-left: 200px;
+    margin-left: 328px;
     display: none;
 }
 
@@ -283,6 +446,9 @@
 }
 
 
+
+
+/*单独设置history-part*/
 
 
 /*隐藏对话框的样式*/
