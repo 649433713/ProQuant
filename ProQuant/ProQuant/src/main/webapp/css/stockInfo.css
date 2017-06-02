@@ -154,3 +154,12 @@
     border:  0px solid transparent !important;
 }
 
+#buyButton{
+    outline:none;
+    /*background-color:#D47859;*/
+    background-color: #D75442;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
