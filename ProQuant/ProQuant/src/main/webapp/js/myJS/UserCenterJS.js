@@ -6,8 +6,7 @@
 //     是因为最一开始行上是没有类的，这时要添加新类，而进行过操作的行是有类的，这时要将原有的类替换为新的类（奇->偶/偶->奇）
 //operationButtonWasClicked用来标识删除键或其他操作键是否被点击，以区分是在行上的点击事件还是在这些功能键上的点击,
 //    该状态需要注意的是什么是否被置为false
-var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked;
-var specialIndex;
+var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked, edit_dialogIsShowed;
 
 
 $(function(){
@@ -15,7 +14,7 @@ $(function(){
     operationButtonWasClicked = false;
     //为tab标签设置点击事件
     var tablist = ["#tab0", "#tab1", "#tab2", "#tab3", "#tab4"];
-    var pagelist = ["#user-account-part", "#zixuangu-part", "#makestrategy-part", "#usestrategy-part", "#history-part"];
+    var pagelist = ["#user-account-part",,"#zixuangu-part", "#usestrategy-part", "#history-part"];
     function myRemoveOtherClass(tabName) {
         for(var i = 0;i < tablist.length;i++)
         {
@@ -50,13 +49,13 @@ $(function(){
         $("#clear-button").show();
         showPage("#zixuangu-part");
     });
-    $("#tab2").click(function () {
-        $(this).addClass("active");
-        myRemoveOtherClass("#tab2");
-        $("#makestrategy-part").removeClass("disappear");
-        $("#clear-button").show();
-        showPage("#makestrategy-part");
-    });
+    // $("#tab2").click(function () {
+    //     $(this).addClass("active");
+    //     myRemoveOtherClass("#tab2");
+    //     $("#").removeClass("disappear");
+    //
+    //     showPage("#user-info-part");
+    // });
     $("#tab3").click(function () {
         $(this).addClass("active");
         myRemoveOtherClass("#tab3");
@@ -117,14 +116,17 @@ $(function(){
     //         alert($(this).index());
     //     }
     // });
-    $("table tr").mousedown(function () {
+
+
+    //这样写是不是行数突然变多了 ~_~
+    $("#zixuangu-part").find("tr").mousedown(function () {
         mouseIsDown = true;
         firstRowIndex = $(this).index();
         if(!operationButtonWasClicked){
             selectThisRow($(this));
         }
     });
-    $("tr").mouseup(function () {
+    $("#zixuangu-part").find("tr").mouseup(function () {
         mouseIsDown = false;
         lastRowIndex = $(this).index();
         currentEle = $(this);
@@ -132,7 +134,51 @@ $(function(){
             selectRows(currentEle, firstRowIndex, lastRowIndex);
         }
     });
-    $("tr").mouseover(function () {
+    $("#zixuangu-part").find("tr").mouseover(function () {
+        if(mouseIsDown){
+            if(!operationButtonWasClicked){
+                selectThisRow($(this));
+            }
+        }
+    });
+    $("#makestrategy-part").find("tr").mousedown(function () {
+        mouseIsDown = true;
+        firstRowIndex = $(this).index();
+        if(!operationButtonWasClicked){
+            selectThisRow($(this));
+        }
+    });
+    $("#makestrategy-part").find("tr").mouseup(function () {
+        mouseIsDown = false;
+        lastRowIndex = $(this).index();
+        currentEle = $(this);
+        if(!operationButtonWasClicked){
+            selectRows(currentEle, firstRowIndex, lastRowIndex);
+        }
+    });
+    $("#makestrategy-part").find("tr").mouseover(function () {
+        if(mouseIsDown){
+            if(!operationButtonWasClicked){
+                selectThisRow($(this));
+            }
+        }
+    });
+    $("#usestrategy-part").find("tr").mousedown(function () {
+        mouseIsDown = true;
+        firstRowIndex = $(this).index();
+        if(!operationButtonWasClicked){
+            selectThisRow($(this));
+        }
+    });
+    $("#usestrategy-part").find("tr").mouseup(function () {
+        mouseIsDown = false;
+        lastRowIndex = $(this).index();
+        currentEle = $(this);
+        if(!operationButtonWasClicked){
+            selectRows(currentEle, firstRowIndex, lastRowIndex);
+        }
+    });
+    $("#usestrategy-part").find("tr").mouseover(function () {
         if(mouseIsDown){
             if(!operationButtonWasClicked){
                 selectThisRow($(this));
@@ -140,6 +186,51 @@ $(function(){
         }
     });
 
+    $("#history-part").find("tr").find("tr").mousedown(function () {
+        mouseIsDown = true;
+        firstRowIndex = $(this).index();
+        if(!operationButtonWasClicked){
+            selectThisRow($(this));
+        }
+    });
+    $("#history-part").find("tr").mouseup(function () {
+        mouseIsDown = false;
+        lastRowIndex = $(this).index();
+        currentEle = $(this);
+        if(!operationButtonWasClicked){
+            selectRows(currentEle, firstRowIndex, lastRowIndex);
+        }
+    });
+    $("#history-part").find("tr").mouseover(function () {
+        if(mouseIsDown){
+            if(!operationButtonWasClicked){
+                selectThisRow($(this));
+            }
+        }
+    });
+
+    // $("table tr").mousedown(function () {
+    //     mouseIsDown = true;
+    //     firstRowIndex = $(this).index();
+    //     if(!operationButtonWasClicked){
+    //         selectThisRow($(this));
+    //     }
+    // });
+    // $("tr").mouseup(function () {
+    //     mouseIsDown = false;
+    //     lastRowIndex = $(this).index();
+    //     currentEle = $(this);
+    //     if(!operationButtonWasClicked){
+    //         selectRows(currentEle, firstRowIndex, lastRowIndex);
+    //     }
+    // });
+    // $("tr").mouseover(function () {
+    //     if(mouseIsDown){
+    //         if(!operationButtonWasClicked){
+    //             selectThisRow($(this));
+    //         }
+    //     }
+    // });
     //为所有不是行的地方设置监听事件，点击之后选中的行取消选中，如果提示框在就隐藏
     // deEffect();
 
@@ -172,6 +263,37 @@ $(function(){
     });
     $("a[title=deleteButton]").mouseup(function () {
         operationButtonWasClicked = false;
+    });
+
+
+
+    //为个人账户部分内部的切换标签页设置事件监听
+    $("#second-tab1").click(function () {
+        $(this).removeClass("secondTabDeActive");
+        $(this).addClass("secondTabActive");
+        $("#second-tab2").removeClass("secondTabActive");
+        $("#second-tab2").addClass("secondTabDeActive");
+    });
+    $("#second-tab2").click(function () {
+        $(this).removeClass("secondTabDeActive");
+        $(this).addClass("secondTabActive");
+        $("#second-tab1").removeClass("secondTabActive");
+        $("#second-tab1").addClass("secondTabDeActive");
+    });
+    
+    
+    
+    //修改个人信息的按钮
+    $("#edit-button").click(function (e) {
+        edit_dialogIsShowed = true;
+        e.stopPropagation();
+        $(".edit-info-holder").removeClass("disappear");
+    });
+    $("body").click(function (e) {
+        e.stopPropagation();
+        if(edit_dialogIsShowed){
+            $(".edit-info-holder").addClass("disappear");
+        }
     });
 });
 

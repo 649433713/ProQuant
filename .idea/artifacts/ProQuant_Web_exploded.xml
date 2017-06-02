@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ProQuant:Web exploded">
+    <output-path>$PROJECT_DIR$/ProQuant/ProQuant/src/main/webapp/WEB-INF/classes/artifacts/ProQuant_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ProQuant/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ProQuant" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
