@@ -51,6 +51,7 @@ $(function () {
     });
 
     $("#compareButton").click(function () {
+        fillInTable(stockNameArray);
         lineChart(stockNameArray);
     });
 })
@@ -94,7 +95,19 @@ function indexOf(val) {
     for(var i = 0; i < stockNameArray.length; i++){
         if(stockNameArray[i] == val){
             return i;
-        }
+    }
     }
     return -1;
+}
+
+/**
+ * 将对比的股票信息填写到股票表格中
+ * @param stockNameArray 对比的股票名称
+ */
+function fillInTable(stockNameArray) {
+    for(var i = 0; i < stockNameArray.length; i++){
+        var $a = $("<a>"+stockNameArray[i]+"</a>");
+        $("#compareTableHead th:eq("+(i+1)+")").text("");
+        $("#compareTableHead th:eq("+(i+1)+")").append($a);
+    }
 }
