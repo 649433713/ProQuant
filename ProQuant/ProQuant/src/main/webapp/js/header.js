@@ -33,6 +33,11 @@ $(function () {
 
 })
 
+/**
+ * 滑出提示框
+ * @param index 0表示成功，1表示失败，2表示提醒
+ * @param remindness 提示的文字
+ */
 function slidein(index, remindness) {
 
     var pics = ["green_pic", "red_pic", "yellow_pic"];

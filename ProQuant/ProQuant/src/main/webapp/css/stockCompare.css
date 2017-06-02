@@ -99,3 +99,45 @@
     outline: none;
     margin-left: 23%;
 }
+
+/*热门股票按钮*/
+.hotStockButton{
+    width: 49%;
+    padding-bottom: 2px;
+    font-size: 18px;
+    background-color: white;
+    color: #67A7BA;
+    outline:none;
+}
+
+.hotStockBottomBorder{
+    border-bottom: 2px solid #407Fce;
+}
+
+.addCompareStockButton{
+    outline:none;
+    color: white;
+    background-color: #67A7BA;
+    border-radius: 5px;
+    padding: 2px 4px;
+}
+
+.redFont{
+    color: #C10D01;
+}
+
+.greenFont{
+    color: #008000;
+}
+
+.displayNone{
+    display: none;
+}
+
+.chartChooseButton{
+    outline: none;
+    padding: 0 4px 2px 4px;
+    font-size:16px;
+    background-color: transparent;
+    color: #67A7BA;
+}

@@ -31,6 +31,6 @@ function showPromptDoalog(jq_ele) {
         width = jq_ele.width(),
         height = jq_ele.height();
     dia.style.left = offsetX + width + 10 + "px";
-    dia.style.top = offsetY + (height / 2) - 20 + "px";
+    dia.style.top = offsetY + (height / 2) - 28 + "px";
     dia.style.display = "block";
 }
