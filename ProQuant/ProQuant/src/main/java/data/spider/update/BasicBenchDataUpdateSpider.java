@@ -47,6 +47,8 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 			BenchDataId benchDataId;
 			SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
 			Elements tds = trs.first().select("td");
+//			Elements tds = trs.get(1).select("td");
+			
 			if (tds.size()!=0) {
 				benchData = new BenchData();
 				benchDataId = new BenchDataId();
@@ -65,7 +67,7 @@ public class BasicBenchDataUpdateSpider extends TimerTask implements BasicDataUp
 					Session session= sessionFactory.openSession();
 					Transaction transaction = session.getTransaction();
 					transaction.begin();
-					session.persist(benchData);
+					session.merge(benchData);
 					transaction.commit();
 					session.close();
 					//System.out.println(benchData);

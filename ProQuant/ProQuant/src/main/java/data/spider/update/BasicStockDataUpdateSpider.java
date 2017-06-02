@@ -57,7 +57,10 @@ public class BasicStockDataUpdateSpider extends TimerTask implements BasicDataUp
 		StockDataId stockDataId;
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		Elements tds = trs.first().select("td");
-
+		/*if (trs.size()==1) {
+			return;
+		}
+		Elements tds = trs.get(1).select("td");*/
 		if (tds.size() != 0) {
 			stockData = new StockData();
 			stockDataId = new StockDataId();
