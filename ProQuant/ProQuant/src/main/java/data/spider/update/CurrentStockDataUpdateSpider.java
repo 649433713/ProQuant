@@ -25,20 +25,23 @@ public class CurrentStockDataUpdateSpider extends TimerTask implements CurrentDa
 		}
 		String path = null;
 		try {
-			path = java.net.URLDecoder.decode(getClass().getClassLoader().getResource("").getPath().substring(1),"utf-8");
+			path = java.net.URLDecoder.decode(System.getProperty("user.dir"),"utf-8");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String command = "python "+path+"pythonSpider/getCurrentData.py";
+		String command = "python "+path+"/target/classes/pythonSpider/getCurrentData.py";
 		try {
 			Process process = Runtime.getRuntime().exec(command);
+		
 			process.waitFor();
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Stock run");
+		System.out.println("Stock run=="+command);
+		//python C:/Users/凡/git/ProQuant/ProQuant/target/classes/pythonSpider/getCurrentData.py
+		//python C:/Users/凡/git/ProQuant/ProQuant/target/test-classes/pythonSpider/getCurrentData.py
 	}
 
 	@Override

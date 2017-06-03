@@ -151,7 +151,7 @@ public class UserTradeRecordHome implements UserTradeRecordDao {
 
 	@Override
 	public List<UserTradeRecord> getUserTradeRecord(String username) {
-		String hql = "from UserTradeRecord where username = '"+username+";";
+		String hql = "from UserTradeRecord where username = '"+username+"'";
 		List<UserTradeRecord> result = sessionFactory.getCurrentSession().createQuery(hql, UserTradeRecord.class).list();
 		
 		return result;

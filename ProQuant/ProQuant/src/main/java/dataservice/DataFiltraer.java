@@ -2,6 +2,7 @@ package dataservice;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 import VO.StockPlateVO;
 import VO.strategyPageVO.StrategyIndexVO;
@@ -29,9 +30,9 @@ public interface DataFiltraer{
          * @param endDate  结束日期
          * @param stockList 需要计算收盘价的股票list
          * @param index 需要求和的属性
-         * @return 返回均值
+         * @return key是code，Double是均值
          */
-        public ArrayList<Double> calculateAverageData(Date startDate,Date endDate,ArrayList<String> stockList,StrategyIndex index);
+        public Map<String ,Double> calculateAverageData(Date startDate,Date endDate,ArrayList<String> stockList,StrategyIndex index);
        
         /**
          * 用于计算一段时间内list的某个属性的结束日期减去开始日期的差值
@@ -39,7 +40,7 @@ public interface DataFiltraer{
          * @param endDate 需要判断这天是否有数据
          * @param stockList 需要计算收盘价的股票list
          * @param index 属性
-         * @return
+         * @return key是均值，double是计算后的差值
          */
-        public ArrayList<Double> calculateSubData(Date startDate,Date endDate,ArrayList<String> stockList,StrategyIndex index);
+        public Map<String,Double> calculateSubData(Date startDate,Date endDate,ArrayList<String> stockList,StrategyIndex index);
 }
