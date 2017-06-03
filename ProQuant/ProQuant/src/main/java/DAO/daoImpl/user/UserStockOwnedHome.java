@@ -151,7 +151,7 @@ public class UserStockOwnedHome implements UserStockOwnedDao {
 
 	@Override
 	public List<UserStockOwned> getUserStockOwned(String username) {
-		String hql = "from UserStockOwned where username = '"+username+";";
+		String hql = "from UserStockOwned where username = '"+username+"'";
 		List<UserStockOwned> result = sessionFactory.getCurrentSession().createQuery(hql, UserStockOwned.class).list();
 		
 		return result;
