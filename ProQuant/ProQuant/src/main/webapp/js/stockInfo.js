@@ -22,4 +22,13 @@ $(function () {
     $("#weekLine").click(function () {
 
     });
+
+
+    $("#buyButton").click(function (e) {
+        //edit_dialogIsShowed = true;
+        e.stopPropagation();
+        $(".buy-page-holder").removeClass("disappear");
+        showPromptDoalog($(this));
+    });
+
 })

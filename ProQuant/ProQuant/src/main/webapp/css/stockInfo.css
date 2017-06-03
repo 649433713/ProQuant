@@ -163,3 +163,40 @@
     border-radius: 5px;
 }
 
+.addPriceButton{
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+    outline:none;
+    background-color: #EBF5FF;
+    border: 1.5px solid #A8d2ff;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.buy-page-holder{
+    position: absolute;
+    z-index: 100000;
+    text-align: center;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+/*上三角*/
+.top-triangle{
+    position:absolute;
+    top:-10px;
+    left:20px;
+    width:0;
+    height:0;
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-bottom:15px solid black;
+}
+
+.disappear{
+    display: none;
+}
