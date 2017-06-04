@@ -25,31 +25,22 @@ public class UserAccount implements java.io.Serializable {
 	//仅用于计算profit ，不向上层展示
 	private Double historyPrincipal;
 
+	private Double todayProfit;
+	private Double yesterdayPrincipal;
+	
 	public UserAccount() {
 	}
 
-	
-	public UserAccount( Double availablePrincipal, Double storagePrincipal, Double profit,
-			Date signdate, Integer consecutiveDaysNum, Double historyPrincipal) {
-		this.availablePrincipal = availablePrincipal;
-		this.storagePrincipal = storagePrincipal;
-		this.profit = profit;
-		this.signdate = signdate;
-		this.consecutiveDaysNum = consecutiveDaysNum;
-		this.historyPrincipal = historyPrincipal;
-	}
-
 	public String getUsername() {
-		return this.username;
+		return username;
 	}
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	
 	public Double getAvailablePrincipal() {
-		return this.availablePrincipal;
+		return availablePrincipal;
 	}
 
 	public void setAvailablePrincipal(Double availablePrincipal) {
@@ -57,7 +48,7 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	public Double getStoragePrincipal() {
-		return this.storagePrincipal;
+		return storagePrincipal;
 	}
 
 	public void setStoragePrincipal(Double storagePrincipal) {
@@ -65,7 +56,7 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	public Double getProfit() {
-		return this.profit;
+		return profit;
 	}
 
 	public void setProfit(Double profit) {
@@ -73,7 +64,7 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	public Date getSigndate() {
-		return this.signdate;
+		return signdate;
 	}
 
 	public void setSigndate(Date signdate) {
@@ -81,7 +72,7 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	public Integer getConsecutiveDaysNum() {
-		return this.consecutiveDaysNum;
+		return consecutiveDaysNum;
 	}
 
 	public void setConsecutiveDaysNum(Integer consecutiveDaysNum) {
@@ -89,11 +80,56 @@ public class UserAccount implements java.io.Serializable {
 	}
 
 	public Double getHistoryPrincipal() {
-		return this.historyPrincipal;
+		return historyPrincipal;
 	}
 
 	public void setHistoryPrincipal(Double historyPrincipal) {
 		this.historyPrincipal = historyPrincipal;
 	}
 
+	public Double getTodayProfit() {
+		return todayProfit;
+	}
+
+	public void setTodayProfit(Double todayProfit) {
+		this.todayProfit = todayProfit;
+	}
+
+	public Double getYesterdayPrincipal() {
+		return yesterdayPrincipal;
+	}
+
+	public void setYesterdayPrincipal(Double yesterdayPrincipal) {
+		this.yesterdayPrincipal = yesterdayPrincipal;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public UserAccount(String username, Double availablePrincipal, Double storagePrincipal, Double profit,
+			Date signdate, Integer consecutiveDaysNum, Double historyPrincipal, Double todayProfit,
+			Double yesterdayPrincipal) {
+		super();
+		this.username = username;
+		this.availablePrincipal = availablePrincipal;
+		this.storagePrincipal = storagePrincipal;
+		this.profit = profit;
+		this.signdate = signdate;
+		this.consecutiveDaysNum = consecutiveDaysNum;
+		this.historyPrincipal = historyPrincipal;
+		this.todayProfit = todayProfit;
+		this.yesterdayPrincipal = yesterdayPrincipal;
+	}
+
+	@Override
+	public String toString() {
+		return "UserAccount [username=" + username + ", availablePrincipal=" + availablePrincipal
+				+ ", storagePrincipal=" + storagePrincipal + ", profit=" + profit + ", signdate=" + signdate
+				+ ", consecutiveDaysNum=" + consecutiveDaysNum + ", historyPrincipal=" + historyPrincipal
+				+ ", todayProfit=" + todayProfit + ", yesterdayPrincipal=" + yesterdayPrincipal + "]";
+	}
+
+	
+	
 }

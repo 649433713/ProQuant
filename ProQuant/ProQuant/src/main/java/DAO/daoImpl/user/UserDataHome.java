@@ -145,4 +145,12 @@ public class UserDataHome implements UserDataDao {
 			throw re;
 		}
 	}
+
+	@Override
+	public List<String> getAllUserName() {
+		String hql = "select username from UserData";
+		
+		List<String> result = sessionFactory.getCurrentSession().createQuery(hql,String.class).getResultList();
+		return result;
+	}
 }
