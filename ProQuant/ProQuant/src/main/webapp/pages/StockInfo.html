@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/stockInfo.css">
+    <link rel="stylesheet" href="../css/myCSS/DialogCSS.css">
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/header.js"></script>
@@ -479,47 +480,36 @@
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="model-content">
-            <div class="backbox">
-                <div class="loginMsg">
-                    <div class="textcontent">
-                        <p class="title">没有账号?</p>
-                        <p>注册来赚取人生第一桶金</p>
-                        <button id="switch1">注册</button>
-                    </div>
-                </div>
-                <div class="signupMsg visibility">
-                    <div class="textcontent">
-                        <p class="title">已有账号?</p>
-                        <p>登录来获取第一手股票资讯</p>
-                        <button id="switch2">登录</button>
+            <div class="cont_principal">
+                <div class="cont_centrar">
+                    <div class="cont_login">
+                        <form action="">
+                            <div class="cont_tabs_login">
+                                <ul class='ul_tabs'>
+                                    <li class="active"><a href="#" onclick="sign_in()">SIGN IN</a>
+                                        <span class="linea_bajo_nom"></span>
+                                    </li>
+                                    <li><a href="#up" onclick="sign_up()">SIGN UP</a><span class="linea_bajo_nom"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cont_text_inputs">
+                                <input type="text" class="input_form_sign " placeholder="NAME" name="name_us" />
+                                <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL" name="emauil_us" />
+                                <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="pass_us" />
+                                <input type="password" class="input_form_sign" placeholder="CONFIRM PASSWORD" name="conf_pass_us" />
+                                <a href="#" class="link_forgot_pass d_block" >Forgot Password ?</a>
+                                <div class="terms_and_cons d_none">
+                                    <div><input type="checkbox" name="terms_and_cons" /> <label>Accept  Terms and Conditions.</label></div>
+                                </div>
+                            </div>
+                            <div class="cont_btn">
+                                <button class="btn_sign">SIGN IN</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- backbox -->
-
-            <div class="frontbox">
-                <div class="login">
-                    <h2>用户登录</h2>
-                    <div class="inputbox">
-                        <input type="text" name="email" placeholder="  EMAIL">
-                        <input type="password" name="password" placeholder="  PASSWORD">
-                    </div>
-                    <p>忘记密码?</p>
-                    <button>登录</button>
-                </div>
-
-                <div class="signup hide">
-                    <h2>用户注册</h2>
-                    <div class="inputbox">
-                        <input type="text" name="fullname" placeholder="  FULLNAME">
-                        <input type="text" name="email" placeholder="  EMAIL">
-                        <input type="password" name="password" placeholder="  PASSWORD">
-                    </div>
-                    <button>注册</button>
-                </div>
-
-            </div>
-            <!-- frontbox -->
         </div>
     </div>
 </div>
@@ -534,9 +524,62 @@
 </div>
 <!--滑动提示框end-->
 
+
+<div style="margin-bottom: 50px;" class="buy-page-holder disappear">
+    <div class="top-triangle"><!--本Div只来实现三角形，无其他作用--></div>
+    <div style="background-color: white;overflow: hidden;display: inline-block;padding: 10px">
+        <div>
+            <div style="padding-top:7px;border: 1.5px solid #dddddd;border-radius: 2px;color: #333;height: 40px;display: inline-block;text-align: center;float: left;width: 200px">
+                <span style="margin-left: 10px;padding-right: 10px;font-size: 18px;">价 格</span>
+                <img src="../images/line.svg">
+                <span style="margin-right: 30px;font-size: 18px;">45.78</span>
+            </div>
+            <div style="display: inline-block;float: left">
+                <button class="addPriceButton">
+                    <img src="../images/reducePrice.svg">
+                    <span style="font-size: 10px;color: #3999ff">0.01</span>
+                </button>
+            </div>
+            <div style="display: inline-block;float: left">
+                <button class="addPriceButton">
+                    <img src="../images/addPrice.svg">
+                    <span style="font-size: 10px;color:#3999ff">0.01</span>
+                </button>
+            </div>
+        </div>
+        <div>
+            <span style="font-size: 12px;background-color:#EBF5FF;float: left;margin-top: 5px;margin-bottom: 5px">跌停价：<span style="color: #008000;">41.37</span></span>
+            <span style="font-size: 12px;float: right;background-color: #EBF5FF;margin-top: 5px;margin-bottom: 5px">涨停价：<span style="color: #C10D01;">50.57</span></span>
+        </div>
+
+        <div>
+            <div style="padding-top:7px;border: 1.5px solid #dddddd;border-radius: 2px;color: #333;height: 40px;display: inline-block;text-align: center;float: left;width: 200px">
+                <span style="margin-left: 10px;padding-right: 10px;font-size: 18px;">数 量</span>
+                <img src="../images/line.svg">
+                <span style="margin-right: 30px;font-size: 18px;">2100</span>
+            </div>
+            <div style="display: inline-block;float: left">
+                <button class="addPriceButton">
+                    <img src="../images/reducePrice.svg">
+                    <span style="font-size: 10px;color: #3999ff">100</span>
+                </button>
+            </div>
+            <div style="display: inline-block;float: left">
+                <button class="addPriceButton">
+                    <img src="../images/addPrice.svg">
+                    <span style="font-size: 10px;color:#3999ff">100</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 <script type="text/javascript" src="../charts/kLineChart.js"></script>
 <script type="text/javascript" src="../charts/meterChart.js"></script>
 <script type="text/javascript" src="../charts/radarChart.js"></script>
+<script type="text/javascript" src="../js/myJS/DialogJS.js"></script>
 <script type="text/javascript" src="../js/stockInfo.js"></script>
 </body>
 </html>

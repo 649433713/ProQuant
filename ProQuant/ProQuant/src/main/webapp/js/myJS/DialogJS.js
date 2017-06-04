@@ -25,12 +25,12 @@ $(function () {
 });
 
 function showPromptDoalog(jq_ele) {
-    var dia = $("#entry")[0];
+    var dia = $(".buy-page-holder")[0];
     var offsetX = jq_ele.offset().left,
         offsetY = jq_ele.offset().top,
         width = jq_ele.width(),
         height = jq_ele.height();
-    dia.style.left = offsetX + width + 10 + "px";
-    dia.style.top = offsetY + (height / 2) - 28 + "px";
-    dia.style.display = "block";
+    dia.style.left = offsetX + (width / 2) -20 +  "px";
+    dia.style.top = offsetY + height+ 20 + "px";
+    // dia.style.display = "block";
 }

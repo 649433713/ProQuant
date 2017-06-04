@@ -110,4 +110,8 @@ function fillInTable(stockNameArray) {
         $("#compareTableHead th:eq("+(i+1)+")").text("");
         $("#compareTableHead th:eq("+(i+1)+")").append($a);
     }
+
+    for(var i = stockNameArray.length; i < 6; i++){
+        $("#compareTableHead th:eq("+(i+1)+")").text("--");
+    }
 }
