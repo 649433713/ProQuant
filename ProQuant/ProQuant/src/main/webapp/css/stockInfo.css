@@ -176,13 +176,14 @@
 
 .buy-page-holder{
     position: absolute;
-    z-index: 100000;
-    text-align: center;
+    z-index: 100;
+    /*text-align: center;*/
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #F8F8F8;
+    box-shadow: 0 0 10px #666666;
 }
 
 /*上三角*/
@@ -194,9 +195,17 @@
     height:0;
     border-left:15px solid transparent;
     border-right:15px solid transparent;
-    border-bottom:15px solid black;
+    border-bottom:15px solid #F8F8F8;
 }
 
 .disappear{
     display: none;
 }
+
+#buyConfirmButton{
+    outline:none;
+    background-color: #D75442;
+    color: white;
+    padding: 3px 20px;
+    border-radius: 5px;
+ }
