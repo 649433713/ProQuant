@@ -42,9 +42,40 @@
     <div class="user-main-body">
         <div class="content-holder">
             <div class="personal-info-holder">
+                <script>
+                    function readFile(input) {
+
+////                        alert(ele.value);
+////                        document.getElementById("head-image").src = ele.value;
+//                        var file = null;
+//                        if(node.files && node.files[0] ){
+//                            file = node.files[0];
+//                        }else if(node.files && node.files.item(0)) {
+//                            file = node.files.item(0);
+//                        }
+//                        alert(file.path);
+
+                        if (input.files && input.files[0]) {
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $('#head-image').attr('src', e.target.result);
+//                                var sss = e.target.result;
+//                                   alert(sss);
+                                alert("haha");
+                                alert($('#head-image').attr('src'));
+                            };
+                            reader.readAsDataURL(input.files[0]);
+
+                        }
+
+
+                    }
+                </script>
+                <input name="file" type="file" id="upload-head-image-button" onchange="readFile(this)">
                 <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer" id="head-image">
                 <span>Welcome!</span><span id="username-one">XXX</span><span><img id="edit-button-one" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
-                <span><button>签到<img src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button></span>
+                <span><button id="qiandao-button">签到<img id="qiandao-button-image" src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button></span>
             </div>
             <div class="function-zone">
                 <div class="bootstrap-tab">
@@ -550,8 +581,13 @@
                         </table>
                     </div>
                     <div class="Easter-Egg">
-                        <div class="head-image-box"></div>
-                        <div class="text-box"></div>
+                        <div class="head-image-box">
+                            <img src="../images/upbg.jpg" width="460px" >
+                            <p style="width: 100%;text-align: right">--Pic : Trade area of the VOC around 1700</p>
+                        </div>
+                        <div class="text-box">
+                            <img src="../images/vc.png" width="60px" >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -638,22 +674,22 @@
         </div>
     </div>
 
-    <div class="qiandao-holder">
-        <!--放置四个数据-->
-        <div>
-            <div class="my-row">
-                <label class="fixed-label">连续签到</label>
-                <label class="unfixed-label">3</label>
-                <label class="fixed-label">当月签到</label>
-                <label class="unfixed-label">10</label>
-            </div>
-            <div class="my-row">
-                <label class="fixed-label">总签到</label>
-                <label class="unfixed-label">20</label>
-                <label class="fixed-label">签到奖励</label>
-                <label class="">10000</label>
-            </div>
-        </div>
+    <!--<div class="qiandao-holder">-->
+        <!--&lt;!&ndash;放置四个数据&ndash;&gt;-->
+        <!--<div>-->
+            <!--<div class="my-row">-->
+                <!--<label class="fixed-label">连续签到</label>-->
+                <!--<label class="unfixed-label">3</label>-->
+                <!--<label class="fixed-label">当月签到</label>-->
+                <!--<label class="unfixed-label">10</label>-->
+            <!--</div>-->
+            <!--<div class="my-row">-->
+                <!--<label class="fixed-label">总签到</label>-->
+                <!--<label class="unfixed-label">20</label>-->
+                <!--<label class="fixed-label">签到奖励</label>-->
+                <!--<label class="">10000</label>-->
+            <!--</div>-->
+        <!--</div>-->
         <!--&lt;!&ndash;放置两个日期&ndash;&gt;-->
         <!--<div>-->
             <!--<div class="my-row">-->
@@ -670,7 +706,28 @@
             <!---->
         <!--</div>-->
     </div>
+    <div class="new-qiandao-holder disappear">
+        <div class="top-triangle"></div>
+        <div>
+            <h4>您已连续签到</h4><h1>5</h1><h4>天</h4>
+        </div>
+        <div>
+            <h4>当前每日获得奖励</h4><h1>100</h1><h4>元</h4>
+        </div>
+        <div>
+            <h4>累计连续签到</h4><h1>7</h1><h4>天</h4>
+        </div>
+        <div>
+            <h4>每日将获得奖励</h4><h1>500</h1><h4>元</h4>
+        </div>
+    </div>
 
+    <div id="toaster_close">
+        <div id="toaster">
+            <div id="pic_div" class="green_pic"></div>
+            <div id="remind" class="green_word">提示消息</div>
+        </div>
+    </div>
 </body>
 </html>
 

@@ -6,7 +6,8 @@
 //     是因为最一开始行上是没有类的，这时要添加新类，而进行过操作的行是有类的，这时要将原有的类替换为新的类（奇->偶/偶->奇）
 //operationButtonWasClicked用来标识删除键或其他操作键是否被点击，以区分是在行上的点击事件还是在这些功能键上的点击,
 //    该状态需要注意的是什么是否被置为false
-var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked, edit_dialogIsShowed;
+var firstRowIndex, lastRowIndex, currentEle, mouseIsDown, dialogIsShow, rowChanged, operationButtonWasClicked, edit_dialogIsShowed,
+    qiandao_holderIsShowed;
 
 
 $(function(){
@@ -306,9 +307,11 @@ $(function(){
     
     //修改个人信息的按钮
     $("#edit-button-one").click(function (e) {
-        edit_dialogIsShowed = true;
-        e.stopPropagation();
-        $(".edit-info-holder").removeClass("disappear");
+        if(!edit_dialogIsShowed){
+            edit_dialogIsShowed = true;
+            e.stopPropagation();
+            $(".edit-info-holder").removeClass("disappear");
+        }
     });
 
     $(".edit-info-holder").mouseover(function () {
@@ -325,6 +328,11 @@ $(function(){
         var target = e.srcElement || e.target;
         if(edit_dialogIsShowed && (!$(target).is("#edit-info-holder, #edit-info-holder *"))){
             $(".edit-info-holder").addClass("disappear");
+            edit_dialogIsShowed = false;
+        }
+        if(qiandao_holderIsShowed && (!$(target).is(".new-qiandao-holder, .new-qiandao-holder *"))){
+            $(".new-qiandao-holder").addClass("disappear");
+            qiandao_holderIsShowed = false;
         }
     });
 
@@ -345,6 +353,24 @@ $(function(){
     $("#save-button").mouseout(function () {
         $(this).removeClass("editAndSaveButtonOn");
     });
+
+
+    $("#qiandao-button").click(function () {
+        slidein(0, "签到成功！");
+    });
+
+    $("#qiandao-button-image").click(function (e) {
+        e = window.e || e;
+        e.stopPropagation();
+        showQianDaoDialog($(this));
+        qiandao_holderIsShowed = true;
+        $(".new-qiandao-holder").removeClass("disappear");
+    });
+
+    $("#head-image").click(function () {
+       $("#upload-head-image-button").click();
+    });
+
 });
 
 
@@ -570,4 +596,15 @@ function clearAllItems() {
             divLists.eq(i).find("tbody").find("tr").remove();
         }
     }
+}
+
+function showQianDaoDialog(jq_ele) {
+    var dia = $(".new-qiandao-holder")[0];
+    var offsetX = jq_ele.offset().left,
+        offsetY = jq_ele.offset().top,
+        width = jq_ele.width(),
+        height = jq_ele.height();
+    dia.style.left = offsetX + (width / 2) -20 +  "px";
+    dia.style.top = offsetY + height+ 20 + "px";
+    // dia.style.display = "block";
 }
