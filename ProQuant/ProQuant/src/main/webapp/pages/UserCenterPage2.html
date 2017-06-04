@@ -42,8 +42,9 @@
     <div class="user-main-body">
         <div class="content-holder">
             <div class="personal-info-holder">
-                <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer">
-                <span>Welcome!</span><span id="username">XXX</span><span><img id="edit-button" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
+                <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer" id="head-image">
+                <span>Welcome!</span><span id="username-one">XXX</span><span><img id="edit-button-one" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
+                <span><button>签到<img src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button></span>
             </div>
             <div class="function-zone">
                 <div class="bootstrap-tab">
@@ -95,114 +96,210 @@
                     <div class="deal-record-holder">
                         <h2 class="secondTabActive" id="second-tab1"><a>持仓记录</a></h2>
                         <h2 class="secondTabDeActive" id="second-tab2"><a>成交记录</a></h2>
-                        <table class="table-hover table-responsive">
+                        <table class="table-hover table-responsive" id="chicang-table">
+                        <thead>
+                        <tr>
+                            <th>股票名称</th>
+                            <th>最新价</th>
+                            <th>持仓数量</th>
+                            <th>浮动盈亏</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>阿里巴巴</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>百度</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>腾讯</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>谷歌</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>苹果</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>亚马逊</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>IBM</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>三星</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>小米</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        <tr>
+                            <td>华为</td>
+                            <td>44.96</td>
+                            <td>1000</td>
+                            <td>-960</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                        <table class="table-hover table-responsive disappear" id="chengjiao-table">
                             <thead>
                             <tr>
+                                <th>交易时间</th>
                                 <th>股票名称</th>
-                                <th>最新价</th>
-                                <th>成本</th>
-                                <th>持仓数量</th>
-                                <th>浮动盈亏</th>
+                                <th>交易类型</th>
+                                <th>交易数量</th>
+                                <th>均价</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>阿里巴巴</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>百度</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>腾讯</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>谷歌</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>苹果</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>亚马逊</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>Facebook</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>IBM</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>三星</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>小米</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>华为</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>华为</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>华为</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             <tr>
+                                <td>2017-6-4</td>
                                 <td>华为</td>
-                                <td>44.96</td>
-                                <td>45.92</td>
+                                <td>买入</td>
                                 <td>1000</td>
-                                <td>-960</td>
+                                <td>45.46</td>
                             </tr>
                             </tbody>
                         </table>
@@ -461,26 +558,28 @@
         </div>
     </div>
     <!--页脚start-->
-    <div class="footer">
-        <div class="left-footer">
-            <div>
-                <h2>关于ProQuant</h2>
-                <br>
-                <p>ProQuant是一款基于提供股票市场情况展示，个股信息展示，股票各项指标预测功能于一体的多功能股票查询、
-                    <br>分析的软件。</p>
+    <div class="footer  container">
+        <div class="row">
+            <div class="left-footer col-sm-9">
+                <div>
+                    <h2>关于ProQuant</h2>
+                    <br>
+                    <p>ProQuant是一款基于提供股票市场情况展示，个股信息展示，股票各项指标预测功能于一体的多功能股票查询、
+                        <br>分析的软件。</p>
+                </div>
             </div>
-        </div>
-        <div class="right-footer">
-            <div>
-                <h2>关于我们</h2>
-                <br>
-                <p></p>
-            </div>
-            <div>
-                <a href=""><img src="../images/weibo.png" alt="微博"></a>
-                <a href=""><img src="../images/weixin.png" alt="微信"></a>
-                <a href=""><img src="../images/qq.png" alt="QQ"></a>
+            <div class="right-footer col-sm-3">
+                <div>
+                    <h2>关于我们</h2>
+                    <br>
+                    <p></p>
+                </div>
+                <div>
+                    <a href=""><img src="../images/weibo.png" alt="微博"></a>
+                    <a href=""><img src="../images/weixin.png" alt="微信"></a>
+                    <a href=""><img src="../images/qq.png" alt="QQ"></a>
 
+                </div>
             </div>
         </div>
     </div>
@@ -495,27 +594,81 @@
         </div>
     </div>
 
-    <div class="edit-info-holder disappear">
+    <div class="edit-info-holder opacityEighty container disappear" id="edit-info-holder">
         <div class="left-triangle"><!--本Div只来实现三角形，无其他作用--></div>
-        <div class="id-holder">
-            <label>账号</label>
-        </div>
-        <div class="username-holder">
-            <label>用户名</label>
-            <span id="username">Luminary</span>
-        </div>
-        <div class="old-password-holder">
-            <label>原密码</label>
-            <input type="password">
-        </div>
-        <div class="new-password-holder">
-            <label>新密码</label>
-            <input type="text">
-        </div>
+        <form class="form-horizontal" role="form">
+            <!--<div class="id-holder form-group row">-->
+                <!--<label class="col-sm-4 control-label" style="padding-right: 20px;">账号</label>-->
+                <!--<label class="col-sm-8 control-label" style="padding-right: 50%;">0000001</label>-->
+            <!--</div>-->
+            <div class="username-holder form-group row">
+                <label class="col-sm-4 control-label" >用户名</label>
+                <label class="col-sm-8 control-label" style="padding-right: 50%;"><a data-toggle="tooltip" id="username-two">Luminary</a></label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 control-label" for="old-passwordInput">原密码</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="old-passwordInput" type="password" value="请输入原密码">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 control-label" for="new-passwordInput">新密码</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="new-passwordInput" type="password" value="请输入新密码">
+                </div>
+            </div>
+        </form>
+        <!--<div class="old-password-holder">-->
+            <!--<label class="control-label" style="display: inline-block">原密码</label>-->
+            <!--<input type="password" class="form-control" value="请输入原密码..." style="display: inline-block">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label class="col-sm-3 control-label">原密码</label>-->
+            <!--<div class="col-sm-10">-->
+                <!--<input class="form-control" id="focusedInput" type="password" value="请输入原密码...">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="new-password-holder">-->
+            <!--<label>新密码</label>-->
+            <!--<input type="password">-->
+        <!--</div>-->
         <div class="save-button-holder">
-            <button type=""></button>
-            <button type="button">保存</button>
+            <button type="button" id="edit-button-two" class="editAndSaveButtonOut">编辑</button>
+            <button type="button" id="save-button" class="editAndSaveButtonOut">保存</button>
         </div>
+    </div>
+
+    <div class="qiandao-holder">
+        <!--放置四个数据-->
+        <div>
+            <div class="my-row">
+                <label class="fixed-label">连续签到</label>
+                <label class="unfixed-label">3</label>
+                <label class="fixed-label">当月签到</label>
+                <label class="unfixed-label">10</label>
+            </div>
+            <div class="my-row">
+                <label class="fixed-label">总签到</label>
+                <label class="unfixed-label">20</label>
+                <label class="fixed-label">签到奖励</label>
+                <label class="">10000</label>
+            </div>
+        </div>
+        <!--&lt;!&ndash;放置两个日期&ndash;&gt;-->
+        <!--<div>-->
+            <!--<div class="my-row">-->
+                <!--<div class="month-selector">-->
+                    <!--<img src="../images/left-arrow-tri.svg">-->
+                    <!--<label>2017-06</label>-->
+                    <!--<img src="../images/right-arrow-tri.svg">-->
+                <!--</div>-->
+                <!--<label class="year-label">2017-06-04</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;放置日历&ndash;&gt;-->
+        <!--<div>-->
+            <!---->
+        <!--</div>-->
     </div>
 
 </body>

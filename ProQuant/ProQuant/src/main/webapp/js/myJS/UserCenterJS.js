@@ -74,6 +74,27 @@ $(function(){
     //货币类型选择框
     $("#popover").webuiPopover({width:120,height:55});
 
+
+
+    //持仓记录和交易记录之间的切换
+    $("#second-tab1").click(function () {
+        $(this).addClass("secondTabActive");
+        $("#second-tab2").removeClass("secondTabActive");
+        $("#second-tab2").addClass("secondTabDeActive");
+        $("#chicang-table").removeClass("disappear");
+        $("#chengjiao-table").addClass("disappear");
+    });
+    $("#second-tab2").click(function () {
+        $(this).addClass("secondTabActive");
+        $("#second-tab1").removeClass("secondTabActive");
+        $("#second-tab1").addClass("secondTabDeActive");
+        $("#chengjiao-table").removeClass("disappear");
+        $("#chicang-table").addClass("disappear");
+    });
+
+
+
+    //为清空按钮添加事件响应
     $("#clear-button").click(function () {
         clearAllItems();
     });
@@ -284,18 +305,48 @@ $(function(){
     
     
     //修改个人信息的按钮
-    $("#edit-button").click(function (e) {
+    $("#edit-button-one").click(function (e) {
         edit_dialogIsShowed = true;
         e.stopPropagation();
         $(".edit-info-holder").removeClass("disappear");
     });
-    $("body").click(function (e) {
-        e.stopPropagation();
-        if(edit_dialogIsShowed){
+
+    $(".edit-info-holder").mouseover(function () {
+        $(this).removeClass("opacityEighty");
+    });
+    $(".edit-info-holder").mouseout(function () {
+        $(this).addClass("opacityEighty");
+    });
+
+
+    $(document).click(function (e) {
+        // e.stopPropagation();
+        e = window.event || e;
+        var target = e.srcElement || e.target;
+        if(edit_dialogIsShowed && (!$(target).is("#edit-info-holder, #edit-info-holder *"))){
             $(".edit-info-holder").addClass("disappear");
         }
     });
+
+    //实现tooltip
+    $("#username-two").tooltip({title: "点击进行编辑.", delay: {show: 300, hide: 100}, placement: "bottom"});
+
+
+    //为编辑和保存按钮添加事件监听
+    $("#edit-button-two").mouseover(function () {
+        $(this).addClass("editAndSaveButtonOn");
+    });
+    $("#edit-button-two").mouseout(function () {
+        $(this).removeClass("editAndSaveButtonOn");
+    });
+    $("#save-button").mouseover(function () {
+        $(this).addClass("editAndSaveButtonOn");
+    });
+    $("#save-button").mouseout(function () {
+        $(this).removeClass("editAndSaveButtonOn");
+    });
 });
+
 
 
 
@@ -515,10 +566,8 @@ function deleteManyEleOneTime() {
 function clearAllItems() {
     var divLists = $("table").parent();
     for(var i = 0;i < divLists.length;i++){
-        var display = divLists.eq(i).css("display");
-        if(display != "none"){
-            // alert(divLists.eq(i).find("tbody").find("tr").remove());
-            divLists.eq(i).find("tbody").find("tr").remove()
+        if(divLists.eq(i).is(":visible")){
+            divLists.eq(i).find("tbody").find("tr").remove();
         }
     }
 }

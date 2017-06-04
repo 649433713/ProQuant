@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+body button:focus{
+    outline: 0;
+}
+
 /*整体的容器*/
 .user-main-body{
     width: 1000px;
@@ -28,7 +32,7 @@
     padding: 2px 10px 2px 10px;
 }
 
-.user-main-body .content-holder .personal-info-holder img{
+.user-main-body .content-holder .personal-info-holder #head-image{
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -40,6 +44,15 @@
     font-weight: 700;
     color: #777;
     margin: 10px;
+}
+
+.user-main-body .content-holder .personal-info-holder button{
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #296ec2;
+    color: #FFFFFF;
+    margin-left: 445px;
 }
 /*个人基本信息框样式结束*/
 
@@ -83,37 +96,82 @@
     height: 300px;
 }
 /*上面的两个css样式实现了内容的滚动，但是会将表格行中所有单元格都集中在表格最左侧,所以要给每一个th和td来设置宽度*/
-#user-account-part thead th{
+#user-account-part #chicang-table thead th{
+    width: 120px;
+}
+#user-account-part #chicang-table thead th + th{
+    width: 120px;
+}
+#user-account-part #chicang-table thead th + th + th{
+    width: 120px;
+}
+#user-account-part #chicang-table thead th + th + th + th{
+    width: 129px;
+}
+/*#user-account-part #chicang-table thead th + th + th + th + th{*/
+    /*width: 99px;*/
+/*}*/
+#user-account-part #chicang-table tbody td{
+    width: 120px;
+}
+#user-account-part #chicang-table tbody td + td{
+    width: 120px;
+}
+#user-account-part #chicang-table tbody td + td + td{
+    width: 120px;
+}
+#user-account-part #chicang-table tbody td + td + td + td{
+    width: 129px;
+}
+/*#user-account-part tbody td + td + td + td + td{*/
+    /*width: 99px;*/
+/*}*/
+
+#user-account-part #chengjiao-table thead th{
     width: 99px;
 }
-#user-account-part thead th + th{
+#user-account-part #chengjiao-table thead th + th{
     width: 97px;
 }
-#user-account-part thead th + th + th{
+#user-account-part #chengjiao-table thead th + th + th{
     width: 97px;
 }
-#user-account-part thead th + th + th + th{
+#user-account-part #chengjiao-table thead th + th + th + th{
     width: 97px;
 }
-#user-account-part thead th + th + th + th + th{
+#user-account-part #chengjiao-table thead th + th + th + th + th{
     width: 99px;
 }
-#user-account-part tbody td{
+#user-account-part #chengjiao-table tbody td{
     width: 99px;
 }
-#user-account-part tbody td + td{
+#user-account-part #chengjiao-table tbody td + td{
     width: 97px;
 }
-#user-account-part tbody td + td + td{
+#user-account-part #chengjiao-table tbody td + td + td{
     width: 97px;
 }
-#user-account-part tbody td + td + td + td{
+#user-account-part #chengjiao-table tbody td + td + td + td{
     width: 97px;
 }
-#user-account-part tbody td + td + td + td + td{
+#user-account-part #chengjiao-table tbody td + td + td + td + td{
     width: 99px;
 }
 
+
+.deal-record-holder{
+    position: relative;
+}
+
+#chicang-table{
+    position: absolute;
+    z-index: 10;
+}
+
+#chengjiao-table{
+    position: absolute;
+    z-index: 20;
+}
 
 #zixuangu-part thead th{
     width: 60px;
@@ -549,39 +607,132 @@
     position: absolute;
     z-index: 100000;
     text-align: center;
-    top: 80px;
+    top: 90px;
     left: 480px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
     padding: 10px;
-    background-color: #407fce;
-    opacity: 0.8;
+    /*background-color: #EBEFF0;*/
+    background-color: #eff2f4;
+    width: 250px;
+    box-shadow: 5px 10px 25px #666666;
 }
+
 .left-triangle{
     position:absolute;
     /*bottom:15px;*/
-    top: 15px;
-    left:-5px;
+    top: 5px;
+    left:-10px;
     width:0;
     height:0;
     border-top:15px solid transparent;
     border-bottom:15px solid transparent;
-    border-right:15px solid #407fce;
-
+    border-right:15px solid #EBEFF0;
 }
 
-.username-holder label, .new-password-holder label, .old-password-holder label{
-    width: 50px;
-    height: 30px;
-    color: #FFFFFF;
-    text-align: center;
+/*上三角*/
+/*.top-triangle{*/
+    /*position:absolute;*/
+    /*top:-10px;*/
+    /*left:20px;*/
+    /*width:0;*/
+    /*height:0;*/
+    /*border-left:15px solid transparent;*/
+    /*border-right:15px solid transparent;*/
+    /*border-bottom:15px solid #fff;*/
+/*}*/
+
+.edit-info-holder label{
+    color: #de654f;
+    text-align: left;
+}
+
+.id-holder, .username-holder{
+    /*width: 120px;*/
+    text-align: left;
+}
+
+.id-holder label:nth-child(2){
+    color: #6592cd;
+}
+/*.id-holder label, .username-holder label, .new-password-holder label, .old-password-holder label{*/
+    /*width: 50px;*/
+    /*height: 30px;*/
+    /*color: #FFFFFF;*/
+    /*text-align: center;*/
+/*}*/
+
+
+
+.username-holder label a{
+    text-decoration: none;
+    color: #6592cd;
+}
+.username-holder label a:hover{
+    color: #4d7ccb;
 }
 
 .save-button-holder button{
-    background-color: #73b666;
     color: #FFFFFF;
     width: 70px;
     height: 26px;
     border-radius: 5px;
+}
+
+
+/*事件监听产生的样式变换*/
+.opacityEighty{
+    opacity: 0.8;
+}
+.editAndSaveButtonOut{
+    background-color: #73b666;
+}
+
+
+.editAndSaveButtonOn{
+    background-color: #36b634;
+}
+
+
+
+/*为签到标签设置样式*/
+.qiandao-holder{
+    width: 200px;
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    background-color: #296ec2;
+}
+
+.qiandao-holder .my-row{
+    width: 100%;
+    margin-left: 5px;
+}
+
+.qiandao-holder .my-row .fixed-label{
+    width: 48px;
+}
+
+.qiandao-holder .my-row .unfixed-label{
+    width: 14px;
+}
+
+.qiandao-holder .my-row label{
+    text-align: center;
+    font-size: 8px;
+    margin-left: 6px;
+}
+
+
+.qiandao-holder .month-selector{
+    display: inline-block;
+    margin-left: 5px;
+}
+.qiandao-holder .month-selector label{
+    margin-left: 0px;
+}
+.qiandao-holder .my-row .year-label{
+    margin-left: 20px;
+    /*width: 100px;*/
 }

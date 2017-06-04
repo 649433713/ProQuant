@@ -8,14 +8,14 @@
 
 /*左边的页脚*/
 .footer .left-footer{
-    display: inline-block;
-    width: 900px;
-    height: 160px;
-    margin: 20px 5px 20px 22px;
+    /*display: inline-block;*/
+    /*width: 900px;*/
+    /*height: 160px;*/
+    margin: 20px 0 20px 0;
     /*background: #F6F6F6;*/
     border: none;
     border-radius: 2px;
-    /*box-shadow: 1px 1px 10px;*/
+    /*!*box-shadow: 1px 1px 10px;*!*/
 }
 
 .footer .left-footer h2{
@@ -32,11 +32,11 @@
 
 /*右边的页脚*/
 .footer .right-footer{
-    display: inline-block;
-    width: 310px;
-    height: 160px;
-    /*background-color: #F6F6F6;*/
-    margin: 10px 22px 20px 5px;
+    /*display: inline-block;*/
+    /*width: 310px;*/
+    /*height: 160px;*/
+    /*!*background-color: #F6F6F6;*!*/
+    margin: 20px 0 20px 0;
 }
 
 .footer .right-footer h2{
