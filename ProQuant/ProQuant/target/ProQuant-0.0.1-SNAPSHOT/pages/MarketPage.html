@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>市场行情</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link href="../css/myCSS/MarketPageCSS.css" rel="stylesheet">
+    <link href="../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
+    <link href="../css/myCSS/nav_footerCSS.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script src="../js/jquery-3.2.1.js"></script>
+    <!--<script src="../js/bootstrap.min.js"></script>-->
+    <!--<script src="../js/header.js"></script>-->
+</head>
+<body>
+    <!--导航栏start-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ProQuant</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#">大盘</a></li>
+                <li><a href="#">个股</a></li>
+                <li><a href="#">策略</a></li>
+                <li><a href="#">论坛</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="searchText"><input id="searchInput" type="text" placeholder="搜索"><i class="fa fa-search" aria-hidden="true"></i></li>
+                <li><button id="loginButton"><i class="fa fa-user-circle" aria-hidden="true"></i>未登录</button></li>
+                <li><img src="../images/skin.png"></li>
+            </ul>
+        </div>
+    </nav>
+    <!--导航栏end-->
+    <div class="m-container">
+        <div class="m-box">
+            <div class="m-head">
+                <h2>市场行情</h2>
+            </div>
+            <div class="m-body">
+                <div class="market-tab">
+                    <span class="cur">成交量</span>
+                    <span>涨跌停</span>
+                    <span>涨跌>5%</span>
+                    <input type="date" class="my-date-picker">
+                </div>
+                <div class=" hcharts clearfix">
+                    <div class="hcharts-left tab-hv-box">
+                        <!--<div class="hcharts-list">-->
+                            <!--<div class="item hv-tab-trigger cur">-->
+                                <!--<h3 class="icons1">涨跌分布</h3>-->
+                                <!--<p class="details">-->
+                                    <!--<span class="c-rise">上涨: 1266支</span>-->
+                                    <!--<span class="c-fall">下跌: 1597支</span>-->
+                                <!--</p>-->
+                            <!--</div>-->
+                            <!--<div class="item hv-tab-trigger">-->
+                                <!--<h3 class="icons2">涨跌停</h3>-->
+                                <!--<p class="details">-->
+                                    <!--<span class="c-rise">涨停: 41支</span>-->
+                                    <!--<span class="c-fall">跌停: 13支</span>-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--中间放置图的部分-->
+                        <div class="hcharts-cont tab-hv-cont">
+                            <div class="hcharts-legend"></div>
+                            <div class="hcharts-main" id="zdfb"></div>
+                        </div>
+                    </div>
+                    <div class="hcharts-right">
+                        <h4>热门股票</h4>
+                        <div>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>股票ID</th>
+                                    <th>股票名称</th>
+                                    <th>今日涨幅</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--标签里面的链接都没有设置*************************************************-->
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">2</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">3</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">4</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">5</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">6</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">7</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">8</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">9</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="num">10</td>
+                                    <td>
+                                        <a href="#">000000</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">阿里巴巴</a>
+                                    </td>
+                                    <td>5%</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mt30 clearfix">
+
+                    <div class="flash-single flash-small flash-sec1">
+                        <div>
+                            <strong class="m-off">沪深300</strong>
+                            <span class="link-red"></span>
+                            <span class="red"></span>
+                            <span class="red"></span>
+                        </div>
+                        <!--*********************************************下面的div是用来存放echarts的*********************************************-->
+                        <div class="price-box" id="hu" style="height: 180px;"></div>
+                    </div>
+                    <div class="flash-single flash-small flash-sec2">
+                        <div>
+                            <strong class="m-off">创业板</strong>
+                            <span class="link-red"></span>
+                            <span class="red"></span>
+                            <span class="red"></span>
+                        </div>
+                        <!--*********************************************下面的div是用来存放echarts的*********************************************-->
+                        <div class="price-box" id="chuang" style="height: 180px;"></div>
+                    </div>
+                    <div class="flash-single flash-small">
+                        <div>
+                            <strong class="m-off">中小板</strong>
+                            <span class="link-red"></span>
+                            <span class="red"></span>
+                            <span class="red"></span>
+                        </div>
+                        <!--*********************************************下面的div是用来存放echarts的*********************************************-->
+                        <div class="price-box" id="zhong" style="height: 180px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-box">
+            <div class="m-head">
+                <h2>个股行情</h2>
+            </div>
+            <div class="m-body m-pager-box">
+                <div class="table-tab">
+                    <h4 class="cur">
+                        <a href="javascript: void(0)" board="all">全部股票</a>
+                    </h4>
+                    <h4>
+                        <a href="javascript: void(0)" board="all">上证指数</a>
+                    </h4>
+                    <h4>
+                        <a href="javascript: void(0)" board="all">沪深300</a>
+                    </h4>
+                    <h4>
+                        <a href="javascript: void(0)" board="all">创业板</a>
+                    </h4>
+                    <h4>
+                        <a href="javascript: void(0)" board="all">中小板</a>
+                    </h4>
+                </div>
+                <div class="fixed_thead hide" style="display: none;">
+                    <table class="m-table m-pager-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 44px;">序号</th>
+                                <th style="width: 68px;">代码</th>
+                                <th style="width: 92px;">名称</th>
+                                <th style="width: 68px;"><a href="javascript:void(0)" field="xj">现价<i></i></a></th>
+                                <th style="width: 92px;" class="cur"><a href="javascript:void(0)" field="zdf" order="desc" class="desc">涨跌幅(%)<i></i></a></th>
+                                <th style="width: 68px;"><a href="javascript:void(0)" field="zd">涨跌<i></i></a></th>
+                                <th style="width: 92px;"><a href="javascript:void(0)" field="zs">涨速(%)<i></i></a></th>
+                                <th style="width: 92px;"><a href="javascript:void(0)" field="hs">换手(%)<i></i></a></th>
+                                <th style="width: 68px;"><a href="javascript:void(0)" field="lb">量比<i></i></a></th>
+                                <th style="width: 68px;"><a href="javascript:void(0)" field="zf">振幅(%)<i></i></a></th>
+                                <th style="width: 80px;"><a href="javascript:void(0)" field="cje">成交额<i></i></a></th>
+                                <th style="width: 92px;"><a href="javascript:void(0)" field="ltg">流通股<i></i></a></th>
+                                <th style="width: 92px;"><a href="javascript:void(0)" field="ltsz">流通市值<i></i></a></th>
+                                <th style="width: 80px;"><a href="javascript:void(0)" field="syl">市盈率<i></i></a></th>
+                                <!--th>概念题材</th-->
+                                <th style="width: 44px;">加自选</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="maincont" data-fixedthead="true">
+                    <table class="m-table m-pager-table">
+                        <thead>
+                        <tr>
+                            <th style="width: 80px">序号</th>
+                            <th style="width: 100px">股票ID</th>
+                            <th style="width: 100px">股票名称</th>
+                            <th style="width: 80px">现价</th>
+                            <th style="width: 80px">涨跌幅(%)</th>
+                            <th style="width: 80px">涨跌</th>
+                            <th style="width: 80px">成交量</th>
+                            <th style="width: 80px">流通股</th>
+                            <th style="width: 80px">流通市值</th>
+                            <th style="width: 80px">市盈率</th>
+                            <th style="width: 80px">加入自选</th>
+                        </tr>
+                        </thead>
+                        <!--添加表格内容时，注意添加每个表格元素的标签不相同，有的是a，有的是td**********************************-->
+                        <tbody>
+                            <tr>
+                            <td>1</td>
+                            <td>
+                                <a href="#">000000</a>
+                            </td>
+                            <td>
+                                <a href="#">测试股</a></td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                    <img src="../images/addstock.png">
+                                </a>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <a href="#">000000</a>
+                                </td>
+                                <td>
+                                    <a href="#">测试股</a></td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>
+                                    <a href="javascript:void(0);" title="加入自选" class="j_addstock">
+                                        <img src="../images/addstock.png">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="m-pager m-page">
+                        <!--1.a标签需要实时地更换，最一开始是没有首页和上一页的，但是一旦不处于首页，就要出现这两个标签，
+                            2.合适出现6、7、8、9-->
+                        <a href="javascript:void(0);" class="changePage cur">1</a>
+                        <a href="javascript:void(0);" class="changePage">2</a>
+                        <a href="javascript:void(0);" class="changePage">3</a>
+                        <a href="javascript:void(0);" class="changePage">4</a>
+                        <a href="javascript:void(0);" class="changePage">5</a>
+                        <a href="javascript:void(0);" class="changePage">下一页</a>
+                        <a href="javascript:void(0);" class="changePage">尾页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--页脚start-->
+    <div class="footer">
+        <div class="left-footer">
+            <div>
+                <h2>关于ProQuant</h2>
+                <br>
+                <p>ProQuant是一款基于提供股票市场情况展示，个股信息展示，股票各项指标预测功能于一体的多功能股票查询、
+                    <br>分析的软件。</p>
+            </div>
+        </div>
+        <div class="right-footer">
+            <div>
+                <h2>关于我们</h2>
+                <br>
+                <p></p>
+            </div>
+            <div>
+                <a href="../images/myWEIBO."><img src="../images/weibo.png" alt="微博"></a>
+                <a href=""><img src="../images/weixin.png" alt="微信"></a>
+                <a href=""><img src="../images/qq.png" alt="QQ"></a>
+
+            </div>
+        </div>
+    </div>
+    <!--页脚end-->
+<script type="text/javascript" src="../charts/areaChart.js"></script>
+<script type="text/javascript" src="../charts/marketAreaChart.js"></script>
+</body>
+</html>

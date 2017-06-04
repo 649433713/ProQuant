@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="daoTest.InfoDataDaoTest" time="0.147" errors="1" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="D:\java\jdk\jre\bin"/>
+    <property name="java.vm.version" value="25.112-b15"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\凡\git\ProQuant\ProQuant"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\凡\git\ProQuant\ProQuant"/>
+    <property name="java.runtime.version" value="1.8.0_112-b15"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="D:\java\jdk\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\凡\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\凡\Desktop\java练习\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf2282091382004897841.tmp"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="D:\java\jdk\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:/java/jdk/bin/../jre/bin/server;D:/java/jdk/bin/../jre/bin;D:/java/jdk/bin/../jre/lib/amd64;D:\java\jdk\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\MinGW\bin;D:\eclipse\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Users\凡\AppData\Local\NASM;D:\Python\Scripts\;D:\Python\;C:\Users\凡\AppData\Local\Microsoft\WindowsApps;;C:\Users\凡\Desktop;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\凡"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="凡"/>
+    <property name="java.class.path" value="/D:/eclipse/eclipse/../pool/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="D:\java\jdk\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -gs D:\java\Maven_Repository\settings.xml install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_112"/>
+    <property name="java.ext.dirs" value="D:\java\jdk\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="D:\java\jdk\jre\lib\resources.jar;D:\java\jdk\jre\lib\rt.jar;D:\java\jdk\jre\lib\sunrsasign.jar;D:\java\jdk\jre\lib\jsse.jar;D:\java\jdk\jre\lib\jce.jar;D:\java\jdk\jre\lib\charsets.jar;D:\java\jdk\jre\lib\jfr.jar;D:\java\jdk\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Users\凡\git\ProQuant\ProQuant\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="daoTest.InfoDataDaoTest" name="test" time="0.147">
+    <error message="Could not obtain transaction-synchronized Session for current thread" type="org.hibernate.HibernateException">org.hibernate.HibernateException: Could not obtain transaction-synchronized Session for current thread
+	at org.springframework.orm.hibernate5.SpringSessionContext.currentSession(SpringSessionContext.java:133)
+	at org.hibernate.internal.SessionFactoryImpl.getCurrentSession(SessionFactoryImpl.java:456)
+	at DAO.daoImpl.InfoDataHome.queryByHql(InfoDataHome.java:163)
+	at daoTest.InfoDataDaoTest.test(InfoDataDaoTest.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>Hibernate: 
+    select
+        infodata0_.name as col_0_0_,
+        infodata0_.code as col_1_0_ 
+    from
+        proquant.info_data infodata0_
+</system-out>
+    <system-err>SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+MLog initialization issue: slf4j found no binding or threatened to use its (dangerously silent) NOPLogger. We consider the slf4j library not found.
+���� 03, 2017 4:15:40 ���� com.mchange.v2.log.MLog 
+��Ϣ: MLog clients using java 1.4+ standard logging.
+���� 03, 2017 4:15:41 ���� com.mchange.v2.c3p0.C3P0Registry 
+��Ϣ: Initializing c3p0-0.9.5.2 [built 08-December-2015 22:06:04 -0800; debug? true; trace: 10]
+���� 03, 2017 4:15:42 ���� org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate Core {5.2.8.Final}
+���� 03, 2017 4:15:42 ���� org.hibernate.cfg.Environment &lt;clinit&gt;
+INFO: HHH000206: hibernate.properties not found
+���� 03, 2017 4:15:46 ���� org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+INFO: HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+���� 03, 2017 4:15:47 ���� com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource 
+��Ϣ: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -&gt; 3, acquireRetryAttempts -&gt; 30, acquireRetryDelay -&gt; 1000, autoCommitOnClose -&gt; false, automaticTestTable -&gt; null, breakAfterAcquireFailure -&gt; false, checkoutTimeout -&gt; 0, connectionCustomizerClassName -&gt; null, connectionTesterClassName -&gt; com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -&gt; caller, dataSourceName -&gt; 1f08gf69ou90fl71rkyje6|568ff82, debugUnreturnedConnectionStackTraces -&gt; false, description -&gt; null, driverClass -&gt; com.mysql.cj.jdbc.Driver, extensions -&gt; {}, factoryClassLocation -&gt; null, forceIgnoreUnresolvedTransactions -&gt; false, forceSynchronousCheckins -&gt; false, forceUseNamedDriverClass -&gt; false, identityToken -&gt; 1f08gf69ou90fl71rkyje6|568ff82, idleConnectionTestPeriod -&gt; 0, initialPoolSize -&gt; 5, jdbcUrl -&gt; jdbc:mysql://yinywf17.mysql.rds.aliyuncs.com:3306/proquant?serverTimezone=GMT%2b8&amp;characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false, maxAdministrativeTaskTime -&gt; 0, maxConnectionAge -&gt; 0, maxIdleTime -&gt; 0, maxIdleTimeExcessConnections -&gt; 0, maxPoolSize -&gt; 10, maxStatements -&gt; 0, maxStatementsPerConnection -&gt; 0, minPoolSize -&gt; 3, numHelperThreads -&gt; 3, preferredTestQuery -&gt; null, privilegeSpawnedThreads -&gt; false, properties -&gt; {user=******, password=******}, propertyCycle -&gt; 0, statementCacheNumDeferredCloseThreads -&gt; 0, testConnectionOnCheckin -&gt; false, testConnectionOnCheckout -&gt; false, unreturnedConnectionTimeout -&gt; 0, userOverrides -&gt; {}, usesTraditionalReflectiveProxies -&gt; false ]
+���� 03, 2017 4:15:48 ���� org.hibernate.dialect.Dialect &lt;init&gt;
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+���� 03, 2017 4:15:51 ���� org.hibernate.hql.internal.QueryTranslatorFactoryInitiator initiateService
+INFO: HHH000397: Using ASTQueryTranslatorFactory
+</system-err>
+  </testcase>
+</testsuite>
