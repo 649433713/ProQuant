@@ -56,6 +56,9 @@ $(function () {
         }
     });
 
+    $("#stockAddButton").click(function () {
+        window.location.href = "StockCompare.html";
+    });
 
 })
 

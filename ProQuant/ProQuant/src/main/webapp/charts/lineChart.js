@@ -76,6 +76,7 @@ function lineChart(stockNameArray) {
             name:stockNameArray[i],
             type:'line',
             data:yData[i],
+            smooth:true,
             lineStyle:{
                 normal:{
                     width:1

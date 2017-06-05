@@ -9,7 +9,7 @@ public class LoginHandler {
 	public String login(String account,String password) {
 		System.out.println("我进来了");
 		System.out.println(account+" "+password);
-		return "login";
+		return "/login.jsp";
 	}
 	
 }
