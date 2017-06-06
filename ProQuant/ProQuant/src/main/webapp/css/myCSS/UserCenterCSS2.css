@@ -57,7 +57,7 @@ body button:focus{
     border-radius: 5px;
     background-color: #296ec2;
     color: #FFFFFF;
-    margin-left: 445px;
+    margin-left: 460px;
 }
 /*个人基本信息框样式结束*/
 
@@ -548,7 +548,7 @@ body button:focus{
     top: 3px;
     /*right: 5px;*/
     left: 320px;
-    background-color: #e;
+    background-color: #e8e8e8;
     margin: 3px auto;
 }
 

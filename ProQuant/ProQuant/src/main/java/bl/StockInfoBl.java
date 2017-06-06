@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import PO.InfoData;
+import PO.StockCurrentData;
 import PO.StockData;
+import PO.StockScore;
 import PO.kLinePO.KLineDayData;
 import VO.StockDataVO;
 import VO.StockKLine;
@@ -32,8 +32,14 @@ public class StockInfoBl implements StockInfoService {
 	public StockVO getStockVO(String stockNameOrId) {
 		String code=StockInfoHelper.getStockCode(stockNameOrId);
 		Date now=new Date();
+		Date yes=StockInfoHelper.add(now, -1);
+		StockCurrentData stockCurrent=stockDataService.getStockCurrentData(code);
+		StockData stockData=stockDataService.getBasicDateStock(yes, yes, code).get(yes);
+		InfoData infoData=stockDataService.getStockInfo(code);
+		StockScore stockScore=stockScoreService.getStockScore(code);
 //		StockData stockPO=stockDataService.getBasicDateStock(null, 1, code).get(now);
-		return null;
+		
+		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore, stockData);
 	}
 
 	@Override

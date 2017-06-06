@@ -17,7 +17,7 @@ public class UserLogServiceTest {
 		userLogService = (UserLogService) context.getBean("UserLogService");
 		
 	}
-/*
+
 	@Test
 	public void testGetUserBasicData() {
 		System.out.println(userLogService.getUserBasicData("yinywf"));
@@ -32,11 +32,11 @@ public class UserLogServiceTest {
 	public void testSignIn() {
 		userLogService.signIn("yinywf");
 	}
-*/
+
 	
-	@Test
+	/*@Test
 	public void testSignUp(){
 		System.out.println(userLogService.signUp(new UserData("yinywf2","wf980102",null)));;
 		
-	}
+	}*/
 }

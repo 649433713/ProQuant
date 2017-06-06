@@ -25,6 +25,7 @@ public interface UserTradeService {
 	 */
 	public List<UserStockOwned> getUserStockOwned(String username);
 	
+	
 	/**
 	 * @TODO：获得用户模拟买卖交易记录
 	 * @param username

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import DAO.dao.StockCurrentDataDao;
 import DAO.dao.UserAccountDao;
 import DAO.dao.UserStockOwnedDao;
+import DAO.dao.UserStockPoolDao;
 import DAO.dao.UserTradeRecordDao;
 import PO.user.UserAccount;
 import PO.user.UserStockOwned;
@@ -28,7 +29,7 @@ public class UserTradeServiceImpl implements UserTradeService{
 	private UserTradeRecordDao tradeRecordDao;
 	@Autowired
 	private StockCurrentDataDao currentDataDao;
-	
+
 	@Override
 	public UserAccount getUserAccount(String username) {
 		List<UserStockOwned> userStockOwneds = getUserStockOwned(username);
@@ -124,5 +125,7 @@ public class UserTradeServiceImpl implements UserTradeService{
 		
 		return UserTradeSignal.Success;
 	}
+
+	
 
 }

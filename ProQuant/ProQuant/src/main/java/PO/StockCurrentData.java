@@ -14,21 +14,37 @@ public class StockCurrentData implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 2957162468934798205L;
 	private long index;
+	//	代码
 	private String code;
+	//名称
 	private String name;
+	//日期
 	private Date date;
+	//涨跌幅
 	private Double changepercent;
+	//现价
 	private Double trade;
+	//开盘价
 	private Double open;
+	//最高价
 	private Double high;
+	//最低价
 	private Double low;
+	//昨日收盘价
 	private Double settlement;
+	//成交量
 	private Long volume;
+	//换手率
 	private Double turnoverratio;
+	//成交额
 	private Long amount;
+	//市盈率
 	private Double per;
+	//市净率
 	private Double pb;
+	//总市值
 	private Double mktcap;
+	//流通市值
 	private Double nmc;
 
 	public StockCurrentData() {

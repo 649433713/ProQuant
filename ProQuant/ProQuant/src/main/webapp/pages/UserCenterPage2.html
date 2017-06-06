@@ -64,6 +64,7 @@
 //                                   alert(sss);
                                 alert("haha");
                                 alert($('#head-image').attr('src'));
+                                document.write($('#head-image').attr('src'));
                             };
                             reader.readAsDataURL(input.files[0]);
 
@@ -75,7 +76,7 @@
                 <input name="file" type="file" id="upload-head-image-button" onchange="readFile(this)">
                 <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer" id="head-image">
                 <span>Welcome!</span><span id="username-one">XXX</span><span><img id="edit-button-one" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
-                <span><button id="qiandao-button">签到<img id="qiandao-button-image" src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button></span>
+                <button id="qiandao-button">签到<img id="qiandao-button-image" src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button>
             </div>
             <div class="function-zone">
                 <div class="bootstrap-tab">
@@ -528,7 +529,7 @@
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>策略名称</th>
+                            <th>策略算法</th>
                             <th>开始时间</th>
                             <th>结束时间</th>
                             <th>股票池</th>
@@ -582,11 +583,12 @@
                     </div>
                     <div class="Easter-Egg">
                         <div class="head-image-box">
-                            <img src="../images/upbg.jpg" width="460px" >
+                            <img src="../images/upbg.jpg" style="width: 460px;height: 310px;border: 3px solid #8c8c8c;border-radius: 3px">
                             <p style="width: 100%;text-align: right">--Pic : Trade area of the VOC around 1700</p>
                         </div>
                         <div class="text-box">
-                            <img src="../images/vc.png" width="60px" >
+                            <p style="margin: 5px;padding-left: 10px;padding-right: 10px;line-height: 18px">&nbsp;&nbsp;&nbsp;&nbsp;VOC is widely known as the "Dutch East India Company".The VOC is generally considered to be
+                                the first multinational enterprise to issue shares of stock to the public.</p>
                         </div>
                     </div>
                 </div>

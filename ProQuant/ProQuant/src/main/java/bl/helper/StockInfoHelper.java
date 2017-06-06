@@ -6,8 +6,6 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import data.StockDataServiceImpl;
 import dataservice.StockDataService;
 
