@@ -257,6 +257,7 @@ $(function(){
     // deEffect();
 
 
+    //为自选股和使用过的策略表格的删除按钮设置事件
     $("a[title=deleteButton]").mousedown(function (event) {
         event.stopPropagation();
         $(this).parent().parent().remove();
@@ -281,11 +282,53 @@ $(function(){
         // var arow = trl.eq(0);
         // alert(arow);
         // alert($(this)[0].parentNode.parentNode.rowIndex);
+
+
+
+
+        //向bl发送新的修改过的自选股或者使用过的策略的表格
+
+
+
         addStyleToRow();
     });
     $("a[title=deleteButton]").mouseup(function () {
         operationButtonWasClicked = false;
     });
+
+    //为持仓记录表格所有的卖出按钮设置事件
+    $("a[title=sellButton]").mousedown(function (event) {
+        event.stopPropagation();
+        $(this).parent().parent().remove();
+        rowChanged = true;
+        operationButtonWasClicked = true;
+
+        //向bl发送卖出股票记录
+
+        //同时还得调用bl方法更新账户数据
+        $.ajax({
+            type: 'GET',
+            contentType: 'application/json',
+            url: '/user/list',
+            dataType: 'json',
+            success: function (data) {
+                if(data || data.success === "true"){
+                    $("#availableProperty").text(data);
+                    alert("success");
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+
+        });
+
+        addStyleToRow();
+    });
+
+    $("a[title=sellButton]").mouseup(function () {
+        operationButtonWasClicked = false;
+    })
 
 
 
@@ -608,3 +651,4 @@ function showQianDaoDialog(jq_ele) {
     dia.style.top = offsetY + height+ 20 + "px";
     // dia.style.display = "block";
 }
+
