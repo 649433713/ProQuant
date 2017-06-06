@@ -1,6 +1,7 @@
 package blservice.userDataBlService;
 
 import VO.UserVO.AccountPageTotalVO;
+import VO.UserVO.HistoryStocksVO;
 import VO.UserVO.StrategyRecordVO;
 import VO.UserVO.UserOptionalStocksListVO;
 import model.ResultMessage;
@@ -39,6 +40,14 @@ public interface UserDataService {
      */
     public StrategyRecordVO getStrategyRecordVO(String userName);
 
-    public ResultMessage setStrategyRecord();
+    /**
+     * 当用户删除某个策略时，调用该方法修改数据
+     * @param strategyIndexList
+     * @return
+     */
+    public ResultMessage setStrategyRecord(ArrayList<String> strategyIndexList);
+
+
+//    public HistoryStocksVO getHistoryLists(String userName);
 
 }
