@@ -20,5 +20,10 @@ public interface UserStockPoolService {
 	public boolean addToPool(String username,String stockcode);
 	
 	public boolean removeFromPool(String username,String stockcode);
-	
+	/**
+	 * 直接把所有的股票替换成现在list中的股票名
+	 * @param list
+	 * @return
+	 */
+	public boolean modifyPool(List<String> list,String username);
 }

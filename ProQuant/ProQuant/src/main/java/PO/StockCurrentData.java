@@ -14,7 +14,7 @@ public class StockCurrentData implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 2957162468934798205L;
 	private long index;
-	//	代码
+	//代码
 	private String code;
 	//名称
 	private String name;
