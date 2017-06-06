@@ -1,14 +1,13 @@
 package model;
 
 public enum StrategyType {
-	
-	/**
-	 * 均值回归策略
-	 */
+
+	//BP神经网络策略
+	BPNetwork,
+
+	//均值回归策略
 	ReversionDriven,
     
-	/**
-     * 动量策略 
-     */
+	//动量策略
 	MomentumDriven
 }
