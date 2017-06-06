@@ -12,7 +12,6 @@ import VO.UserVO.AccountVO;
 import VO.UserVO.DealRecordsVO;
 import VO.UserVO.OwnedStocksVO;
 import VO.UserVO.UserOptionalStocksListVO;
-import model.UserTradeSingal;
 
 public  class UserPoToVo {
     public static UserOptionalStocksListVO stockCurrentPOToUserOptionalStocksListVO(StockCurrentData current){
