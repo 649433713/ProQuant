@@ -102,32 +102,39 @@ body button:focus{
 }
 /*上面的两个css样式实现了内容的滚动，但是会将表格行中所有单元格都集中在表格最左侧,所以要给每一个th和td来设置宽度*/
 #user-account-part #chicang-table thead th{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table thead th + th{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table thead th + th + th{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table thead th + th + th + th{
-    width: 129px;
+    width: 100px;
+}
+#user-account-part #chicang-table thead th + th + th + th + th{
+    width: 89px;
 }
 /*#user-account-part #chicang-table thead th + th + th + th + th{*/
     /*width: 99px;*/
 /*}*/
 #user-account-part #chicang-table tbody td{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table tbody td + td{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table tbody td + td + td{
-    width: 120px;
+    width: 100px;
 }
 #user-account-part #chicang-table tbody td + td + td + td{
-    width: 129px;
+    width: 100px;
 }
+#user-account-part #chicang-table tbody td + td + td + td + td{
+    width: 89px;
+}
+
 /*#user-account-part tbody td + td + td + td + td{*/
     /*width: 99px;*/
 /*}*/
