@@ -1,8 +1,53 @@
 package blservice.userDataBlService;
 
+import VO.UserVO.AccountPageTotalVO;
+import VO.UserVO.HistoryStocksVO;
+import VO.UserVO.StrategyRecordVO;
+import VO.UserVO.UserOptionalStocksListVO;
+import model.ResultMessage;
+
+import java.util.ArrayList;
+
 /**
  * Created by xiezhenyu on 2017/5/29.
  */
 public interface UserDataService {
+    /**
+     * 返回用户中心-------个人账户界面的总数据
+      * @param userName 用户名
+     * @return
+     */
+    public AccountPageTotalVO getUserAccountData(String userName);
+
+    /**
+     * 返回用户中心---------自选股
+     * @param userName 用户名
+     * @return
+     */
+    public UserOptionalStocksListVO getUserOptionalStocks(String userName);
+
+    /**
+     * 当用户删除自选股记录时，调用该方法修改数据
+     * @param newOptionalStocksList 修改过的自选股列表（仅有股票的code）
+     * @return
+     */
+    public ResultMessage setUserOptionalStocks(ArrayList<String> newOptionalStocksList);
+
+    /**
+     * 返回用户中心---------使用过的策略
+     * @param userName 用户名
+     * @return
+     */
+    public StrategyRecordVO getStrategyRecordVO(String userName);
+
+    /**
+     * 当用户删除某个策略时，调用该方法修改数据
+     * @param strategyIndexList
+     * @return
+     */
+    public ResultMessage setStrategyRecord(ArrayList<String> strategyIndexList);
+
+
+//    public HistoryStocksVO getHistoryLists(String userName);
 
 }
