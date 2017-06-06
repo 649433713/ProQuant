@@ -23,7 +23,7 @@ import dataservice.StockDataService;
 import dataservice.StockScoreService;
 import model.KLineType;
 
-@Service
+@Service("StockInfoService")
 public class StockInfoBl implements StockInfoService {
 	@Autowired
 	StockDataService stockDataService;
@@ -34,14 +34,21 @@ public class StockInfoBl implements StockInfoService {
 	@Override
 	public StockVO getStockVO(String stockNameOrId) {
 		String code=StockInfoHelper.getStockCode(stockNameOrId);
+//		System.out.println(code);
 		Date now=new Date();
 		Date yes=StockInfoHelper.add(now, -1);
+//		if(stockDataService==null){
+//			System.out.println("fdsfa");
+//		}
+//		System.out.println(code);
 		StockCurrentData stockCurrent=stockDataService.getStockCurrentData(code);
+//		System.out.println(stockCurrent.getCode());
 		StockData stockData=stockDataService.getBasicDateStock(yes, yes, code).get(yes);
 		InfoData infoData=stockDataService.getStockInfo(code);
 		StockScore stockScore=stockScoreService.getStockScore(code);
-		
-		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore, stockData);
+		StockVO sVo=new StockVO("123", 12, 0.1, 1.1,1.14, 1.13, 1.12, 1.12, 1.14332, 123, 1.14324324, 0.32, 1.237, 100.3, 12.32, 564.23, 765.3, "阿里爸爸", "支付宝", 99, 12.3);
+		return sVo;
+//		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore, stockData);
 	}
 
 	@Override
