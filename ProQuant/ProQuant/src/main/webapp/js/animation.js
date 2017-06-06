@@ -1,86 +1,287 @@
-// var PI_BY_180 = Math.PI / 180,
-//     PI2 = 2 * Math.PI,
-//     c = document.querySelector('#c'),
-//     ctx = c.getContext('2d'),
-//     dots = [],
-//     W = window.innerWidth,
-//     H = window.innerHeight,
-//     radius = 20;
-//
-// c.width = W;
-// c.height = H;
-// var n = (W+200) / 80;
-//
-// function Dot (cx, cy, radius, angle, size, i, j) {
-//     this.cx = cx;
-//     this.cy = cy;
-//     this.size = size;
-//     this.radius = radius;
-//     this.angle = angle;
-//     this.i = i;
-//     this.j = j;
-// }
-//
-// Dot.prototype.draw = function () {
-//     // ctx.beginPath();
-//     ctx.arc(this.x, this.y, this.size, 0, PI2, false);
-//     // ctx.fill();
-//     ctx.closePath();
-//     return this;
-// }
-//
-// Dot.prototype.update = function () {
-//     this.angle += 1.5;
-//     this.x = this.cx + this.radius * Math.cos(this.angle * PI_BY_180);
-//     this.y = this.cy + this.radius * Math.sin(this.angle * PI_BY_180);
-//     return this;
-// }
-//
-// function animate() {
-//     ctx.clearRect (0, 0, W, H);
-//     ctx.beginPath();
-//     ctx.strokeStyle = "rgba(255,255,255,0.2)";
-//     for (var i = 0; i < dots.length; i++) {
-//         for (var j = i; j < dots.length; j++) {
-//             drawLine(dots[i], dots[j]);
-//         }
-//     }
-//     ctx.stroke();
-//
-//     ctx.fillStyle = 'rgba(255,255,255,0.2)';
-//     // ctx.beginPath();
-//     for (var i = 0; i < dots.length; i++) {
-//         dots[i].update();
-//         dots[i].draw();
-//     }
-//     // ctx.fill();
-//     // ctx.closePath();
-//
-//
-//     window.requestAnimationFrame ? requestAnimationFrame(animate) : mozRequestAnimationFrame(animate);
-// }
-//
-// function random(a, b) { return a + Math.random() * (b-a); }
-//
-// function drawLine (d1, d2) {
-//     if (Math.abs(d1.i - d2.i) >= 2 || Math.abs(d1.j - d2.j) >= 2) return;
-//     ctx.moveTo(d1.x, d1.y);
-//     ctx.lineTo(d2.x, d2.y);
-// }
-//
-// for (var i = 0; i < n; i++) {
-//     var y = 20;
-//     for (var j = 0; j < n * 2.5; j++) {
-//         var cx = -100 + i * 80,
-//             cy = y;
-//         y += j;
-//
-//         // draw the dots
-//         if (j > n/2) {
-//             var d = new Dot(cx + random(-30,30), cy + random(-10,10), radius, i * 20 + j * 20, 3 * (j/n), i, j);
-//             dots.push(d);
-//         }
-//     }
-// }
-//
-// animate();
+var canvas = document.getElementById('nokey'),
+    can_w = parseInt(canvas.style.width),
+    can_h = parseInt(canvas.style.height),
+    ctx = canvas.getContext('2d');
+
+// console.log(typeof can_w);
+
+var ball = {
+        x: 0,
+        y: 0,
+        vx: 0,
+        vy: 0,
+        r: 0,
+        alpha: 1,
+        phase: 0
+    },
+    ball_color = {
+        r: 207,
+        g: 255,
+        b: 4
+    },
+    R = 2,
+    balls = [],
+    alpha_f = 0.03,
+    alpha_phase = 0,
+
+// Line
+    link_line_width = 0.8,
+    dis_limit = 260,
+    add_mouse_point = true,
+    mouse_in = false,
+    mouse_ball = {
+        x: 0,
+        y: 0,
+        vx: 0,
+        vy: 0,
+        r: 0,
+        type: 'mouse'
+    };
+
+// Random speed
+function getRandomSpeed(pos){
+    var  min = -1,
+        max = 1;
+    switch(pos){
+        case 'top':
+            return [randomNumFrom(min, max), randomNumFrom(0.1, max)];
+            break;
+        case 'right':
+            return [randomNumFrom(min, -0.1), randomNumFrom(min, max)];
+            break;
+        case 'bottom':
+            return [randomNumFrom(min, max), randomNumFrom(min, -0.1)];
+            break;
+        case 'left':
+            return [randomNumFrom(0.1, max), randomNumFrom(min, max)];
+            break;
+        default:
+            return;
+            break;
+    }
+}
+function randomArrayItem(arr){
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+function randomNumFrom(min, max){
+    return Math.random()*(max - min) + min;
+}
+console.log(randomNumFrom(0, 10));
+// Random Ball
+function getRandomBall(){
+    var pos = randomArrayItem(['top', 'right', 'bottom', 'left']);
+    switch(pos){
+        case 'top':
+            return {
+                x: randomSidePos(can_w),
+                y: -R,
+                vx: getRandomSpeed('top')[0],
+                vy: getRandomSpeed('top')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'right':
+            return {
+                x: can_w + R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('right')[0],
+                vy: getRandomSpeed('right')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'bottom':
+            return {
+                x: randomSidePos(can_w),
+                y: can_h + R,
+                vx: getRandomSpeed('bottom')[0],
+                vy: getRandomSpeed('bottom')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+        case 'left':
+            return {
+                x: -R,
+                y: randomSidePos(can_h),
+                vx: getRandomSpeed('left')[0],
+                vy: getRandomSpeed('left')[1],
+                r: R,
+                alpha: 1,
+                phase: randomNumFrom(0, 10)
+            }
+            break;
+    }
+}
+function randomSidePos(length){
+    return Math.ceil(Math.random() * length);
+}
+
+// Draw Ball
+function renderBalls(){
+    Array.prototype.forEach.call(balls, function(b){
+        if(!b.hasOwnProperty('type')){
+            ctx.fillStyle = 'rgba('+ball_color.r+','+ball_color.g+','+ball_color.b+','+b.alpha+')';
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, R, 0, Math.PI*2, true);
+            ctx.closePath();
+            ctx.fill();
+        }
+    });
+}
+
+// Update balls
+function updateBalls(){
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        b.x += b.vx;
+        b.y += b.vy;
+
+        if(b.x > -(50) && b.x < (can_w+50) && b.y > -(50) && b.y < (can_h+50)){
+            new_balls.push(b);
+        }
+
+        // alpha change
+        b.phase += alpha_f;
+        b.alpha = Math.abs(Math.cos(b.phase));
+        // console.log(b.alpha);
+    });
+
+    balls = new_balls.slice(0);
+}
+
+// loop alpha
+function loopAlphaInf(){
+
+}
+
+// Draw lines
+function renderLines(){
+    var fraction, alpha;
+    for (var i = 0; i < balls.length; i++) {
+        for (var j = i + 1; j < balls.length; j++) {
+
+            fraction = getDisOf(balls[i], balls[j]) / dis_limit;
+
+            if(fraction < 1){
+                alpha = (1 - fraction).toString();
+
+                ctx.strokeStyle = 'rgba(150,150,150,'+alpha+')';
+                ctx.lineWidth = link_line_width;
+
+                ctx.beginPath();
+                ctx.moveTo(balls[i].x, balls[i].y);
+                ctx.lineTo(balls[j].x, balls[j].y);
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
+// calculate distance between two points
+function getDisOf(b1, b2){
+    var  delta_x = Math.abs(b1.x - b2.x),
+        delta_y = Math.abs(b1.y - b2.y);
+
+    return Math.sqrt(delta_x*delta_x + delta_y*delta_y);
+}
+
+// add balls if there a little balls
+function addBallIfy(){
+    if(balls.length < 20){
+        balls.push(getRandomBall());
+    }
+}
+
+// Render
+function render(){
+    ctx.clearRect(0, 0, can_w, can_h);
+
+    renderBalls();
+
+    renderLines();
+
+    updateBalls();
+
+    addBallIfy();
+
+    window.requestAnimationFrame(render);
+}
+
+// Init Balls
+function initBalls(num){
+    for(var i = 1; i <= num; i++){
+        balls.push({
+            x: randomSidePos(can_w),
+            y: randomSidePos(can_h),
+            vx: getRandomSpeed('top')[0],
+            vy: getRandomSpeed('top')[1],
+            r: R,
+            alpha: 1,
+            phase: randomNumFrom(0, 10)
+        });
+    }
+}
+// Init Canvas
+function initCanvas(){
+    canvas.setAttribute('width', window.innerWidth);
+    canvas.setAttribute('height', window.innerHeight);
+
+    can_w = parseInt(canvas.getAttribute('width'));
+    can_h = parseInt(canvas.getAttribute('height'));
+}
+window.addEventListener('resize', function(e){
+    console.log('Window Resize...');
+    initCanvas();
+});
+
+function goMovie(){
+    initCanvas();
+    initBalls(20);
+    window.requestAnimationFrame(render);
+}
+goMovie();
+
+// Mouse effect
+canvas.addEventListener('mouseenter', function(){
+    console.log('mouseenter');
+    mouse_in = true;
+    balls.push(mouse_ball);
+});
+canvas.addEventListener('mouseleave', function(){
+    console.log('mouseleave');
+    mouse_in = false;
+    var new_balls = [];
+    Array.prototype.forEach.call(balls, function(b){
+        if(!b.hasOwnProperty('type')){
+            new_balls.push(b);
+        }
+    });
+    balls = new_balls.slice(0);
+});
+canvas.addEventListener('mousemove', function(e){
+    var e = e || window.event;
+    mouse_ball.x = e.pageX;
+    mouse_ball.y = e.pageY;
+    // console.log(mouse_ball);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
