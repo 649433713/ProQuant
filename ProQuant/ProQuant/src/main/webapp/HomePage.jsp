@@ -31,7 +31,7 @@
 <%
     StockInfoService stockInfoService = new StockInfoBl();
     StockVO stockVO = stockInfoService.getStockVO("杭州园林");
-    out.print(stockVO.getName());
+//    out.print(stockVO.getName());
     session.setAttribute("StockVO",stockVO);
 %>
 <nav class="navbar navbar-default navbar-fixed-top" style="height: 51px">
