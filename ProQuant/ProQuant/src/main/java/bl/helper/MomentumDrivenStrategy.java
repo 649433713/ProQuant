@@ -17,8 +17,10 @@ import model.StrategyType;
  */
 public class MomentumDrivenStrategy extends Strategy {
 
-	public MomentumDrivenStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard, int possessingDays,
-			int maxHoldNum, Date startDate, Date endDate, StrategyType type) {
+	public MomentumDrivenStrategy(StockPlateVO stockPlateVO,
+			StrategyStandard strategyStandard
+			, int possessingDays,int maxHoldNum, Date startDate, Date endDate, 
+			StrategyType type) {
 		super(stockPlateVO, strategyStandard, possessingDays, maxHoldNum, startDate, endDate, type);
 	}
 
