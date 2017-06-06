@@ -30,7 +30,7 @@
 <!--导航栏start-->
 <%
     StockInfoService stockInfoService = new StockInfoBl();
-    StockVO stockVO = stockInfoService.getStockVO("杭州园林");
+    StockVO stockVO = stockInfoService.getStockVO("1");
 //    out.print(stockVO.getName());
     session.setAttribute("StockVO",stockVO);
 %>
