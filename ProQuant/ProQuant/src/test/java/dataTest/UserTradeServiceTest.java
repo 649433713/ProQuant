@@ -21,7 +21,6 @@ public class UserTradeServiceTest {
 	@Test
 	public void test() {
 		System.out.println(userTradeService.buy("yinywf", "603999", 1000));;
-	
 	}
 
 }
