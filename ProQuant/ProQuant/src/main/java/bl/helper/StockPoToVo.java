@@ -26,17 +26,17 @@ public class StockPoToVo{
      
      public static StockVO stockCurrentToStockVO(StockCurrentData stockCurrentData
     		 ,InfoData infoData,StockScore stockScore,StockData stockData){
+    	 double amilipse=(stockCurrentData.getHigh()-stockCurrentData.getLow())/stockCurrentData.getSettlement();
     	 double amount_Of_Increase=stockCurrentData.getTrade()-stockCurrentData.getOpen();
-    	 int vo=stockCurrentData.getVolume().intValue();
     	 StockVO sVo=new StockVO(stockCurrentData.getName(), Integer.parseInt(stockCurrentData.getCode()),
     			 stockCurrentData.getTrade(), stockCurrentData.getHigh(), stockCurrentData.getLow(),
     			 stockCurrentData.getOpen(), stockCurrentData.getSettlement(),amount_Of_Increase,
     			 stockCurrentData.getChangepercent()
     			 , stockCurrentData.getAmount().intValue(), stockCurrentData.getAmount(), 
-    			 stockCurrentData.getMktcap(), stockCurrentData.getNmc(), 0.12
+    			 stockCurrentData.getMktcap(), stockCurrentData.getNmc(), amilipse
     			 , stockCurrentData.getTurnoverratio(),
     			 stockCurrentData.getPb(), stockCurrentData.getPer(), 
     			 infoData.getCpInfo(), infoData.getCpBusiness(), stockScore.getAnalyzeNum(), stockScore.getBeatNum());
-   return sVo;
+           return sVo;
      }
 }
