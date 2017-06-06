@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class StockDataId implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2400738429354599085L;
 	private String code;
 	private Date date;
 

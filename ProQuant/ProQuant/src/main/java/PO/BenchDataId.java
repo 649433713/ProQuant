@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class BenchDataId implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1090402243215879430L;
 	private String code;
 	private Date date;
 
