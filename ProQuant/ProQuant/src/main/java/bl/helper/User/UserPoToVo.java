@@ -40,7 +40,6 @@ public  class UserPoToVo {
     		OwnedStocksVO ownedStocksVO=new OwnedStocksVO();
     		ownedStocksVO.setOwnedNum(userStocks.get(i).getStocknum());
     		ownedStocksVO.setStockName(userStocks.get(i).getId().getStockcode());
-    		ownedStocksVO.setProfitAndLoss(0.0);
     		ownedStocksVO.setNewestPrice(0.1);
     		ownedStocksVOs.add(ownedStocksVO);
     	}
