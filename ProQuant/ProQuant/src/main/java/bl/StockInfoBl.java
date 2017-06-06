@@ -40,7 +40,6 @@ public class StockInfoBl implements StockInfoService {
 		StockData stockData=stockDataService.getBasicDateStock(yes, yes, code).get(yes);
 		InfoData infoData=stockDataService.getStockInfo(code);
 		StockScore stockScore=stockScoreService.getStockScore(code);
-//		StockData stockPO=stockDataService.getBasicDateStock(null, 1, code).get(now);
 		
 		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore, stockData);
 	}
@@ -83,6 +82,7 @@ public class StockInfoBl implements StockInfoService {
 			StockKLine stockKLine=StockPoToVo.KLineDataToStockKLine(kLineDayDatas.get(i));
 			stockKLine.setName(name);
 			stockKLine.setId(id);
+			kLines.add(stockKLine);
 		}
 		return kLines;
 	}
@@ -99,6 +99,7 @@ public class StockInfoBl implements StockInfoService {
             StockDataVO stockDataVO=StockPoToVo.stockDataToStockDataVO(entry.getValue());
             stockDataVO.setName(name);
             stockDataVO.setId(Integer.parseInt(code));
+            stockDataVOs.add(stockDataVO);
 		}
 		return stockDataVOs;
 	}
