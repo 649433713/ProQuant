@@ -31,31 +31,21 @@ public class StockInfoBl implements StockInfoService {
 	StockScoreService stockScoreService;
     @Autowired
 	KLineDataService kLineDataService;	
+    
 	@Override
 	public StockVO getStockVO(String stockNameOrId) {
-		String code=StockInfoHelper.getStockCode(stockNameOrId);
-//		System.out.println(code);
-		Date now=new Date();
-		Date yes=StockInfoHelper.add(now, -1);
-//		if(stockDataService==null){
-//			System.out.println("fdsfa");
-//		}
-//		System.out.println(code);
+		String code=StockInfoHelper.getStockCode(stockNameOrId,stockDataService);
 		StockCurrentData stockCurrent=stockDataService.getStockCurrentData(code);
-//		System.out.println(stockCurrent.getCode());
-		StockData stockData=stockDataService.getBasicDateStock(yes, yes, code).get(yes);
 		InfoData infoData=stockDataService.getStockInfo(code);
 		StockScore stockScore=stockScoreService.getStockScore(code);
-		StockVO sVo=new StockVO("123", 12, 0.1, 1.1,1.14, 1.13, 1.12, 1.12, 1.14332, 123, 1.14324324, 0.32, 1.237, 100.3, 12.32, 564.23, 765.3, "阿里爸爸", "支付宝", 99, 12.3);
-		return sVo;
-//		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore, stockData);
+		return StockPoToVo.stockCurrentToStockVO(stockCurrent, infoData, stockScore);
 	}
 
 	@Override
 	public ArrayList<StockKLine> getStockForKLine(String stockNameOrId, Date startDate, Date endDate
 			,KLineType kLineType,boolean fq) {
         //得到id和name
-		String code=StockInfoHelper.getStockCode(stockNameOrId);
+		String code=StockInfoHelper.getStockCode(stockNameOrId,stockDataService);
 		String name=stockDataService.getName(code);
 		int id=Integer.parseInt(code);
 		
@@ -67,7 +57,6 @@ public class StockInfoBl implements StockInfoService {
 			count++;
 			tmpDate=StockInfoHelper.add(tmpDate, 1);
 		}
-		
 		//从数据层取数据
 		ArrayList<KLineDayData> kLineDayDatas=new ArrayList<>();
 		switch (kLineType){
@@ -96,11 +85,12 @@ public class StockInfoBl implements StockInfoService {
 
 	@Override
 	public ArrayList<StockDataVO> getStockData(String stockNameOrId, int numberOfDay) {
-		String code=StockInfoHelper.getStockCode(stockNameOrId);
+		String code=StockInfoHelper.getStockCode(stockNameOrId,stockDataService);
 		//从数据层得到股票的map
 		Date now =new Date();
 		Map<Date, StockData> stockPO=stockDataService.getBasicDateStock(now, numberOfDay, code);
 		String name=stockDataService.getName(code);
+//		System.out.println(name);
 		ArrayList<StockDataVO> stockDataVOs=new ArrayList<>();
 		for (Map.Entry<Date, StockData> entry : stockPO.entrySet()) {
             StockDataVO stockDataVO=StockPoToVo.stockDataToStockDataVO(entry.getValue());

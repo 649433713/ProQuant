@@ -6,6 +6,10 @@ package PO;
  */
 public class StockData implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 857534896852702876L;
 	private StockDataId id;
 	private Double open;
 	private Double high;

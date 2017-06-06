@@ -15,7 +15,7 @@ public class StockPoToVo{
          StockDataVO stockDataVO=new StockDataVO(null, Integer.parseInt(stockData.getId().getCode()), stockData.getId().getDate()
         		 , stockData.getHigh(), stockData.getLow()
         		 ,stockData.getOpen(), stockData.getClose(), stockData.getTurnoverRatio(), 0.0,0.0);		
-    	 return null;
+    	 return stockDataVO;
      }
      
      public static StockKLine KLineDataToStockKLine(KLineDayData kLineDayData){
@@ -25,7 +25,7 @@ public class StockPoToVo{
      }
      
      public static StockVO stockCurrentToStockVO(StockCurrentData stockCurrentData
-    		 ,InfoData infoData,StockScore stockScore,StockData stockData){
+    		 ,InfoData infoData,StockScore stockScore){
     	 double amilipse=(stockCurrentData.getHigh()-stockCurrentData.getLow())/stockCurrentData.getSettlement();
     	 double amount_Of_Increase=stockCurrentData.getTrade()-stockCurrentData.getOpen();
     	 StockVO sVo=new StockVO(stockCurrentData.getName(), Integer.parseInt(stockCurrentData.getCode()),

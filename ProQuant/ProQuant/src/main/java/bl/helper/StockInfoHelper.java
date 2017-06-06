@@ -12,11 +12,10 @@ import dataservice.StockDataService;
 public class StockInfoHelper {
 	
 	
-	public static String getStockCode(String str){
-		StockDataService service=new StockDataServiceImpl();
+	public static String getStockCode(String str,StockDataService service){
 		Pattern pattern = Pattern.compile("[0-9]*");
 		Matcher isNum = pattern.matcher(str);
-		if(isNum.matches()){
+		if(!isNum.matches()){
 			return Integer.toString(service.getCode(str));
 		}
 		return str;

@@ -6,6 +6,10 @@ package PO;
  */
 public class BenchData implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6126538731784802186L;
 	private BenchDataId id;
 	private Double open;
 	private Double high;

@@ -5,7 +5,7 @@ import java.util.List;
 import PO.user.UserAccount;
 import PO.user.UserStockOwned;
 import PO.user.UserTradeRecord;
-import model.UserTradeSignal;
+import model.UserTradeSingal;
 
 public interface UserTradeService {
 
@@ -40,8 +40,8 @@ public interface UserTradeService {
 	 * @param num
 	 * @return 是否买卖成功 
 	 */
-	public UserTradeSignal buy(String username,String code,int num);
+	public UserTradeSingal buy(String username,String code,int num);
 	
-	public UserTradeSignal sell(String username,String code,int num);
+	public UserTradeSingal sell(String username,String code,int num);
 	
 }
