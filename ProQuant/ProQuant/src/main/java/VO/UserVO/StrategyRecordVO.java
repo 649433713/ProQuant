@@ -5,6 +5,8 @@ package VO.UserVO;
  * 该VO对应用户中心界面使用过的策略界面
  */
 public class StrategyRecordVO {
+    //数据库内唯一标识一个策略的标识
+    private String index;
     //策略算法名称(bl使用枚举类实现，见  文件，返回界面对应的字符串)
     private String strategAlgorithmName;
     //使用策略时存下来的开始时间
@@ -21,6 +23,14 @@ public class StrategyRecordVO {
     private String maxHoldStocksNum;
 
     public StrategyRecordVO() {
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getStrategAlgorithmName() {
