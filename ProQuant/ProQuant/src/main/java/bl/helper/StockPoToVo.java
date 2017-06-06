@@ -30,12 +30,12 @@ public class StockPoToVo{
     	 int vo=stockCurrentData.getVolume().intValue();
     	 StockVO sVo=new StockVO(stockCurrentData.getName(), Integer.parseInt(stockCurrentData.getCode()),
     			 stockCurrentData.getTrade(), stockCurrentData.getHigh(), stockCurrentData.getLow(),
-    			 stockCurrentData.getOpen(), stockData.getClose(),amount_Of_Increase,
-    			 amount_Of_Increase/stockCurrentData.getTrade()
-    			 , vo, stockCurrentData.getTurnoverratio(), 
-    			 0.0, 0.0, 0.0
-    			 , stockCurrentData.getChangepercent(),
-    			 0.0, 0.0, 
+    			 stockCurrentData.getOpen(), stockCurrentData.getSettlement(),amount_Of_Increase,
+    			 stockCurrentData.getChangepercent()
+    			 , stockCurrentData.getAmount().intValue(), stockCurrentData.getAmount(), 
+    			 stockCurrentData.getMktcap(), stockCurrentData.getNmc(), 0.12
+    			 , stockCurrentData.getTurnoverratio(),
+    			 stockCurrentData.getPb(), stockCurrentData.getPer(), 
     			 infoData.getCpInfo(), infoData.getCpBusiness(), stockScore.getAnalyzeNum(), stockScore.getBeatNum());
    return sVo;
      }
