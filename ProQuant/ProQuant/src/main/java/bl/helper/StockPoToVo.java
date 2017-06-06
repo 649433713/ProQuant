@@ -36,7 +36,7 @@ public class StockPoToVo{
     			 0.0, 0.0, 0.0
     			 , stockCurrentData.getChangepercent(),
     			 0.0, 0.0, 
-    			 infoData.getCpInfo(), infoData.getCpBusiness(), stockScore.getAnalyzeNum(), stockScore.getBeatNum())
+    			 infoData.getCpInfo(), infoData.getCpBusiness(), stockScore.getAnalyzeNum(), stockScore.getBeatNum());
    return sVo;
      }
 }
