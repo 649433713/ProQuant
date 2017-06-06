@@ -9,14 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import DAO.dao.StockCurrentDataDao;
 import DAO.dao.UserAccountDao;
 import DAO.dao.UserStockOwnedDao;
-import DAO.dao.UserStockPoolDao;
 import DAO.dao.UserTradeRecordDao;
 import PO.user.UserAccount;
 import PO.user.UserStockOwned;
 import PO.user.UserStockOwnedId;
 import PO.user.UserTradeRecord;
 import dataservice.UserTradeService;
-import model.UserTradeSignal;
+import model.UserTradeSingal;
 
 @Transactional
 @Service("UserTradeService")
@@ -62,12 +61,12 @@ public class UserTradeServiceImpl implements UserTradeService{
 	}
 
 	@Override
-	public UserTradeSignal buy(String username, String code, int num) {
+	public UserTradeSingal buy(String username, String code, int num) {
 		UserAccount userAccount = accountDao.findById(username);
 		double price = currentDataDao.queryByHql(code).getTrade();
 		double turnover = price*num;
 		if (userAccount.getAvailablePrincipal()<turnover) {
-			return UserTradeSignal.Insufficient;
+			return UserTradeSingal.Insufficient;
 		}
 		UserStockOwned userStockOwned = stockOwnedDao.findById(new UserStockOwnedId(username, code));
 		if (userStockOwned!=null) {
@@ -88,21 +87,21 @@ public class UserTradeServiceImpl implements UserTradeService{
 			 
 		} catch (Exception e) {
 			// TODO: handle exception
-			return UserTradeSignal.error;
+			return UserTradeSingal.error;
 		}
 		
-		return UserTradeSignal.Success;
+		return UserTradeSingal.Success;
 	}
 
 	@Override
-	public UserTradeSignal sell(String username, String code, int num) {
+	public UserTradeSingal sell(String username, String code, int num) {
 		UserAccount userAccount = accountDao.findById(username);
 		double price = currentDataDao.queryByHql(code).getTrade();
 		double turnover = price*num;
 		UserStockOwned userStockOwned = stockOwnedDao.findById(new UserStockOwnedId(username, code));
 		int stockNum = userStockOwned.getStocknum();
 		if (stockNum<num) {
-			return UserTradeSignal.Insufficient;
+			return UserTradeSingal.Insufficient;
 		}
 		else if (stockNum==num) {
 			stockOwnedDao.delete(userStockOwned);
@@ -120,10 +119,10 @@ public class UserTradeServiceImpl implements UserTradeService{
 			 
 		} catch (Exception e) {
 			// TODO: handle exception
-			return UserTradeSignal.error;
+			return UserTradeSingal.error;
 		}
 		
-		return UserTradeSignal.Success;
+		return UserTradeSingal.Success;
 	}
 
 	
