@@ -8,7 +8,7 @@ import VO.strategyPageVO.EarningsLineVO;
 import VO.strategyPageVO.ParamDataVO;
 import VO.strategyPageVO.StrategyCallbackVO;
 import VO.strategyPageVO.StrategyEvalutingVO;
-import model.StrategyStandard;
+import model.StockPlate;
 import model.StrategyType;
 /**
  * 
@@ -17,9 +17,9 @@ import model.StrategyType;
  */
 public class ReversionDrivenStrategy extends Strategy {
 
-	public ReversionDrivenStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard, int possessingDays,
-			int maxHoldNum, Date startDate, Date endDate, StrategyType type) {
-		super(stockPlateVO, strategyStandard, possessingDays, maxHoldNum, startDate, endDate, type);
+	public ReversionDrivenStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate, int possessingDays,
+			int holdDays,int maxHoldNum, Date startDate, Date endDate, StrategyType type) {
+		super(stockPlateVO, stockPlate, possessingDays, holdDays,maxHoldNum, startDate, endDate, type);
 	}
 
 	@Override

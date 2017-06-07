@@ -1,6 +1,7 @@
 package blservice.StockInfoBlService;
 
 import VO.StockDataVO;
+import VO.StockForCompare;
 import VO.StockKLine;
 import VO.StockVO;
 import model.KLineType;
@@ -40,5 +41,5 @@ public interface StockInfoService {
      */
     public ArrayList<StockDataVO> getStockData(String stockNameOrId, int numberOfDay);
     
-    
+    public ArrayList<StockForCompare> stockCompare(ArrayList<String> stockLists);
 }

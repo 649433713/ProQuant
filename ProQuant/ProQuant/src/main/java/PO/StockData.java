@@ -23,6 +23,7 @@ public class StockData implements java.io.Serializable {
 	private Double turnoverRatio;//换手率
 
 	public StockData() {
+		
 	}
 
 	public StockData(StockDataId id) {

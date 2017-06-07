@@ -11,20 +11,20 @@ import VO.strategyPageVO.StrategyCallbackVO;
 import VO.strategyPageVO.StrategyIndexVO;
 import bl.helper.Strategy.StrategyController;
 import blservice.strategyBlService.StrategyService;
-import model.StrategyStandard;
+import model.StockPlate;
 import model.StrategyType;
 @Service
 public class StockStrategyBl implements StrategyService {
 
 	@Override
-	public StrategyCallbackVO getCalResultOnExistStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard,
-			int possessingDays, int maxHoldNum, Date startDate, Date endDate,StrategyType type) {
+	public StrategyCallbackVO getCalResultOnExistStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate,
+			int possessingDays, int holdDays,int maxHoldNum, Date startDate, Date endDate,StrategyType type) {
 		StrategyController strategyController=new StrategyController();
-		return strategyController.getStrategyResult(stockPlateVO, strategyStandard, possessingDays, maxHoldNum, startDate, endDate, type);
+		return strategyController.getStrategyResult(stockPlateVO,stockPlate, possessingDays,holdDays, maxHoldNum, startDate, endDate, type);
 	}
 
 	@Override
-	public StrategyCallbackVO getCalResultOnNewStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard,
+	public StrategyCallbackVO getCalResultOnNewStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate,
 			int possessingDays, int maxHoldNum, Date startDate, Date endDate,
 			ArrayList<StrategyIndexVO> strategyStandardVOS) {
 		// TODO Auto-generated method stub
