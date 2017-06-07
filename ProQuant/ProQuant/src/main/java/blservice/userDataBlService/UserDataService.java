@@ -30,7 +30,7 @@ public interface UserDataService {
      * @param newOptionalStocksList 修改过的自选股列表（仅有股票的code）
      * @return
      */
-    public ResultMessage modifyUserOptionalStocks(ArrayList<String> newOptionalStocksList);
+    public ResultMessage modifyUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName);
 
     /**
      * 返回用户中心---------使用过的策略
@@ -44,7 +44,7 @@ public interface UserDataService {
      * @param strategyIndexList
      * @return
      */
-    public ResultMessage modifyStrategyRecord(ArrayList<String> strategyIndexList);
+    public ResultMessage modifyStrategyRecord(ArrayList<String> strategyIndexList,String userName);
 
 
 //    public HistoryStocksVO getHistoryLists(String userName);

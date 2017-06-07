@@ -1,6 +1,7 @@
 package blservice.StockInfoBlService;
 
 import VO.StockDataVO;
+import VO.StockForCompare;
 import VO.StockKLine;
 import VO.StockVO;
 import model.KLineType;
@@ -39,4 +40,6 @@ public interface StockInfoService {
      * @return 返回包含股票历史数据VO的ArrayList
      */
     public ArrayList<StockDataVO> getStockData(String stockNameOrId, int numberOfDay);
+    
+    public ArrayList<StockForCompare> stockCompare(ArrayList<String> stockLists);
 }

@@ -13,10 +13,16 @@ public class UserOptionalStocksListVO {
     //股票现价
     private double currentPrice;
     //涨幅跌幅
-    private Double chg;
+    private double chg;
     //成交量
-    private Double volume;
-
+    private double volume;
+    public UserOptionalStocksListVO(String id,String name,double trade,double chg,double volume){
+    	this.id=id;
+    	this.name=name;
+    	this.chg=chg;
+    	this.currentPrice=trade;
+    	this.volume=volume;
+    }
     public String getId() {
         return id;
     }

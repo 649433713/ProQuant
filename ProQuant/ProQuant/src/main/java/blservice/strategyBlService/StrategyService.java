@@ -6,7 +6,8 @@ import VO.StockPlateVO;
 import VO.strategyPageVO.PrecisionVO;
 import VO.strategyPageVO.StrategyCallbackVO;
 import VO.strategyPageVO.StrategyIndexVO;
-import model.StrategyStandard;
+import model.StockPlate;
+import model.StrategyType;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,8 +26,8 @@ public interface StrategyService {
      * @param endDate 回测的结束日期
      * @return StrategyCallbackVO   关于该VO的描述见该VO文件
      */
-    public StrategyCallbackVO getCalResultOnExistStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard,
-                                                          int possessingDays, int maxHoldNum, Date startDate, Date endDate);
+    public StrategyCallbackVO getCalResultOnExistStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate,
+                                                          int possessingDays,int holdDays, int maxHoldNum, Date startDate, Date endDate,StrategyType type);
 
     /**
      *
@@ -39,7 +40,7 @@ public interface StrategyService {
      * @param strategyStandardVOS 用户创建策略时选择的筛选指标
      * @return
      */
-    public StrategyCallbackVO getCalResultOnNewStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard,
+    public StrategyCallbackVO getCalResultOnNewStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate,
                                                         int possessingDays, int maxHoldNum, Date startDate, Date endDate,
                                                         ArrayList<StrategyIndexVO> strategyStandardVOS);
 

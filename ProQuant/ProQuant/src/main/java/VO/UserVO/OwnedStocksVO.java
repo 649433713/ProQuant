@@ -11,8 +11,7 @@ public class OwnedStocksVO {
     private Double newestPrice;
     //对应股票的持仓数量
     private Integer ownedNum;
-    //这只股票的盈亏
-    private Double profitAndLoss;
+   
 
     public OwnedStocksVO() {
     }
@@ -41,11 +40,4 @@ public class OwnedStocksVO {
         this.ownedNum = ownedNum;
     }
 
-    public Double getProfitAndLoss() {
-        return profitAndLoss;
-    }
-
-    public void setProfitAndLoss(Double profitAndLoss) {
-        this.profitAndLoss = profitAndLoss;
-    }
 }
