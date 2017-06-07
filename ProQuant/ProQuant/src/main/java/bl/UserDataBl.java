@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.tomcat.util.log.UserDataHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import PO.StockCurrentData;
 import PO.user.UserAccount;
@@ -19,7 +20,7 @@ import dataservice.StockDataService;
 import dataservice.UserStockPoolService;
 import dataservice.UserTradeService;
 import model.ResultMessage;
-
+@Service("UserDataService")
 public class UserDataBl implements UserDataService{
 
 	@Autowired
@@ -50,10 +51,10 @@ public class UserDataBl implements UserDataService{
 	}
 
 	@Override
-	public ResultMessage modifyUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName) {
-//		if(userStockPoolservice.modifyPool(newOptionalStocksList, userName)){
-//			return ResultMessage.success;
-//		}
+	public ResultMessage deleteUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName) {
+		if(userStockPoolservice.modifyPool(newOptionalStocksList, userName)){
+			return ResultMessage.success;
+		}
 		return ResultMessage.failed;
 	}
 
@@ -64,7 +65,7 @@ public class UserDataBl implements UserDataService{
 	}
 
 	@Override
-	public ResultMessage modifyStrategyRecord(ArrayList<String> strategyIndexList,String userName) {
+	public ResultMessage deleteStrategyRecord(ArrayList<String> strategyIndexList,String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}

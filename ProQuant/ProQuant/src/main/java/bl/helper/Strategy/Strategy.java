@@ -1,4 +1,4 @@
-package bl.helper.strategy;
+package bl.helper.Strategy;
 
 import java.util.Date;
 
