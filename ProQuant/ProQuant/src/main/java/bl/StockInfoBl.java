@@ -13,6 +13,7 @@ import PO.StockData;
 import PO.StockScore;
 import PO.kLinePO.KLineDayData;
 import VO.StockDataVO;
+import VO.StockForCompare;
 import VO.StockKLine;
 import VO.StockVO;
 import bl.helper.StockInfoHelper;
@@ -99,6 +100,13 @@ public class StockInfoBl implements StockInfoService {
             stockDataVOs.add(stockDataVO);
 		}
 		return stockDataVOs;
+	}
+
+	@Override
+	public ArrayList<StockForCompare> stockCompare(ArrayList<String> stockLists) {
+//		Map<D, V>
+		
+		return null;
 	}
 
 }

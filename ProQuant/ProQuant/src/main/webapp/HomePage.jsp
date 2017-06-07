@@ -1,6 +1,7 @@
+<%@ page import="VO.StockVO" %>
 <%@ page import="blservice.StockInfoBlService.StockInfoService" %>
 <%@ page import="bl.StockInfoBl" %>
-<%@ page import="VO.StockVO" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: LENOVO
   Date: 2017/6/5
@@ -8,32 +9,32 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
 <html lang="en">
+
+<%--<%--%>
+    <%--String path = request.getContextPath();--%>
+    <%--String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";--%>
+<%--%>--%>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/animation.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/myCSS/nav_footerCSS.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/animation.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/header.css" rel="stylesheet">
+    <link href="./css/reset.css" rel="stylesheet">
+    <link href="./css/animation.css" rel="stylesheet">
+    <link href="./css/home.css" rel="stylesheet">
+    <link href="./css/myCSS/nav_footerCSS.css" rel="stylesheet">
+    <script src="./js/jquery-3.2.1.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/animation.js"></script>
 
 </head>
 <body>
 <!--导航栏start-->
-<%
-    StockInfoService stockInfoService = new StockInfoBl();
-    StockVO stockVO = stockInfoService.getStockVO("1");
-//    out.print(stockVO.getName());
-    session.setAttribute("StockVO",stockVO);
-%>
+
 <nav class="navbar navbar-default navbar-fixed-top" style="height: 51px">
     <div class="container">
         <div class="navbar-header">
@@ -78,7 +79,7 @@
         <ul id="navigation" class="nav navbar-nav">
             <li class="active"><a href="HomePage.jsp">首页</a></li>
             <li><a href="/MarketPage.do">大盘</a></li>
-            <li><a href="/StockInfo.do">个股</a></li>
+            <li><a href="/StockInfo/toStockInfo">个股</a></li>
             <li><a href="/StockCompare.do">比较</a></li>
             <li><a href="#">策略</a></li>
             <li><a href="#">论坛</a></li>

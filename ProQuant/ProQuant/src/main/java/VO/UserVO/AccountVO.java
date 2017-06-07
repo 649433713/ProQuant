@@ -17,7 +17,12 @@ public class AccountVO {
     private double dayProfitAndLoss;
 
 
-    public AccountVO() {
+    public AccountVO(String userName,double toalPro,double aviPro,double totalProfit,double dayProfit) {
+        this.userName=userName;
+        this.totalProperty=toalPro;
+        this.availableProperty=aviPro;
+        this.totalProfitAndLoss=totalProfit;
+        this.dayProfitAndLoss=dayProfit;
     }
 
     public String getUserName() {

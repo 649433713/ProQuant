@@ -1,5 +1,7 @@
 package VO.UserVO;
 
+import java.util.ArrayList;
+
 /**
  * Created by xiezhenyu on 2017/6/6.
  * 该VO对应于用户中心界面个人账户界面的总（Total）VO
@@ -8,13 +10,18 @@ public class AccountPageTotalVO {
     //账户金额等信息
     private AccountVO accountVO;
     //持仓记录
-    private OwnedStocksVO ownedStocksVO;
-    //成交记录
-    private DealRecordsVO dealRecordsVO;
+    private ArrayList<OwnedStocksVO> ownedStocksVOs;
+    
+
+	//成交记录
+    private ArrayList<DealRecordsVO> dealRecordsVOs;
 
 
-    public AccountPageTotalVO() {
-
+   
+	public AccountPageTotalVO(AccountVO accountVO,ArrayList<OwnedStocksVO> ownedStocksVOs,ArrayList<DealRecordsVO> dealRecordsVOs) {
+      this.accountVO=accountVO;
+      this.dealRecordsVOs=dealRecordsVOs;
+      this.ownedStocksVOs=ownedStocksVOs;
     }
 
     public AccountVO getAccountVO() {
@@ -25,19 +32,20 @@ public class AccountPageTotalVO {
         this.accountVO = accountVO;
     }
 
-    public OwnedStocksVO getOwnedStocksVO() {
-        return ownedStocksVO;
-    }
+    public ArrayList<OwnedStocksVO> getOwnedStocksVOs() {
+		return ownedStocksVOs;
+	}
 
-    public void setOwnedStocksVO(OwnedStocksVO ownedStocksVO) {
-        this.ownedStocksVO = ownedStocksVO;
-    }
+	public void setOwnedStocksVOs(ArrayList<OwnedStocksVO> ownedStocksVOs) {
+		this.ownedStocksVOs = ownedStocksVOs;
+	}
 
-    public DealRecordsVO getDealRecordsVO() {
-        return dealRecordsVO;
-    }
+	 public ArrayList<DealRecordsVO> getDealRecordsVOs() {
+			return dealRecordsVOs;
+	}
 
-    public void setDealRecordsVO(DealRecordsVO dealRecordsVO) {
-        this.dealRecordsVO = dealRecordsVO;
-    }
+		public void setDealRecordsVOs(ArrayList<DealRecordsVO> dealRecordsVOs) {
+			this.dealRecordsVOs = dealRecordsVOs;
+		}
+
 }

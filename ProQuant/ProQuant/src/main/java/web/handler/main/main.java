@@ -1,5 +1,7 @@
 package web.handler.main;
 
+import blservice.StockInfoBlService.StockInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,16 +14,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @Controller
-public class main extends HttpServlet{
-    @RequestMapping("/HomePage.do")
+@RequestMapping("/HomePage")
+public class main{
+
+    @RequestMapping(value = "/ToHomePage")
     public String toHomePage(){
         return "HomePage";
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request,HttpServletResponse response){
-
-    }
 }
