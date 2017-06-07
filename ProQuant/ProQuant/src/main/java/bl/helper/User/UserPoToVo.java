@@ -1,5 +1,6 @@
 package bl.helper.User;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import VO.UserVO.AccountVO;
 import VO.UserVO.DealRecordsVO;
 import VO.UserVO.OwnedStocksVO;
 import VO.UserVO.UserOptionalStocksListVO;
+import dataservice.StockDataService;
 
 public  class UserPoToVo {
     public static UserOptionalStocksListVO stockCurrentPOToUserOptionalStocksListVO(StockCurrentData current){
@@ -21,43 +23,52 @@ public  class UserPoToVo {
     }
     
     public static AccountPageTotalVO threePOToAccountPageTotalVO(UserAccount userAccount,
-    		List<UserStockOwned>  userStocks,List<UserTradeRecord> userTradeRecords){
-    	
+    		List<UserStockOwned>  userStocks,List<UserTradeRecord> userTradeRecords,StockDataService service){
+
     	//账户金额等信息
         AccountVO accountVO=new AccountVO(userAccount.getUsername(),userAccount.getAvailablePrincipal()+userAccount.getStoragePrincipal()
         ,userAccount.getAvailablePrincipal(),userAccount.getProfit(),userAccount.getTodayProfit());
         //持仓记录
-        ArrayList<OwnedStocksVO> ownedStocksVOs=getOwn(userStocks);
+        ArrayList<OwnedStocksVO> ownedStocksVOs=getOwn(userStocks,service);
     	//成交记录
-        ArrayList<DealRecordsVO> dealRecordsVOs=getDeal(userTradeRecords);
+        ArrayList<DealRecordsVO> dealRecordsVOs=getDeal(userTradeRecords,service);
         AccountPageTotalVO accountPageTotalVO=new AccountPageTotalVO(accountVO, ownedStocksVOs, dealRecordsVOs);
     	return accountPageTotalVO;
     }
     
-    private static  ArrayList<OwnedStocksVO> getOwn(List<UserStockOwned>  userStocks){
+    private static  ArrayList<OwnedStocksVO> getOwn(List<UserStockOwned>  userStocks,
+    		StockDataService service){
     	ArrayList<OwnedStocksVO> ownedStocksVOs=new ArrayList<>();
     	for(int i=0;i<userStocks.size();i++){
+    		StockCurrentData po=service.getStockCurrentData(userStocks.get(i).getId().getStockcode());
     		OwnedStocksVO ownedStocksVO=new OwnedStocksVO();
     		ownedStocksVO.setOwnedNum(userStocks.get(i).getStocknum());
-    		ownedStocksVO.setStockName(userStocks.get(i).getId().getStockcode());
-    		ownedStocksVO.setNewestPrice(0.1);
+    		ownedStocksVO.setStockName(po.getName());
+    		ownedStocksVO.setNewestPrice(po.getTrade());
     		ownedStocksVOs.add(ownedStocksVO);
     	}
         return ownedStocksVOs;
     }
     
-    private static ArrayList<DealRecordsVO> getDeal(List<UserTradeRecord> userTradeRecords){
+    private static ArrayList<DealRecordsVO> getDeal(List<UserTradeRecord> userTradeRecords,StockDataService service){
     	ArrayList<DealRecordsVO> dealRecordsVOs=new ArrayList<>();
     	for(int i=0;i<userTradeRecords.size();i++){
     		DealRecordsVO dealRecordsVO=new DealRecordsVO();
+    		
     		dealRecordsVO.setDealNum(userTradeRecords.get(i).getTradenum());
-    		dealRecordsVO.setDealDate(userTradeRecords.get(i).getDate().toLocaleString());
+    		
+    		SimpleDateFormat time = new SimpleDateFormat("YYYY-MM-dd");
+    		String timeString = time.format(userTradeRecords.get(i).getDate());
+    		dealRecordsVO.setDealDate(timeString);
+
+    		String name=service.getName(Integer.toString(userTradeRecords.get(i).getId()));
+    		dealRecordsVO.setStockName(name);
     		
     		switch (userTradeRecords.get(i).getTradetype()){
     		case 0:dealRecordsVO.setDealType("买入");break;
     		case 1:dealRecordsVO.setDealType("卖出");break;
     		}
-    		dealRecordsVO.setStockName(null);
+    		
     		dealRecordsVO.setAveragePrice(userTradeRecords.get(i).getTradeprice());
     		dealRecordsVOs.add(dealRecordsVO);
     	}

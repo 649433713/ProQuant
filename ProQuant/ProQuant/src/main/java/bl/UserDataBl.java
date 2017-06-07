@@ -3,6 +3,7 @@ package bl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tomcat.util.log.UserDataHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import PO.StockCurrentData;
@@ -33,7 +34,7 @@ public class UserDataBl implements UserDataService{
 		List<UserStockOwned>  userStocks=userTradeService.getUserStockOwned(userName);
 		List<UserTradeRecord> userTradeRecords=userTradeService.getUserTradeRecord(userName);
 		
-		return null;
+		return UserPoToVo.threePOToAccountPageTotalVO(userAccount, userStocks, userTradeRecords, stockDataService);
 	}
 
 	@Override
