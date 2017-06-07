@@ -1,4 +1,4 @@
-package bl.helper;
+package bl.helper.Strategy;
 
 import java.util.Date;
 
@@ -13,14 +13,12 @@ import model.StrategyType;
 /**
  * 
  * @author yk
- *这个是动量策略的策略类，他继承了抽象类Strategy
+ *均值回归策略类
  */
-public class MomentumDrivenStrategy extends Strategy {
+public class ReversionDrivenStrategy extends Strategy {
 
-	public MomentumDrivenStrategy(StockPlateVO stockPlateVO,
-			StrategyStandard strategyStandard
-			, int possessingDays,int maxHoldNum, Date startDate, Date endDate, 
-			StrategyType type) {
+	public ReversionDrivenStrategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard, int possessingDays,
+			int maxHoldNum, Date startDate, Date endDate, StrategyType type) {
 		super(stockPlateVO, strategyStandard, possessingDays, maxHoldNum, startDate, endDate, type);
 	}
 

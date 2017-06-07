@@ -39,4 +39,6 @@ public interface StockInfoService {
      * @return 返回包含股票历史数据VO的ArrayList
      */
     public ArrayList<StockDataVO> getStockData(String stockNameOrId, int numberOfDay);
+    
+    
 }
