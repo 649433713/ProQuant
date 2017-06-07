@@ -19,7 +19,7 @@ public interface StrategyService {
     /**
      * 该方法用来返回"使用已有策略"（区别于用户自己新建策略）的回测结果
      * @param stockPlateVO 股票池：全部股票、沪深300、中小板、创业板，自选股
-     * @param strategyStandard 策略基准：沪深300、中小板、创业板
+     * @param stockPlate 策略基准：沪深300、中小板、创业板
      * @param possessingDays 调仓周期==持有期
      * @param maxHoldNum 最大持有数（相当于迭代二的前20%）
      * @param startDate 回测的开始日期
@@ -32,7 +32,7 @@ public interface StrategyService {
     /**
      *
      * @param stockPlateVO 股票池：全部股票、沪深300、中小板、创业板、自选股
-     * @param strategyStandard 策略基准：沪深300、中小板、创业板
+     * @param stockPlate 策略基准：沪深300、中小板、创业板
      * @param possessingDays 调仓周期==持有期
      * @param maxHoldNum 最大持有数（相当于迭代二的前20%）
      * @param startDate 回测的开始日期
