@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.tomcat.util.log.UserDataHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import PO.StockCurrentData;
 import PO.user.UserAccount;
@@ -19,7 +20,7 @@ import dataservice.StockDataService;
 import dataservice.UserStockPoolService;
 import dataservice.UserTradeService;
 import model.ResultMessage;
-
+@Service("UserDataService")
 public class UserDataBl implements UserDataService{
 
 	@Autowired

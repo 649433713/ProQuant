@@ -1,28 +1,29 @@
-package bl.helper;
+package bl.helper.Strategy;
 
 import java.util.Date;
 
 import VO.StockPlateVO;
 import VO.strategyPageVO.StrategyCallbackVO;
-import model.StrategyStandard;
+import model.StockPlate;
 import model.StrategyType;
 
 public abstract class Strategy {
     StockPlateVO stockPlateVO;
 	Date startDate;
     Date endDate;
-    StrategyStandard strategyStandard;
+    StockPlate stockPlate;
     int possessingDays;
+    int holdDays;
     int maxHoldNum;
     StrategyType type;
     
-    public Strategy(StockPlateVO stockPlateVO, StrategyStandard strategyStandard,
-            int possessingDays, int maxHoldNum, Date startDate, Date endDate
+    public Strategy(StockPlateVO stockPlateVO, StockPlate stockPlate,
+            int possessingDays, int holdDays,int maxHoldNum, Date startDate, Date endDate
             ,StrategyType type){
     	this.stockPlateVO=stockPlateVO;
     	this.startDate=startDate;
     	this.endDate=endDate;
-    	this.strategyStandard=strategyStandard;
+    	this.stockPlate=stockPlate;
     	this.possessingDays=possessingDays;
     	this.maxHoldNum=maxHoldNum;
     	this.type=type;
