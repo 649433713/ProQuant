@@ -19,6 +19,7 @@ import DAO.dao.StockDataDao;
 import PO.InfoData;
 import PO.StockCurrentData;
 import PO.StockData;
+import data.spider.update.CurrentStockDataUpdateSpider;
 import dataservice.StockDataService;
 import utility.LetterHelper;
 
@@ -153,8 +154,9 @@ public class StockDataServiceImpl implements StockDataService {
 
 	@Override
 	public StockCurrentData getStockCurrentData(String code) {
+		return CurrentStockDataUpdateSpider.getResult(code);
 		
-		return stockCurrentDataDao.queryByHql(code);
+		//return stockCurrentDataDao.queryByHql(code);
 	}
 
 	

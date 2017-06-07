@@ -9,11 +9,12 @@ import java.util.Date;
  */
 public class StockCurrentData implements java.io.Serializable {
 
+	
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2957162468934798205L;
-	private long index;
+	private static final long serialVersionUID = -7026298068521632591L;
 	//代码
 	private String code;
 	//名称
@@ -50,14 +51,13 @@ public class StockCurrentData implements java.io.Serializable {
 	public StockCurrentData() {
 	}
 
-	public StockCurrentData(long index) {
-		this.index = index;
+	public StockCurrentData(String code) {
+		this.code = code;
 	}
 
-	public StockCurrentData(long index, String code, String name, Date date, Double changepercent, Double trade,
+	public StockCurrentData(String code, String name, Date date, Double changepercent, Double trade,
 			Double open, Double high, Double low, Double settlement, Long volume, Double turnoverratio, Long amount,
 			Double per, Double pb, Double mktcap, Double nmc) {
-		this.index = index;
 		this.code = code;
 		this.name = name;
 		this.date = date;
@@ -76,13 +76,6 @@ public class StockCurrentData implements java.io.Serializable {
 		this.nmc = nmc;
 	}
 
-	public long getIndex() {
-		return this.index;
-	}
-
-	public void setIndex(long index) {
-		this.index = index;
-	}
 
 	public String getCode() {
 		return this.code;
@@ -214,7 +207,7 @@ public class StockCurrentData implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "StockCurrentData [index=" + index + ", code=" + code + ", name=" + name + ", date=" + date
+		return "StockCurrentData [code=" + code + ", name=" + name + ", date=" + date
 				+ ", changepercent=" + changepercent + ", trade=" + trade + ", open=" + open + ", high=" + high
 				+ ", low=" + low + ", settlement=" + settlement + ", volume=" + volume + ", turnoverratio="
 				+ turnoverratio + ", amount=" + amount + ", per=" + per + ", pb=" + pb + ", mktcap=" + mktcap + ", nmc="

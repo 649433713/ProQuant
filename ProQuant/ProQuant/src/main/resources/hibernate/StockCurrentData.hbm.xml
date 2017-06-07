@@ -4,13 +4,10 @@
 <!-- Generated 2017-6-1 20:08:56 by Hibernate Tools 5.2.1.Final -->
 <hibernate-mapping>
     <class name="PO.StockCurrentData" table="stock_current_data" catalog="proquant" optimistic-lock="version">
-        <id name="index" type="long">
-            <column name="index" />
+        <id name="code" type="string">
+            <column name="code" length="45" />
             <generator class="assigned" />
         </id>
-        <property name="code" type="string">
-            <column name="code" length="45" />
-        </property>
         <property name="name" type="string">
             <column name="name" length="45" />
         </property>

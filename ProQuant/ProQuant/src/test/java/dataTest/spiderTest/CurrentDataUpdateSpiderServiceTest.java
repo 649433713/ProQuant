@@ -16,12 +16,12 @@ public class CurrentDataUpdateSpiderServiceTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-context.xml");
-		service = (CurrentDataUpdateSpiderService) context.getBean("CBDUS");
+		service = (CurrentDataUpdateSpiderService) context.getBean("CSDUS");
 	}
 
 	@Test
 	public void test() {
-		service.updateCurrentData();
+	//	service.updateCurrentData();
 	}
 
 }

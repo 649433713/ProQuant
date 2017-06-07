@@ -1,15 +1,42 @@
 package data.spider.update;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import PO.StockCurrentData;
+import net.sf.json.JSONArray;
 
 @Service("CSDUS")
 public class CurrentStockDataUpdateSpider extends TimerTask implements CurrentDataUpdateSpiderService{
 
+	private String url = "http://vip.stock.finance.sina.com.cn/quotes_service/api/json_v2.php/Market_Center.getHQNodeData?num=100&node=hs_a&page=";
+	private String userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36 OPR/45.0.2552.812";
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	private static Map<String,StockCurrentData> result;
+	
 	@Override
 	public void updateCurrentData() {
 		Calendar calendar = Calendar.getInstance();
@@ -21,29 +48,81 @@ public class CurrentStockDataUpdateSpider extends TimerTask implements CurrentDa
 		end.set(Calendar.MINUTE,0);
 		
 		if (calendar.before(start)||calendar.after(end)) {
-			return;
+			//return;
 		}
-		String path = null;
-		try {
-			path = java.net.URLDecoder.decode(getClass().getResource("/").getPath().substring(1),"utf-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		String command = "python "+path+"pythonSpider/getCurrentData.py";
-		try {
-			Process process = Runtime.getRuntime().exec(command);
 		
-			process.waitFor();
-		} catch (IOException | InterruptedException e) {
+		Document document = null;
+		ArrayList<StockCurrentData> result = new ArrayList<>();
+		try {
+			for (int i = 1; i <33 ; i++) {
+				document = Jsoup.connect(url+i).header("User-Agent",userAgent).timeout(5000).get();
+				String jsonstr = document.body().text();
+				JSONArray jsonArray = JSONArray.fromObject(jsonstr);
+				Collection<StockCurrentData> temp = JSONArray.toCollection(jsonArray, StockCurrentData.class);
+				result.addAll(temp);
+			}
+			//updateByJDBC(result);
+			//updateByHibernate(result);
+			CurrentStockDataUpdateSpider.result = result.stream().collect(Collectors.toMap(StockCurrentData::getCode,(p)->p ));
+			
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Stock run=="+command);
-		//python C:/Users/凡/git/ProQuant/ProQuant/target/classes/pythonSpider/getCurrentData.py
-		//python C:/Users/凡/git/ProQuant/ProQuant/target/test-classes/pythonSpider/getCurrentData.py
 	}
 
+	private void updateByHibernate(ArrayList<StockCurrentData> result) {
+		Session session= sessionFactory.openSession();
+		Transaction transaction = session.getTransaction();
+		transaction.begin();
+		for (StockCurrentData stockCurrentData : result) {
+			stockCurrentData.setDate(new Date());
+			session.merge(stockCurrentData);
+		}
+		transaction.commit();
+		session.close();
+
+	}
+	private void updateByJDBC(ArrayList<StockCurrentData> result) {
+		String updateSql = "UPDATE `stock_current_data` set `changepercent`=?,"
+				+ "`trade`=?,`open`=?,`high`=?,`low`=?,`settlement`=?,`volume`=?,"
+				+ "`turnoverratio`=?,`amount`=?,`per`=?,`pb`=?,`mktcap`=?,`nmc`=?"
+				+ " where code =?";
+		/*SqlParameterSource[] batch = SqlParameterSourceUtils.createBatch(result.toArray());
+		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+		template.batchUpdate(insertSql, batch);*/
+		jdbcTemplate.batchUpdate(updateSql, new BatchPreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps, int i) throws SQLException {
+
+				ps.setDouble(1, result.get(i).getChangepercent());
+				ps.setDouble(2, result.get(i).getTrade());
+				ps.setDouble(3, result.get(i).getOpen());
+				ps.setDouble(4, result.get(i).getHigh());
+				ps.setDouble(5, result.get(i).getLow());
+				ps.setDouble(6, result.get(i).getSettlement());
+				ps.setLong(7, result.get(i).getVolume());
+				ps.setDouble(8, result.get(i).getTurnoverratio());
+				ps.setLong(9, result.get(i).getAmount());
+				ps.setDouble(10, result.get(i).getPer());
+				ps.setDouble(11, result.get(i).getPb());
+				ps.setDouble(12, result.get(i).getMktcap());
+				ps.setDouble(13, result.get(i).getNmc());
+				ps.setString(14, result.get(i).getCode());
+				
+			}
+			
+			@Override
+			public int getBatchSize() {
+				return result.size();
+			}
+		});
+	}
+	public static StockCurrentData getResult(String code) {
+		return result.get(code);
+	}
+	
 	@Override
 	public void run() {
 

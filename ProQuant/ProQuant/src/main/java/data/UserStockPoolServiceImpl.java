@@ -40,5 +40,12 @@ public class UserStockPoolServiceImpl implements UserStockPoolService {
 		UserStockPool userStockPool = new UserStockPool(username, stockcode);
 		return stockPoolDao.delete(userStockPool);
 	}
+	@Override
+	public boolean modifyPool(List<String> list, String username) {
+		
+		
+		 
+		return false;
+	}
 
 }

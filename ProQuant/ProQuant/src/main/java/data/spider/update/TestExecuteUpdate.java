@@ -22,7 +22,7 @@ public class TestExecuteUpdate {
 	public void test() {
 		String path = null;
 		try {
-			path = java.net.URLDecoder.decode(new CurrentStockDataUpdateSpider().getClass().getClassLoader().getResource("").getPath().substring(1),"utf-8");
+			path = java.net.URLDecoder.decode(new CurrentStockDataUpdateSpiderByPython().getClass().getClassLoader().getResource("").getPath().substring(1),"utf-8");
 		} catch (UnsupportedEncodingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
