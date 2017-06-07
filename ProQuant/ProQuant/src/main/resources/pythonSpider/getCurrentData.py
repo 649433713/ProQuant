@@ -8,9 +8,9 @@ engine = create_engine('mysql+pymysql://yinywf:Wf980102@yinywf17.mysql.rds.aliyu
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-session.execute('truncate stock_current_data')
+#session.execute('truncate stock_current_data')
 #存入数据库
-df.to_sql('stock_current_data',engine,if_exists='append')
+#df.to_sql('stock_current_data',engine,if_exists='append')
 
 
 

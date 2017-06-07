@@ -7,7 +7,7 @@ import java.util.TimerTask;
 
 import org.springframework.stereotype.Service;
 
-//@Service("CSDUS")
+@Service("CSDUSBP")
 public class CurrentStockDataUpdateSpiderByPython extends TimerTask implements CurrentDataUpdateSpiderService{
 
 	@Override
@@ -21,7 +21,7 @@ public class CurrentStockDataUpdateSpiderByPython extends TimerTask implements C
 		end.set(Calendar.MINUTE,0);
 		
 		if (calendar.before(start)||calendar.after(end)) {
-			return;
+			//return;
 		}
 		String path = null;
 		try {
@@ -30,6 +30,7 @@ public class CurrentStockDataUpdateSpiderByPython extends TimerTask implements C
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		System.out.println(Calendar.getInstance().getTime());
 		String command = "python "+path+"pythonSpider/getCurrentData.py";
 		try {
 			Process process = Runtime.getRuntime().exec(command);
@@ -38,7 +39,8 @@ public class CurrentStockDataUpdateSpiderByPython extends TimerTask implements C
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}	
+		System.out.println(Calendar.getInstance().getTime());
 		System.out.println("Stock run=="+command);
 		//python C:/Users/凡/git/ProQuant/ProQuant/target/classes/pythonSpider/getCurrentData.py
 		//python C:/Users/凡/git/ProQuant/ProQuant/target/test-classes/pythonSpider/getCurrentData.py

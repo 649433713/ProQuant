@@ -17,7 +17,7 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(service.getStockCurrentData("000001"));
+		System.out.println(service.getStockCurrentData("200011"));
 	/*	//List<String> basicBenchCodes =  Arrays.asList("000300","399005","399006");
 		List<String> basicBenchCodes =  Arrays.asList("399006");
 		for (String string : basicBenchCodes) {
