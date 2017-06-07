@@ -51,7 +51,7 @@ public class UserDataBl implements UserDataService{
 	}
 
 	@Override
-	public ResultMessage modifyUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName) {
+	public ResultMessage deleteUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName) {
 		if(userStockPoolservice.modifyPool(newOptionalStocksList, userName)){
 			return ResultMessage.success;
 		}
@@ -65,7 +65,7 @@ public class UserDataBl implements UserDataService{
 	}
 
 	@Override
-	public ResultMessage modifyStrategyRecord(ArrayList<String> strategyIndexList,String userName) {
+	public ResultMessage deleteStrategyRecord(ArrayList<String> strategyIndexList,String userName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
