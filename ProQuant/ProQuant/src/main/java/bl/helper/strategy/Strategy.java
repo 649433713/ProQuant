@@ -1,4 +1,4 @@
-package bl.helper.Strategy;
+package bl.helper.strategy;
 
 import java.util.Date;
 
@@ -15,9 +15,9 @@ public abstract class Strategy {
     int possessingDays;
     int maxHoldNum;
     StrategyType type;
-    int holdDays;
+    
     public Strategy(StockPlateVO stockPlateVO, StockPlate strategyStandard,
-            int possessingDays,int holdDays, int maxHoldNum, Date startDate, Date endDate
+            int possessingDays, int maxHoldNum, Date startDate, Date endDate
             ,StrategyType type){
     	this.stockPlateVO=stockPlateVO;
     	this.startDate=startDate;

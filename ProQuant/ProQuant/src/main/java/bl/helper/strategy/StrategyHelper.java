@@ -1,4 +1,4 @@
-package bl.helper.Strategy;
+package bl.helper.strategy;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
