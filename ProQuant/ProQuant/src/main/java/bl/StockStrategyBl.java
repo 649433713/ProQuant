@@ -9,7 +9,7 @@ import VO.StockPlateVO;
 import VO.strategyPageVO.PrecisionVO;
 import VO.strategyPageVO.StrategyCallbackVO;
 import VO.strategyPageVO.StrategyIndexVO;
-import bl.helper.strategy.StrategyController;
+import bl.helper.Strategy.StrategyController;
 import blservice.strategyBlService.StrategyService;
 import model.StockPlate;
 import model.StrategyType;

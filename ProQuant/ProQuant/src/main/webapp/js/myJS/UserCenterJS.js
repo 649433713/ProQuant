@@ -302,46 +302,33 @@ $(function(){
         $(this).parent().parent().remove();
         rowChanged = true;
         operationButtonWasClicked = true;
+
         //向bl发送卖出股票记录
 
-        // 同时还得调用bl方法更新账户数据
+        //同时还得调用bl方法更新账户数据
         $.ajax({
             type: 'GET',
             contentType: 'application/json',
-            url: '/user/list.do',
+            url: '/user/list',
             dataType: 'json',
             success: function (data) {
-                alert("success");
-                if(data){
-                    alert(data);
-                    alert("newnewnew")
-                    //拿回来的就是[Object Object]
-                    // var obj = $.parseJSON(data);
+                if(data || data.success === "true"){
                     $("#availableProperty").text(data);
-                    alert("after success");
+                    alert("success");
                 }
             },
             error: function () {
-                alert("Why error");
+                alert("error");
             }
 
         });
-        alert("pppppppp");
+
         addStyleToRow();
     });
 
-    // $("a[title=sellButton]").mousedown(function (event) {
-    //     event.stopPropagation();
-    //     $(this).parent().parent().remove();
-    //     rowChanged = true;
-    //     operationButtonWasClicked = true;
-    //     alert("haha");
-    //     addStyleToRow();
-    // });
-
     $("a[title=sellButton]").mouseup(function () {
         operationButtonWasClicked = false;
-    });
+    })
 
 
 

@@ -5,22 +5,19 @@
   Time: 0:35
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="PO.recommendedStock.PeakPO"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.lang.reflect.Array" %>
+<%@ page import="VO.marketPageVO.HotStockListVO" %>>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>市场行情</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link href="../css/myCSS/MarketPageCSS.css" rel="stylesheet">
-    <link href="../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
-    <link href="../css/myCSS/nav_footerCSS.css" rel="stylesheet">
-    <script type="text/javascript" src="../js/echarts.min.js"></script>
-    <script src="../js/jquery-3.2.1.js"></script>
-    <!--<script src="../js/bootstrap.min.js"></script>-->
-    <!--<script src="../js/header.js"></script>-->
+    <%@include file="common/head.jsp"%>
+    <link href="../../css/myCSS/MarketPageCSS.css" rel="stylesheet">
+    <link href="../../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
+    <script src="../../js/myJS/MarketJS.js" type="text/javascript"></script>
 </head>
 <body>
 <!--导航栏start-->
@@ -51,29 +48,12 @@
         </div>
         <div class="m-body">
             <div class="market-tab">
-                <span class="cur">成交量</span>
-                <span>涨跌停</span>
-                <span>涨跌>5%</span>
+                <span class="cur">涨跌停</span>
+                <span>昨日涨停今日收益</span>
                 <input type="date" class="my-date-picker">
             </div>
             <div class=" hcharts clearfix">
                 <div class="hcharts-left tab-hv-box">
-                    <!--<div class="hcharts-list">-->
-                    <!--<div class="item hv-tab-trigger cur">-->
-                    <!--<h3 class="icons1">涨跌分布</h3>-->
-                    <!--<p class="details">-->
-                    <!--<span class="c-rise">上涨: 1266支</span>-->
-                    <!--<span class="c-fall">下跌: 1597支</span>-->
-                    <!--</p>-->
-                    <!--</div>-->
-                    <!--<div class="item hv-tab-trigger">-->
-                    <!--<h3 class="icons2">涨跌停</h3>-->
-                    <!--<p class="details">-->
-                    <!--<span class="c-rise">涨停: 41支</span>-->
-                    <!--<span class="c-fall">跌停: 13支</span>-->
-                    <!--</p>-->
-                    <!--</div>-->
-                    <!--</div>-->
                     <!--中间放置图的部分-->
                     <div class="hcharts-cont tab-hv-cont">
                         <div class="hcharts-legend"></div>
@@ -86,6 +66,7 @@
                         <table>
                             <thead>
                             <tr>
+
                                 <th>序号</th>
                                 <th>股票ID</th>
                                 <th>股票名称</th>
@@ -94,107 +75,25 @@
                             </thead>
                             <tbody>
                             <!--标签里面的链接都没有设置*************************************************-->
+                            <%
+                                HotStockListVO hotStockLists = (HotStockListVO)session.getAttribute("hotStocks");
+                                ArrayList<PeakPO> peakPOArrayList = hotStockLists.getHotStocks();
+                                int i = 0;
+                                for(PeakPO peakPO:peakPOArrayList){
+                            %>
                             <tr>
-                                <td class="num">1</td>
+                                <td class="num"><%=i + 1%></td>
                                 <td>
-                                    <a href="#">000000</a>
+                                    <a href="/StockInfo/toStockInfo/{}"><%=peakPO.getStockId()%></a>
                                 </td>
                                 <td>
-                                    <a href="#">阿里巴巴</a>
+                                    <a href=""><%=peakPO.getStockName()%></a>
                                 </td>
                                 <td>5%</td>
                             </tr>
-                            <tr>
-                                <td class="num">2</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">3</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">4</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">5</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">6</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">7</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">8</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">9</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <tr>
-                                <td class="num">10</td>
-                                <td>
-                                    <a href="#">000000</a>
-                                </td>
-                                <td>
-                                    <a href="#">阿里巴巴</a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-
+                            <%
+                                }
+                            %>
                             </tbody>
                         </table>
                     </div>
@@ -719,26 +618,28 @@
     </div>
 </div>
 <!--页脚start-->
-<div class="footer">
-    <div class="left-footer">
-        <div>
-            <h2>关于ProQuant</h2>
-            <br>
-            <p>ProQuant是一款基于提供股票市场情况展示，个股信息展示，股票各项指标预测功能于一体的多功能股票查询、
-                <br>分析的软件。</p>
+<div class="footer  container">
+    <div class="row">
+        <div class="left-footer col-sm-9">
+            <div>
+                <h2>关于ProQuant</h2>
+                <br>
+                <p>ProQuant是一款基于提供股票市场情况展示，个股信息展示，股票各项指标预测功能于一体的多功能股票查询、
+                    <br>分析的软件。</p>
+            </div>
         </div>
-    </div>
-    <div class="right-footer">
-        <div>
-            <h2>关于我们</h2>
-            <br>
-            <p></p>
-        </div>
-        <div>
-            <a href="../images/myWEIBO."><img src="../images/weibo.png" alt="微博"></a>
-            <a href=""><img src="../images/weixin.png" alt="微信"></a>
-            <a href=""><img src="../images/qq.png" alt="QQ"></a>
+        <div class="right-footer col-sm-3">
+            <div>
+                <h2>关于我们</h2>
+                <br>
+                <p></p>
+            </div>
+            <div>
+                <a href=""><img src="../images/weibo.png" alt="微博"></a>
+                <a href=""><img src="../images/weixin.png" alt="微信"></a>
+                <a href=""><img src="../images/qq.png" alt="QQ"></a>
 
+            </div>
         </div>
     </div>
 </div>
