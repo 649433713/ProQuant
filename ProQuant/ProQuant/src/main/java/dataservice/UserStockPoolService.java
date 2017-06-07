@@ -25,5 +25,5 @@ public interface UserStockPoolService {
 	 * @param list
 	 * @return
 	 */
-	public boolean modifyPool(List<String> list,String username);
+//	public boolean modifyPool(List<String> list,String username);
 }
