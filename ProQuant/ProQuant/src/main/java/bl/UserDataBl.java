@@ -51,9 +51,9 @@ public class UserDataBl implements UserDataService{
 
 	@Override
 	public ResultMessage modifyUserOptionalStocks(ArrayList<String> newOptionalStocksList,String userName) {
-		if(userStockPoolservice.modifyPool(newOptionalStocksList, userName)){
-			return ResultMessage.success;
-		}
+//		if(userStockPoolservice.modifyPool(newOptionalStocksList, userName)){
+//			return ResultMessage.success;
+//		}
 		return ResultMessage.failed;
 	}
 

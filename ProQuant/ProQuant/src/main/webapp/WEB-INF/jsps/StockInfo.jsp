@@ -194,6 +194,7 @@
                                     <li class="stockData">昨收：<span>${stockVO.closeValue}</span></li>
                                     <li class="stockData">流通市值：<span>${stockVO.circulationMarketValue}</span></li>
                                     <li class="stockData">市盈率(动)：<span>${stockVO.priceEarningsRatio}</span></li>
+                                        <li class="stockData">市盈率(动)：<span></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -459,32 +460,35 @@
                 <div class="headLabel"><p>公司简介</p></div>
                 <div style="background-color: white;padding: 10px">
                     <div>
-                        <p><span class="companyIntro">公司名称：</span>杭州园林设计院股份有限公司</p>
+                        <p><span class="companyIntro">公司名称：</span>${companyData.cpName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">英文名称：</span>Hangzhou Landscape Architecture Design Institute Co., Ltd.</p>
+                        <p><span class="companyIntro">英文名称：</span>${companyData.cpEnName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">所属行业：</span>建筑材料 — 建筑装饰</p>
+                        <p><span class="companyIntro">所在省份：</span>${companyData.cpProvince}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">公司网址：</span><a href="http://www.hzyly.com" style="cursor: hand">www.hzyly.com</a></p>
+                        <p><span class="companyIntro">所属行业：</span>${companyData.CName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">办公地址：</span>浙江省杭州市西湖区杨公堤32号</p>
-                    </div>
-                    <br>
-                    <br>
-                    <div>
-                        <p><span class="companyIntro">业务：</span>从事风景园林设计行业。</p>
+                        <p><span class="companyIntro">公司网址：</span><a href="http://${companyData.cpWebsite}" style="cursor: hand">${companyData.cpWebsite}</a></p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">简介：</span>2001年11月13日,公司前身杭州园林设计院有限公司成立。 2011年2月12日,公司名称由杭州园林设计院有限公司变更为杭州园林设计院股份有限公司。</p>
+                        <p><span class="companyIntro">办公地址：</span>${companyData.cpAddress}</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><span class="companyIntro">业务：</span>${companyData.cpBusiness}</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><span class="companyIntro">简介：</span>${companyData.cpInfo}</p>
                     </div>
                     <br>
                     <div>
