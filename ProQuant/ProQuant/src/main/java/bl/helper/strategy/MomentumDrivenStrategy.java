@@ -1,6 +1,7 @@
-package bl.helper.Strategy;
+package bl.helper.strategy;
 import java.util.Date;
 
+import bl.helper.strategy.Strategy;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import VO.StockPlateVO;
@@ -34,19 +35,37 @@ public class MomentumDrivenStrategy extends Strategy {
 			StockPlate stockPlate
 			, int possessingDays,int holdDays,int maxHoldNum, Date startDate, Date endDate, 
 			StrategyType type) {
-		super(stockPlateVO, stockPlate, possessingDays,holdDays, maxHoldNum, startDate, endDate, type);
+		//删除了holdDays参数，因为和父类的构造函数不匹配
+		super(stockPlateVO, stockPlate, possessingDays, maxHoldNum, startDate, endDate, type);
 	}
 
 	@Override
 	public StrategyCallbackVO getResult() {
-		
-		DatesAndBase db=StrategyHelper.stadardEarning(startDate, endDate, holdDays,stockPlate,benchService);
+		/**
+		 *
+		 *
+		 *
+		 *
+		 *
+		 *
+		 *
+		 * 把holiday全部修改为000
+		 *
+		 *
+		 *
+		 *
+		 *
+		 *
+		 *
+		 *
+		 */
+		DatesAndBase db=StrategyHelper.stadardEarning(startDate, endDate, 0, stockPlate,benchService);
 		Date dates[]=db.getDates();
 		int size=dates.length;
 		int count=0;
 		while(count<size){
 			int temp=count;
-			count+=holdDays;
+			count+=0;
 			if(count>=size){
 				count=size-1;
 			}
