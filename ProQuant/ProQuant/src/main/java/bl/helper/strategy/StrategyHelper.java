@@ -4,19 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-
-import com.mysql.cj.mysqlx.protobuf.MysqlxDatatypes.Array;
-
 import PO.BenchData;
 import PO.StockData;
 import VO.StockPlateVO;
-import VO.strategyPageVO.StrategyCallbackVO;
 import VO.strategyPageVO.StrategyCompareVO;
 import dataservice.BenchDataService;
-import javafx.scene.chart.PieChart.Data;
 import model.StockPlate;
-import model.StrategyType;
 
 public class StrategyHelper {
 	public static Map<Date, Double> holdField(){
@@ -81,8 +74,8 @@ public class StrategyHelper {
 	         int end = high;
 	         double  key = a.get(low).value;
 	         while(end>start){
-	             //从后往前比较
-	             while(end>start&&a.get(end).value>=key)  //如果没有比关键值小的，比较下一个，直到有比关键值小的交换位置，然后又从前往后比较
+	             //浠庡悗寰�鍓嶆瘮杈�
+	             while(end>start&&a.get(end).value>=key)  //濡傛灉娌℃湁姣斿叧閿�煎皬鐨勶紝姣旇緝涓嬩竴涓紝鐩村埌鏈夋瘮鍏抽敭鍊煎皬鐨勪氦鎹綅缃紝鐒跺悗鍙堜粠鍓嶅線鍚庢瘮杈�
 	                 end--;
 	             if(a.get(end).value<=key){
 	                 StrategyCompareVO temp = a.get(end);
@@ -90,8 +83,8 @@ public class StrategyHelper {
 	                 a.set(end, temp2);
 	                 a.set(start, temp);
 	             }
-	             //从前往后比较
-	             while(end>start&&a.get(start).value<=key)//如果没有比关键值大的，比较下一个，直到有比关键值大的交换位置
+	             //浠庡墠寰�鍚庢瘮杈�
+	             while(end>start&&a.get(start).value<=key)//濡傛灉娌℃湁姣斿叧閿�煎ぇ鐨勶紝姣旇緝涓嬩竴涓紝鐩村埌鏈夋瘮鍏抽敭鍊煎ぇ鐨勪氦鎹綅缃�
 	                start++;
 	             if(a.get(start).value>=key){
 	                 StrategyCompareVO temp = a.get(start);
@@ -100,11 +93,11 @@ public class StrategyHelper {
 	                 a.set(end, temp);
 //	                 a[end] = temp;
 	             }
-	         //此时第一次循环比较结束，关键值的位置已经确定了。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能是不一样的，进行下面的递归调用
+	         //姝ゆ椂绗竴娆″惊鐜瘮杈冪粨鏉燂紝鍏抽敭鍊肩殑浣嶇疆宸茬粡纭畾浜嗐�傚乏杈圭殑鍊奸兘姣斿叧閿�煎皬锛屽彸杈圭殑鍊奸兘姣斿叧閿�煎ぇ锛屼絾鏄袱杈圭殑椤哄簭杩樻湁鍙兘鏄笉涓�鏍风殑锛岃繘琛屼笅闈㈢殑閫掑綊璋冪敤
 	         }
-	         //递归
-	         if(start>low) sort(a,low,start-1);//左边序列。第一个索引位置到关键值索引-1
-	         if(end<high) sort(a,end+1,high);//右边序列。从关键值索引+1到最后一个
+	         //閫掑綊
+	         if(start>low) sort(a,low,start-1);//宸﹁竟搴忓垪銆傜涓�涓储寮曚綅缃埌鍏抽敭鍊肩储寮�-1
+	         if(end<high) sort(a,end+1,high);//鍙宠竟搴忓垪銆備粠鍏抽敭鍊肩储寮�+1鍒版渶鍚庝竴涓�
 	     }
 	     
 	
