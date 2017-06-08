@@ -66,6 +66,7 @@ public class KLineDataSpider implements KLineDataService {
 	@Override
 	public ArrayList<KLineDayData> getdayLine(String code,Date start,int count,boolean fq) {
 		String url = getUrl(1, code, start, count, fq);
+		//System.out.println(url);
 		return getDayLineData(url);
 	}	
 	/**
@@ -91,7 +92,7 @@ public class KLineDataSpider implements KLineDataService {
 	
 	private String getUrl(int type,String code,Date start,int count,boolean fq){
 		
-		String temp = (code.startsWith("6")||code.startsWith("9"))?"sh":"sz"+code;
+		String temp = (code.startsWith("6")||code.startsWith("9"))?"sh"+code:"sz"+code;
 		StringBuilder url = new StringBuilder();
 		url.append(basic[0]).append(this.type.get(type)).append(basic[1]).append(temp).append(basic[2]);
 		if (start!=null) {
@@ -116,7 +117,9 @@ public class KLineDataSpider implements KLineDataService {
 			JSONObject json = JSONObject.fromObject(jsonstr);	
 			JSONArray jsonArray =  (JSONArray) json.get("mashData");
 			Gson gson = new GsonBuilder().setDateFormat("yyyyMMdd").create();
-			
+			if (jsonArray==null) {
+				return result;
+			}
 			for (Object object : jsonArray) {
 				result.add(gson.fromJson( object.toString(), KLineDayData.class));
 			}

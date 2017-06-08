@@ -114,9 +114,9 @@ public class StockDataServiceImpl implements StockDataService {
 	}
 
 	@Override
-	public Integer getCode(String name) {
+	public String getCode(String name) {
 		
-		return Integer.parseInt(nameToCode.get(name));		 
+		return nameToCode.get(name);		 
 	}
 
 	@Override

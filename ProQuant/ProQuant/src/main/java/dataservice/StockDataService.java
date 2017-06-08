@@ -40,7 +40,7 @@ public interface StockDataService {
 	
 	public Map<String,Integer> searchStock(String nameOrCode);
 	
-	public Integer getCode(String name);
+	public String getCode(String name);
 	
 	public String getName(String code);
 	

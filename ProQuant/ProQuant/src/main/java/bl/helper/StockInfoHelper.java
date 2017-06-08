@@ -16,7 +16,7 @@ public class StockInfoHelper {
 		Pattern pattern = Pattern.compile("[0-9]*");
 		Matcher isNum = pattern.matcher(str);
 		if(!isNum.matches()){
-			return Integer.toString(service.getCode(str));
+			return service.getCode(str);
 		}
 		return str;
 	}
