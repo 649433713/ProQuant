@@ -26,7 +26,7 @@ import java.util.ArrayList;
  */
 
 @Controller
-@RequestMapping("/StockInfo")
+//@RequestMapping("/StockInfo")
 public class StockInfo extends HttpServlet{
 
     @Autowired
@@ -38,7 +38,7 @@ public class StockInfo extends HttpServlet{
     @Autowired
     private KLineDataService kLineDataService;
 
-    @RequestMapping(value = "/toStockInfo",method = RequestMethod.GET)
+    @RequestMapping(value = "/toStockInfo")//,method = RequestMethod.GET)
     public String toStockInfo(Model model){
         StockVO stockVO = stockInfoService.getStockVO("603998");
         model.addAttribute("stockVO",stockVO);

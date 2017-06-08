@@ -28,12 +28,12 @@
 </head>
 <body>
 <!--导航栏start-->
-<%
+<%-- <%
     StockInfoService stockInfoService = new StockInfoBl();
     StockVO stockVO = stockInfoService.getStockVO("1");
 //    out.print(stockVO.getName());
     session.setAttribute("StockVO",stockVO);
-%>
+%> --%>
 <nav class="navbar navbar-default navbar-fixed-top" style="height: 51px">
     <div class="container">
         <div class="navbar-header">
@@ -78,7 +78,7 @@
         <ul id="navigation" class="nav navbar-nav">
             <li class="active"><a href="HomePage.jsp">首页</a></li>
             <li><a href="/MarketPage.do">大盘</a></li>
-            <li><a href="/StockInfo.do">个股</a></li>
+            <li><a href="/toStockInfo">个股</a></li>
             <li><a href="/StockCompare.do">比较</a></li>
             <li><a href="#">策略</a></li>
             <li><a href="#">论坛</a></li>

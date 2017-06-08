@@ -155,10 +155,15 @@ public class StockDataServiceImpl implements StockDataService {
 	@Override
 	public StockCurrentData getStockCurrentData(String code) {
 		//return CurrentStockDataUpdateSpider.getResult(code);
-		
 		return stockCurrentDataDao.queryByHql(code);
 	}
-
+	
+	
+	@Override
+	public Map<String, StockCurrentData> getStockCurrentDataAll() {
+		return CurrentStockDataUpdateSpider.getAll();
+	}
+	
 	
 	
 	

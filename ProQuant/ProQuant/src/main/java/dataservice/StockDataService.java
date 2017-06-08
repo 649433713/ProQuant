@@ -50,5 +50,6 @@ public interface StockDataService {
 	 * @return
 	 */
 	public InfoData getStockInfo(String code);
+	Map<String, StockCurrentData> getStockCurrentDataAll();
     
 }
