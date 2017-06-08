@@ -5,8 +5,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import PO.BenchData;
+import VO.StockPlateVO;
+import VO.strategyPageVO.StrategyCallbackVO;
 import dataservice.BenchDataService;
 import model.StockPlate;
+import model.StrategyType;
 
 public class StrategyHelper {
 	public static Map<Date, Double> holdField(){
@@ -40,5 +43,7 @@ public class StrategyHelper {
 		DatesAndBase db=new DatesAndBase(dates, baseEarning);
 		return db;
 	}
+
+	
 	
 }

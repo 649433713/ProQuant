@@ -36,36 +36,19 @@ public class MomentumDrivenStrategy extends Strategy {
 			, int possessingDays,int holdDays,int maxHoldNum, Date startDate, Date endDate, 
 			StrategyType type) {
 		//删除了holdDays参数，因为和父类的构造函数不匹配
-		super(stockPlateVO, stockPlate, possessingDays, maxHoldNum, startDate, endDate, type);
+		super(stockPlateVO, stockPlate, possessingDays, holdDays,maxHoldNum, startDate, endDate, type);
 	}
 
 	@Override
 	public StrategyCallbackVO getResult() {
-		/**
-		 *
-		 *
-		 *
-		 *
-		 *
-		 *
-		 *
-		 * 把holiday全部修改为000
-		 *
-		 *
-		 *
-		 *
-		 *
-		 *
-		 *
-		 *
-		 */
-		DatesAndBase db=StrategyHelper.stadardEarning(startDate, endDate, 0, stockPlate,benchService);
+		
+		DatesAndBase db=StrategyHelper.stadardEarning(startDate, endDate, holdDays, stockPlate,benchService);
 		Date dates[]=db.getDates();
 		int size=dates.length;
 		int count=0;
 		while(count<size){
 			int temp=count;
-			count+=0;
+			count+=holdDays;
 			if(count>=size){
 				count=size-1;
 			}
@@ -82,7 +65,7 @@ public class MomentumDrivenStrategy extends Strategy {
 		EarningsCircleVO earningCircleVO=new EarningsCircleVO();
 		EarningsLineVO earningsLineVO=new EarningsLineVO();
 		
-		earningsLineVO.setBaseEarningsData(db.getBaseResult());
+		earningsLineVO.setBaseEarningsData(db.getBaseearning());
 		StrategyEvalutingVO strategyEvalutingVO=new StrategyEvalutingVO();
 		ParamDataVO paramStrategyDataVO=null;
 		ParamDataVO paramBaseDataVO=null;
