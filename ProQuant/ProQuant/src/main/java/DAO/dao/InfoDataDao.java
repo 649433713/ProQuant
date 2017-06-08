@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import PO.InfoData;
+import model.StockPlate;
 
 public interface InfoDataDao {
 
@@ -27,4 +28,6 @@ public interface InfoDataDao {
 	String getName(String code);
 	
 	Map<String, String> getCodeList();
+	
+	ArrayList<String> getStockListOfBench(StockPlate plate);
 }

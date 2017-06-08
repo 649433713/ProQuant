@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
@@ -9,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import DAO.dao.BenchCurrentDataDao;
 import DAO.dao.BenchDataDao;
+import DAO.dao.InfoDataDao;
 import PO.BenchCurrentData;
 import PO.BenchData;
+import PO.InfoData;
 import dataservice.BenchDataService;
 import model.StockPlate;
 
@@ -26,6 +29,9 @@ public class BenchDataServiceImpl implements BenchDataService{
 	@Autowired
 	private BenchDataDao benchDataDao;
 
+	@Autowired
+	private InfoDataDao infoDataDao;
+	
 	@Autowired
 	private BenchCurrentDataDao benchCurrentDataDao;
 
@@ -53,6 +59,13 @@ public class BenchDataServiceImpl implements BenchDataService{
 		map = benchDataDao.queryByHql(end, count, code);
 		
 		return map;
+	}
+
+
+	@Override
+	public ArrayList<String> getStockListOdBench(StockPlate plate) {
+		
+		return infoDataDao.getStockListOfBench(plate);
 	}
 
 
