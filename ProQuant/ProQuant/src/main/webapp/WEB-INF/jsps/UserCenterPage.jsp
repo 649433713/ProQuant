@@ -17,9 +17,10 @@
             <a class="navbar-brand" href="#">ProQuant</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">大盘</a></li>
-            <li><a href="#">个股</a></li>
+            <li class="active"><a href="HomePage.jsp">首页</a></li>
+            <li><a href="/MarketPage.do">大盘</a></li>
+            <li><a href="/StockInfo.do">个股</a></li>
+            <li><a href="/StockCompare.do">比较</a></li>
             <li><a href="#">策略</a></li>
             <li><a href="#">论坛</a></li>
         </ul>

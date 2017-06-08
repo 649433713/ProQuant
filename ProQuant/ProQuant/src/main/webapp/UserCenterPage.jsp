@@ -41,7 +41,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li id="searchText"><input id="searchInput" type="text" placeholder="搜索"><i class="fa fa-search" aria-hidden="true"></i></li>
             <li><button id="loginButton"><i class="fa fa-user-circle" aria-hidden="true"></i>未登录</button></li>
-            <li><img src="../images/skin.png"></li>
+            <li><img src="./images/skin.png"></li>
         </ul>
     </div>
 </nav>
@@ -81,9 +81,9 @@
                 }
             </script>
             <input name="file" type="file" id="upload-head-image-button" onchange="readFile(this)">
-            <img src="../images/temp-head.png" alt="Head Image" style="cursor: pointer" id="head-image">
-            <span>Welcome!</span><span id="username-one">XXX</span><span><img id="edit-button-one" src="../images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
-            <button id="qiandao-button">签到<img id="qiandao-button-image" src="../images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button>
+            <img src="./images/temp-head.png" alt="Head Image" style="cursor: pointer" id="head-image">
+            <span>Welcome!</span><span id="username-one">XXX</span><span><img id="edit-button-one" src="./images/edit.png" style="width: 20px;height: 20px;border-radius: 0px;margin-left: -10px;border: none;cursor: pointer"></span>
+            <button id="qiandao-button">签到<img id="qiandao-button-image" src="./images/bottom-arrow-tri.svg" alt="下拉框" style="margin-left: 5px"></button>
         </div>
         <div class="function-zone">
             <div class="bootstrap-tab">
@@ -153,7 +153,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -164,7 +164,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -175,7 +175,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -186,7 +186,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -197,7 +197,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -208,7 +208,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -219,7 +219,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -230,7 +230,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -241,7 +241,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -252,7 +252,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -263,7 +263,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -274,7 +274,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -285,7 +285,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>
@@ -296,7 +296,7 @@
                             <td>-960</td>
                             <td>
                                 <a title="sellButton">
-                                    <img src="../images/sell.svg" alt="卖出">
+                                    <img src="./images/sell.svg" alt="卖出">
                                 </a>
                             </td>
                         </tr>

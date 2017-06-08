@@ -9,13 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="PO.recommendedStock.PeakPO"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.lang.reflect.Array" %>
-<%@ page import="VO.marketPageVO.HotStockListVO" %>>
+<%@ page import="VO.marketPageVO.HotStockListVO" %>
+<%@include file="common/tag.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>市场行情</title>
     <%@include file="common/head.jsp"%>
-    <%@include file="common/tag.jsp"%>
     <link href="../../css/myCSS/MarketPageCSS.css" rel="stylesheet">
     <link href="../../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
     <script src="../../js/myJS/MarketJS.js" type="text/javascript"></script>
@@ -28,9 +28,10 @@
             <a class="navbar-brand" href="#">ProQuant</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">大盘</a></li>
-            <li><a href="#">个股</a></li>
+            <li class="active"><a href="HomePage.jsp">首页</a></li>
+            <li><a href="/MarketPage.do">大盘</a></li>
+            <li><a href="/StockInfo.do">个股</a></li>
+            <li><a href="/StockCompare.do">比较</a></li>
             <li><a href="#">策略</a></li>
             <li><a href="#">论坛</a></li>
         </ul>
@@ -82,7 +83,7 @@
                                 <%--int i = 0;--%>
                                 <%--for(PeakPO peakPO:peakPOArrayList){--%>
                             <%--%>--%>
-                            <c: forEach var="peakPO" item="${hotStocks}">
+                            <c:forEach var="peakPO" items="${hotStocks}">
                                 <tr>
                                     <%--<td class="num"></td>--%>
                                     <td>
@@ -93,7 +94,7 @@
                                     </td>
                                     <td>${peakPO.riseOrDown}</td>
                                 </tr>
-                            </c:>
+                            </c:forEach>
 
                             </tbody>
                         </table>
@@ -144,9 +145,6 @@
             <div class="table-tab">
                 <h4 class="cur">
                     <a href="javascript: void(0)" board="all">全部股票</a>
-                </h4>
-                <h4>
-                    <a href="javascript: void(0)" board="all">上证指数</a>
                 </h4>
                 <h4>
                     <a href="javascript: void(0)" board="all">沪深300</a>
@@ -645,7 +643,7 @@
     </div>
 </div>
 <!--页脚end-->
-<script type="text/javascript" src="../charts/areaChart.js"></script>
-<script type="text/javascript" src="../charts/marketAreaChart.js"></script>
+<script type="text/javascript" src="../../charts/areaChart.js"></script>
+<script type="text/javascript" src="../../charts/marketAreaChart.js"></script>
 </body>
 </html>
