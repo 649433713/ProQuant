@@ -19,7 +19,7 @@ public class ReversionDrivenStrategy extends Strategy {
 
 	public ReversionDrivenStrategy(StockPlateVO stockPlateVO, StockPlate stockPlate, int possessingDays,
 			int holdDays,int maxHoldNum, Date startDate, Date endDate, StrategyType type) {
-		super(stockPlateVO, stockPlate, possessingDays,maxHoldNum, startDate, endDate, type);
+		super(stockPlateVO, stockPlate, possessingDays,holdDays,maxHoldNum, startDate, endDate, type);
 	}
 
 	@Override

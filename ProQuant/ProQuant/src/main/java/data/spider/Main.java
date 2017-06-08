@@ -3,13 +3,21 @@ package data.spider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import dataservice.StockDataService;
 import dataservice.recommendedData.ContinuingQuantityService;
 
 public class Main {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-context.xml");
-		ContinuingQuantityService continuingQuantityService = (ContinuingQuantityService) context.getBean("CQU");
+		StockDataService service = context.getBean(StockDataService.class);
 		
+		/*try {
+			Thread.sleep(60000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(service.getStockCurrentData("200011"));*/
 	/*	//List<String> basicBenchCodes =  Arrays.asList("000300","399005","399006");
 		List<String> basicBenchCodes =  Arrays.asList("399006");
 		for (String string : basicBenchCodes) {

@@ -12,17 +12,17 @@ public class InfoData implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -3955144798072263444L;
 	private long id;
-	private String code;
-	private String name;
-	private String CName;
-	private Byte board;
-	private String cpName;
-	private String cpProvince;
-	private String cpEnName;
-	private String cpWebsite;
-	private String cpBusiness;
-	private String cpAddress;
-	private String cpInfo;
+	private String code;  //股票代码
+	private String name;  //股票名称
+	private String CName;  //行业名称
+	private Byte board;   //所属板块
+	private String cpName;  //公司名称
+	private String cpProvince; //公司所在省份
+	private String cpEnName;  //公司英文名
+	private String cpWebsite;  //公司网址
+	private String cpBusiness; //公司业务
+	private String cpAddress;  //公司地址
+	private String cpInfo;     //公司简介
 
 	public InfoData() {
 	}

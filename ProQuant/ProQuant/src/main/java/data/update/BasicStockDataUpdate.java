@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,8 +36,8 @@ public class BasicStockDataUpdate implements Runnable{
 		Calendar calendar = Calendar.getInstance();
 
 		Timer timer = new Timer();
-		calendar.set(Calendar.HOUR_OF_DAY, 1);
-		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.HOUR_OF_DAY, 3);
+		calendar.set(Calendar.MINUTE, 25);
 		calendar.set(Calendar.SECOND, 0);
 		Date date = calendar.getTime(); // 第一次执行定时任务的时间
 		// 如果第一次执行定时任务的时间 小于当前的时间

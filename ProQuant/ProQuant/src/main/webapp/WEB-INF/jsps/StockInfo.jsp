@@ -11,12 +11,12 @@
 <head>
     <meta charset="UTF-8">
     <title>个股信息</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/stockInfo.css">
-    <link rel="stylesheet" href="../css/myCSS/DialogCSS.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/stockInfo.css">
+    <link rel="stylesheet" href="../../css/myCSS/DialogCSS.css">
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/header.js"></script>
@@ -24,7 +24,6 @@
 </head>
 <body>
 <!--导航栏start-->
-
 
 <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #407FCE;height: 51px">
     <div class="container">
@@ -63,10 +62,6 @@
     </div>
 </nav>
 <!--导航栏end-->
-
-<%
-    StockVO stockVO =(StockVO) session.getAttribute("StockVO");
-%>
 
 <!--个股信息start-->
 <div id="stockInfo">
@@ -148,9 +143,9 @@
                             <!--股票名称 代码 加入自选股-->
                             <div class="infoName col-sm-3">
                                 <div>
-                                    <div id="stockName"><%=stockVO.getName()%></div>
+                                    <div id="stockName">${stockVO.name}</div>
                                     <div style="font-size: 20px;margin-top: 10px;margin-bottom: 20px;color: #333333">
-                                        300649
+                                        ${stockVO.id}
                                     </div>
                                     <a id="stockAddButton" href="#"><i class="fa fa-plus"
                                                                        aria-hidden="true"></i>加入自选股</a>
@@ -160,13 +155,13 @@
                             <div class="infoPrice col-sm-3">
                                 <div style="text-align: center">
                                     <div style="margin-top: 30px;margin-bottom: 5px">
-                                        <span id="stockPrice">25.38</span>
+                                        <span id="stockPrice">${stockVO.price}</span>
                                         <img src="../images/rise.svg" style="margin-top: -15px">
                                     </div>
                                     <div style="margin-bottom: 15px">
-                                        <span class="addPrice">+2.31</span>
+                                        <span class="addPrice">${stockVO.amount_Of_Increase}</span>
                                         <span class="addPrice">(</span>
-                                        <span class="addPrice">10.01</span>
+                                        <span class="addPrice">${stockVO.price_Of_Increase}</span>
                                         <span class="addPrice">%)</span>
                                     </div>
                                     <div><button id="buyButton"><img src="../images/buy.svg">买入</button></div>
@@ -175,18 +170,31 @@
                             <!--股票数据 开盘价 收盘价等-->
                             <div class="infoData col-sm-6">
                                 <ul>
-                                    <li class="stockData">今开：<span>25.38</span></li>
-                                    <li class="stockData">成交量：<span>6800.00</span></li>
-                                    <li class="stockData">振幅：<span>0.00%</span></li>
-                                    <li class="stockData">最高：<span>25.38</span></li>
-                                    <li class="stockData">成交额：<span>17.26万</span></li>
-                                    <li class="stockData">换手：<span>0.04%</span></li>
-                                    <li class="stockData">最低：<span>25.38</span></li>
-                                    <li class="stockData">总市值：<span>16.24亿</span></li>
-                                    <li class="stockData">市净率：<span>5.56</span></li>
-                                    <li class="stockData">昨收：<span>23.07</span></li>
-                                    <li class="stockData">流通市值：<span>4.06亿</span></li>
-                                    <li class="stockData">市盈率(动)：<span>74.17</span></li>
+                                    <%--<li class="stockData">今开：<span>25.38</span></li>--%>
+                                    <%--<li class="stockData">成交量：<span>6800.00</span></li>--%>
+                                    <%--<li class="stockData">振幅：<span>0.00%</span></li>--%>
+                                    <%--<li class="stockData">最高：<span>25.38</span></li>--%>
+                                    <%--<li class="stockData">成交额：<span>17.26万</span></li>--%>
+                                    <%--<li class="stockData">换手：<span>0.04%</span></li>--%>
+                                    <%--<li class="stockData">最低：<span>25.38</span></li>--%>
+                                    <%--<li class="stockData">总市值：<span>16.24亿</span></li>--%>
+                                    <%--<li class="stockData">市净率：<span>5.56</span></li>--%>
+                                    <%--<li class="stockData">昨收：<span>23.07</span></li>--%>
+                                    <%--<li class="stockData">流通市值：<span>4.06亿</span></li>--%>
+                                    <%--<li class="stockData">市盈率(动)：<span>74.17</span></li>--%>
+                                    <li class="stockData">今开：<span>${stockVO.openValue}</span></li>
+                                    <li class="stockData">成交量：<span>${stockVO.volume}</span></li>
+                                    <li class="stockData">振幅：<span>${stockVO.amplitude}</span></li>
+                                    <li class="stockData">最高：<span>${stockVO.highValue}</span></li>
+                                    <li class="stockData">成交额：<span>${stockVO.turnover}</span></li>
+                                    <li class="stockData">换手：<span>${stockVO.turnoverRate}</span></li>
+                                    <li class="stockData">最低：<span>${stockVO.lowValue}</span></li>
+                                    <li class="stockData">总市值：<span>${stockVO.marketValue}</span></li>
+                                    <li class="stockData">市净率：<span>${stockVO.marketRate}</span></li>
+                                    <li class="stockData">昨收：<span>${stockVO.closeValue}</span></li>
+                                    <li class="stockData">流通市值：<span>${stockVO.circulationMarketValue}</span></li>
+                                    <li class="stockData">市盈率(动)：<span>${stockVO.priceEarningsRatio}</span></li>
+                                        <li class="stockData">市盈率(动)：<span></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -452,32 +460,35 @@
                 <div class="headLabel"><p>公司简介</p></div>
                 <div style="background-color: white;padding: 10px">
                     <div>
-                        <p><span class="companyIntro">公司名称：</span>杭州园林设计院股份有限公司</p>
+                        <p><span class="companyIntro">公司名称：</span>${companyData.cpName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">英文名称：</span>Hangzhou Landscape Architecture Design Institute Co., Ltd.</p>
+                        <p><span class="companyIntro">英文名称：</span>${companyData.cpEnName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">所属行业：</span>建筑材料 — 建筑装饰</p>
+                        <p><span class="companyIntro">所在省份：</span>${companyData.cpProvince}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">公司网址：</span><a href="http://www.hzyly.com" style="cursor: hand">www.hzyly.com</a></p>
+                        <p><span class="companyIntro">所属行业：</span>${companyData.CName}</p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">办公地址：</span>浙江省杭州市西湖区杨公堤32号</p>
-                    </div>
-                    <br>
-                    <br>
-                    <div>
-                        <p><span class="companyIntro">业务：</span>从事风景园林设计行业。</p>
+                        <p><span class="companyIntro">公司网址：</span><a href="http://${companyData.cpWebsite}" style="cursor: hand">${companyData.cpWebsite}</a></p>
                     </div>
                     <br>
                     <div>
-                        <p><span class="companyIntro">简介：</span>2001年11月13日,公司前身杭州园林设计院有限公司成立。 2011年2月12日,公司名称由杭州园林设计院有限公司变更为杭州园林设计院股份有限公司。</p>
+                        <p><span class="companyIntro">办公地址：</span>${companyData.cpAddress}</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><span class="companyIntro">业务：</span>${companyData.cpBusiness}</p>
+                    </div>
+                    <br>
+                    <div>
+                        <p><span class="companyIntro">简介：</span>${companyData.cpInfo}</p>
                     </div>
                     <br>
                     <div>
