@@ -65,7 +65,7 @@ body{background: #ebeff0;}
     /*padding: 15px 20px 15px 20px;*/
     line-height: 50px;
     padding-left: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
     background: #f8f8f8;
     /*background-color: #d75442;*/
     /*margin: 0 0 20px 0;*/
@@ -75,15 +75,17 @@ body{background: #ebeff0;}
     display: inline-block;
     font-size: 16px;
     /*height: 30px;*/
-    text-align: left;
+    text-align: center;
     margin: 0 25px;
-}
-.table-tab h4 a{
     color: #777;
+    height: 40px;
+    width: 65px;
 }
-
+.table-tab h4:hover{
+    background-color: #e8e8e8;
+}
 /*类选择器如果跟在元素选择器后面，不能加空格*/
-.table-tab h4.cur a {
+.table-tab .cur {
     color: #d75442;
     font-weight: 700;
 }
@@ -97,7 +99,7 @@ body{background: #ebeff0;}
 .m-table th, .m-table td{
     line-height: 20px;
     text-align: center;
-    padding: 10px 20px;
+    padding: 5px 8px;
     font-size: 12px;
 }
 .m-table thead th, .m-table th a, .fixed_thead thead th, .fixed_thead th a{

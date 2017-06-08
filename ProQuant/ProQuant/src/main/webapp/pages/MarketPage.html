@@ -82,10 +82,10 @@
                             <table>
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
-                                    <th>股票ID</th>
-                                    <th>股票名称</th>
-                                    <th>今日涨幅</th>
+                                    <th style="width: 38px;">序号</th>
+                                    <th style="width: 70px;">股票ID</th>
+                                    <th style="width: 80px;">股票名称</th>
+                                    <th style="width: 80px;">今日涨幅</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -100,97 +100,6 @@
                                     </td>
                                     <td>5%</td>
                                 </tr>
-                                <tr>
-                                    <td class="num">2</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">3</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">4</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">5</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">6</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">7</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">8</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">9</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="num">10</td>
-                                    <td>
-                                        <a href="#">000000</a>
-                                    </td>
-                                    <td>
-                                        <a href="#">阿里巴巴</a>
-                                    </td>
-                                    <td>5%</td>
-                                </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -238,20 +147,13 @@
             </div>
             <div class="m-body m-pager-box">
                 <div class="table-tab">
-                    <h4 class="cur">
-                        <a href="javascript: void(0)" board="all">全部股票</a>
+                    <h4 class="cur" id="allStocksTab">全部股票</h4>
+                    <h4 id="hushen300Tab">沪深300</h4>
+                    <h4 id="chuangyebanTab">
+                        <a href="javascript: void(0)">创业板</a>
                     </h4>
-                    <h4>
-                        <a href="javascript: void(0)" board="all">上证指数</a>
-                    </h4>
-                    <h4>
-                        <a href="javascript: void(0)" board="all">沪深300</a>
-                    </h4>
-                    <h4>
-                        <a href="javascript: void(0)" board="all">创业板</a>
-                    </h4>
-                    <h4>
-                        <a href="javascript: void(0)" board="all">中小板</a>
+                    <h4 id="zhongxiaobanTab">
+                        <a href="javascript: void(0)">中小板</a>
                     </h4>
                 </div>
                 <!--<div class="fixed_thead hide" style="display: none;">-->
@@ -286,12 +188,15 @@
                             <th style="width: 100px">股票ID</th>
                             <th style="width: 100px">股票名称</th>
                             <th style="width: 80px">现价</th>
+                            <th style="width: 90px">开盘价</th>
+                            <th style="width: 90px">昨日收盘价</th>
+                            <th style="width: 90px">最高价</th>
+                            <th style="width: 90px">最低价</th>
                             <th style="width: 80px">涨跌幅(%)</th>
-                            <th style="width: 80px">涨跌</th>
                             <th style="width: 80px">成交量</th>
-                            <th style="width: 80px">流通股</th>
                             <th style="width: 80px">流通市值</th>
                             <th style="width: 80px">市盈率</th>
+                            <th style="width: 80px">市净率</th>
                             <th style="width: 80px">加入自选</th>
                         </tr>
                         </thead>
