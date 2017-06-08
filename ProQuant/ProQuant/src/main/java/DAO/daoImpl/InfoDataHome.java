@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import DAO.dao.InfoDataDao;
 import PO.BenchCurrentData;
 import PO.InfoData;
+import model.StockPlate;
 
 /**
  * Home object for domain model class InfoData.
@@ -188,5 +189,16 @@ public class InfoDataHome implements InfoDataDao {
 			
 		}
 		return result;
+	}
+
+	@Override
+	public ArrayList<String> getStockListOfBench(StockPlate plate) {
+		int i = plate.ordinal()+1;
+		String hql = "select code from InfoData where board = "+i;
+		ArrayList<String> list= (ArrayList<String>) sessionFactory.getCurrentSession().createQuery(hql).list();
+		
+		
+		 
+		return list;
 	}
 }

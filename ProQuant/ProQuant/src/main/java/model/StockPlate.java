@@ -7,7 +7,7 @@ package model;
  *
  */
 public enum StockPlate {
-    CSI300,SME,CHINEXT;
+    SME,CHINEXT,CSI300;
     
     public static String codeOf(StockPlate stockPlate){
     	switch (stockPlate) {
