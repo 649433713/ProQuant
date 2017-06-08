@@ -45,12 +45,12 @@ public class StockInfoBl implements StockInfoService {
 	@Override
 	public ArrayList<StockKLine> getStockForKLine(String stockNameOrId, Date startDate, Date endDate
 			,KLineType kLineType,boolean fq) {
-        //得到id和name
+        //寰楀埌id鍜宯ame
 		String code=StockInfoHelper.getStockCode(stockNameOrId,stockDataService);
 		String name=stockDataService.getName(code);
 		int id=Integer.parseInt(code);
 		
-		//得到预计的天数
+		//寰楀埌棰勮鐨勫ぉ鏁�
         int count=1;
 		Date tmpDate=new Date();
 		tmpDate=startDate;
@@ -58,7 +58,7 @@ public class StockInfoBl implements StockInfoService {
 			count++;
 			tmpDate=StockInfoHelper.add(tmpDate, 1);
 		}
-		//从数据层取数据
+		//浠庢暟鎹眰鍙栨暟鎹�
 		ArrayList<KLineDayData> kLineDayDatas=new ArrayList<>();
 		switch (kLineType){
 		case Day:kLineDayDatas=kLineDataService.getdayLine(code, endDate, count, fq);
@@ -68,12 +68,12 @@ public class StockInfoBl implements StockInfoService {
 		case Mouth:kLineDayDatas=kLineDataService. getmonthLine(code, endDate, count, fq);
 			break;
 		}
-		//删去多余的po
+		//鍒犲幓澶氫綑鐨刾o
 		while(kLineDayDatas.get(0).getDate().before(startDate)){
 			kLineDayDatas.remove(0);
 		}
 		
-		//po转化成vo
+		//po杞寲鎴恦o
 		ArrayList<StockKLine> kLines=new ArrayList<>();
 		for(int i=0;i<kLineDayDatas.size();i++){
 			StockKLine stockKLine=StockPoToVo.KLineDataToStockKLine(kLineDayDatas.get(i));
@@ -87,7 +87,7 @@ public class StockInfoBl implements StockInfoService {
 	@Override
 	public ArrayList<StockDataVO> getStockData(String stockNameOrId, int numberOfDay) {
 		String code=StockInfoHelper.getStockCode(stockNameOrId,stockDataService);
-		//从数据层得到股票的map
+		//浠庢暟鎹眰寰楀埌鑲＄エ鐨刴ap
 		Date now =new Date();
 		Map<Date, StockData> stockPO=stockDataService.getBasicDateStock(now, numberOfDay, code);
 		String name=stockDataService.getName(code);

@@ -13,7 +13,7 @@ import bl.helper.strategy.StrategyController;
 import blservice.strategyBlService.StrategyService;
 import model.StockPlate;
 import model.StrategyType;
-@Service
+@Service("StrategyService")
 public class StockStrategyBl implements StrategyService {
 
 	@Override

@@ -94,7 +94,9 @@ public class CurrentStockDataUpdateSpider extends TimerTask implements CurrentDa
 	public static StockCurrentData getResult(String code) {
 		return result.get(code);
 	}
-	
+	public static Map<String, StockCurrentData> getAll() {
+		return result;
+	}
 	@Override
 	public void run() {
 
