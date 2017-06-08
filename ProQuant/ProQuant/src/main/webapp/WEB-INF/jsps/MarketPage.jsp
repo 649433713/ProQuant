@@ -15,6 +15,7 @@
 <head>
     <title>市场行情</title>
     <%@include file="common/head.jsp"%>
+    <%@include file="common/tag.jsp"%>
     <link href="../../css/myCSS/MarketPageCSS.css" rel="stylesheet">
     <link href="../../css/myCSS/MarketPageChartsCSS.css" rel="stylesheet">
     <script src="../../js/myJS/MarketJS.js" type="text/javascript"></script>
@@ -67,7 +68,7 @@
                             <thead>
                             <tr>
 
-                                <th>序号</th>
+                                <%--<th>序号</th>--%>
                                 <th>股票ID</th>
                                 <th>股票名称</th>
                                 <th>今日涨幅</th>
@@ -75,25 +76,25 @@
                             </thead>
                             <tbody>
                             <!--标签里面的链接都没有设置*************************************************-->
-                            <%
-                                HotStockListVO hotStockLists = (HotStockListVO)session.getAttribute("hotStocks");
-                                ArrayList<PeakPO> peakPOArrayList = hotStockLists.getHotStocks();
-                                int i = 0;
-                                for(PeakPO peakPO:peakPOArrayList){
-                            %>
-                            <tr>
-                                <td class="num"><%=i + 1%></td>
-                                <td>
-                                    <a href="/StockInfo/toStockInfo/{}"><%=peakPO.getStockId()%></a>
-                                </td>
-                                <td>
-                                    <a href=""><%=peakPO.getStockName()%></a>
-                                </td>
-                                <td>5%</td>
-                            </tr>
-                            <%
-                                }
-                            %>
+                            <%--<%--%>
+                                <%--HotStockListVO hotStockLists = (HotStockListVO)session.getAttribute("hotStocks");--%>
+                                <%--ArrayList<PeakPO> peakPOArrayList = hotStockLists.getHotStocks();--%>
+                                <%--int i = 0;--%>
+                                <%--for(PeakPO peakPO:peakPOArrayList){--%>
+                            <%--%>--%>
+                            <c: forEach var="peakPO" item="${hotStocks}">
+                                <tr>
+                                    <%--<td class="num"></td>--%>
+                                    <td>
+                                        <a href="/StockInfo/toStockInfo/${peaoPO.stockId}" target="_self">${peakPO.stockId}</a>
+                                    </td>
+                                    <td>
+                                        <a href="">${peakPO.stockName}</a>
+                                    </td>
+                                    <td>${peakPO.riseOrDown}</td>
+                                </tr>
+                            </c:>
+
                             </tbody>
                         </table>
                     </div>

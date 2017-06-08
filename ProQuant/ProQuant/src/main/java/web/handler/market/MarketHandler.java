@@ -30,8 +30,9 @@ public class MarketHandler {
         model.addAttribute("marketInfo", marketInfo);
 
         ArrayList<PeakPO> hotStockPOS = peakUpService.getDatas();
-        HotStockListVO hotStockListVO = new HotStockListVO(hotStockPOS);
-        request.getSession().setAttribute("hotStocks", hotStockListVO);
+        model.addAttribute("hotStocks", hotStockPOS);
+//        HotStockListVO hotStockListVO = new HotStockListVO(hotStockPOS);
+//        request.getSession().setAttribute("hotStocks", hotStockListVO);
 
 //        ArrayList<PeakPO> hotStockPOS = peakUpService.getDatas();
 //        model.addAttribute("hotStocks", hotStockPOS);
