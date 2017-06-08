@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Map;
 
 import PO.StockData;
+import VO.StockPlateVO;
 
 public interface StockStrategyService {
    
@@ -15,9 +16,21 @@ public interface StockStrategyService {
      * @param startDate 回测的起止日期
      * @return 返回所选股票的名称
      */
-    public Map<String, Double> getYieldOfSelectsStocks(ArrayList<String> selectedLists , int Growdays,Date startDate);
+    public Map<String, Double> getYieldOfSelectsStocks(StockPlateVO selectedLists , int Growdays,Date startDate);
+    /**
+     * 这个方法用于返回这一段时间内某个属性的值
+     * @param date结束的日期
+     * @param days结束日期前需要多少天,要包括结束日期这一天的po
+     * @param selectedLists需要股票
+     * @return
+     */
+    public Map<String, Map<Date, StockData>> getSomeStocksOfSomeDays(Date date,int days,StockPlateVO selectedLists);
     
-    public Map<String, Map<Date, StockData>> getSomeStocksOfSomeDays(Date date,int days,ArrayList<String> stockLists);
-        
-    public Map<String, StockData> getSomeStocks(Date date,ArrayList<String> stockLists);
+    /**
+     * 用于返回这一天的list的股票信息
+     * @param date这一天的日期
+     * @param selectedLists需要计算的股票池，具体见vo
+     * @return String为code
+     */
+    public Map<String, StockData> getSomeStocks(Date date,StockPlateVO selectedLists);
 }
